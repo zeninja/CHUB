@@ -3,25 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using RaymarchingToolkit;
 
-[ExecuteInEditMode]
+// [ExecuteInEditMode]
 public class IntersectionController : MonoBehaviour
 {
-    public RaymarchObject intersectionObject;
-    public bool useIntersection = false;
     public RaymarchBlend blend;
+    public RaymarchObject intersector;
+    public Transform followTarget;
+
     public float radius = 10;
+    float startRadius;
 
-    void Update() {
-        intersectionObject.shape.inputs[0].SetFloat(radius);
-
-        FluctuateSize();
+    void Start() {
+        startRadius = radius;
     }
 
-    public bool fluctuate;
+    void Update() {
+        intersector.shape.inputs[0].SetFloat(radius);
+
+        FluctuateSize();
+        FollowTarget();
+    }
+
+    public bool fluctuateSize;
+    public float fluxAmt = 3;
 
     void FluctuateSize() {
-        if (fluctuate) {
-            
+        if (fluctuateSize) {
+            radius = startRadius + fluxAmt * Mathf.Sin(Time.time);
+        }
+    }
+
+    void FollowTarget() {
+        if (followTarget != null) {
+            intersector.transform.position = followTarget.position;
         }
     }
 }
