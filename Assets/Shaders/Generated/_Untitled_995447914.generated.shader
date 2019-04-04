@@ -1261,16 +1261,33 @@ float fersertWaves(float3 p, float height) {
 }
 
 // Light Directional Light
-uniform float4 DirectionalLight_3629728914PosAndRange;
-uniform float4 DirectionalLight_3629728914ColorAndIntensity;
-uniform float3 DirectionalLight_3629728914Direction;
-uniform float DirectionalLight_3629728914Penumbra;
-uniform int DirectionalLight_3629728914ShadowSteps;
+uniform float4 DirectionalLight_3632615479PosAndRange;
+uniform float4 DirectionalLight_3632615479ColorAndIntensity;
+uniform float3 DirectionalLight_3632615479Direction;
+uniform float DirectionalLight_3632615479Penumbra;
+uniform int DirectionalLight_3632615479ShadowSteps;
 
 // UNIFORMS AND FUNCTIONS
+uniform float x_3632615487_6492bb9b_radius;
+float object_Sphere(float3 p , float _INP_radius) {
+    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Sphere.asset
+    return length(p) - _INP_radius;
+}
+// uniforms for Sphere
+uniform float4x4 _3632615487Matrix;
+uniform float _3632615487MinScale;
+uniform float4 x_3632615487_da843a44_color;
+float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4 _INP_color) {
+    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Materials/SimpleColor.asset
+    return _INP_color;
+}
 float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out float objectID)
 {
-    objectID = ceil(nf) / (float)0;
+    objectID = ceil(nf) / (float)1;
+    [branch] if (nf <= 1) {
+    //    objectID = 1;
+        return material_SimpleColor(normal, objPos(_3632615487Matrix, p), rayDir, x_3632615487_da843a44_color);
+    }
         objectID = 0;
         return float3(1.0, 0.0, 1.0);
     }
@@ -1281,8 +1298,8 @@ float2 map(float3 p) {
 	float2 result = float2(1.0, 0.0);
 	
 {
-    /* no visible objects */
-    result = 1.0;
+    float _3632615487Distance = object_Sphere(objPos(_3632615487Matrix, p), x_3632615487_6492bb9b_radius) * _3632615487MinScale;
+    result = float2(_3632615487Distance, /*material ID*/0.5);
     }
 	return result;
 }
@@ -1297,10 +1314,10 @@ float3 getLights(in float3 color, in float3 pos, in float3 normal) {
 	
 {
 LightInfo light;
-light.posAndRange = DirectionalLight_3629728914PosAndRange;
-light.colorAndIntensity = DirectionalLight_3629728914ColorAndIntensity;
-light.direction = DirectionalLight_3629728914Direction;
-lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_3629728914Penumbra, DirectionalLight_3629728914ShadowSteps);
+light.posAndRange = DirectionalLight_3632615479PosAndRange;
+light.colorAndIntensity = DirectionalLight_3632615479ColorAndIntensity;
+light.direction = DirectionalLight_3632615479Direction;
+lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_3632615479Penumbra, DirectionalLight_3632615479ShadowSteps);
 }
 	return lightValue;
 }

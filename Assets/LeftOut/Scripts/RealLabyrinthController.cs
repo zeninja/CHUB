@@ -15,61 +15,91 @@ public class RealLabyrinthController : MonoBehaviour
         public float labyrinthWidth;
     }
 
-    public RealWorldInfo info_realWorld;
-    GameObject realWorldContainer;
-    List<RaymarchObject> hallSegments = new List<RaymarchObject>();
+    public RealWorldInfo info_RealWorld;
+
+    public List<GameObject> halls   = new List<GameObject>();
+    public List<GameObject> corners = new List<GameObject>();
+    public List<GameObject> sliders = new List<GameObject>();
+
+    public List<Vector3> orthographicPts = new List<Vector3>();
+    public List<Vector3> cornerPts       = new List<Vector3>();
 
     void Start()
     {
-        // SpawnRealWorld();
+        Init();
     }
 
-    // void SpawnRealWorld()
-    // {
-    //     realWorldContainer = new GameObject("RealWorldContainer");
-    //     realWorldContainer.transform.parent = transform;
-
-    //     for (int i = 0; i < 4; i++)
-    //     {
-    //         RaymarchObject hallSegment = Instantiate(prefab_hallSegment);
-
-    //         Quaternion rot = Quaternion.Euler(0, 90f * i, 0);
-    //         Vector3 pos = hallSegment.transform.position + hallSegment.transform.right * -1 * info_realWorld.labyrinthWidth;
-
-    //         hallSegment.GetComponent<HallSegment>().SetInfo(new Vector3(info_realWorld.hallWidth, info_realWorld.hallHeight, info_realWorld.hallLength));
-    //         hallSegment.transform.position = pos;
-    //         hallSegment.transform.rotation = rot;
-    //         hallSegments.Add(hallSegment);
-
-    //         hallSegment.enabled = true;
-    //     }
-    // }
-
-    // void Update()
-    // {
-    //     CalculateLabyrinthWidth();
-    //     // UpdateHallInfo();
-    // }
-
-    // void CalculateLabyrinthWidth()
-    // {
-    //     info_realWorld.labyrinthWidth = (info_realWorld.hallLength * 2) - (info_realWorld.hallWidth / 2);
-    // }
-
-    void UpdateHallInfo()
+    void Init()
     {
-        for (int i = 0; i < hallSegments.Count; i++)
+        info_RealWorld.labyrinthWidth = info_RealWorld.hallLength * 2;
+
+        float x = info_RealWorld.labyrinthWidth / 2;
+        float z = info_RealWorld.labyrinthWidth / 2;
+
+        orthographicPts.Add(new Vector3(-x, 0, 0));
+        orthographicPts.Add(new Vector3(0, 0, z));
+        orthographicPts.Add(new Vector3(x, 0, 0));
+        orthographicPts.Add(new Vector3(0, 0, -z));
+
+        cornerPts.Add(new Vector3(-x, 0, z));
+        cornerPts.Add(new Vector3(x, 0, z));
+        cornerPts.Add(new Vector3(x, 0, -z));
+        cornerPts.Add(new Vector3(-x, 0, -z));
+    }
+
+    void Update()
+    {
+        UpdatePoints();
+        SetPosAndSize();
+
+        if (dilateHalls)
         {
-            RaymarchObject hallSegment = hallSegments[i];
-
-            Quaternion rot = Quaternion.Euler(0, 90 * i, 0);
-            Vector3 pos = hallSegment.transform.position + hallSegment.transform.right * -1 * info_realWorld.labyrinthWidth;
-
-            hallSegment.GetObjectInput("x").SetFloat(info_realWorld.hallWidth);
-            hallSegment.GetObjectInput("y").SetFloat(info_realWorld.hallHeight);
-            hallSegment.GetObjectInput("z").SetFloat(info_realWorld.hallLength);
-
-            hallSegments.Add(hallSegment);
+            hallDilator.UpdateHallDilation();
         }
     }
+
+    void UpdatePoints()
+    {
+        info_RealWorld.labyrinthWidth = info_RealWorld.hallLength + info_RealWorld.hallWidth;
+
+        float x = info_RealWorld.labyrinthWidth / 2;
+        float z = info_RealWorld.labyrinthWidth / 2;
+
+        orthographicPts[0] = new Vector3(-x, 0,  0);
+        orthographicPts[1] = new Vector3( 0, 0,  z);
+        orthographicPts[2] = new Vector3( x, 0,  0);
+        orthographicPts[3] = new Vector3( 0, 0, -z);
+
+        // -+ ++ +- --
+        cornerPts[0] = new Vector3(-x, 0,  z);
+        cornerPts[1] = new Vector3( x, 0,  z);
+        cornerPts[2] = new Vector3( x, 0, -z);
+        cornerPts[3] = new Vector3(-x, 0, -z);
+    }
+
+    void SetPosAndSize()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            // Set position
+            halls[i].transform.localPosition = orthographicPts[i];
+            corners[i].transform.localPosition = cornerPts[i];
+            sliders[i].transform.localPosition = orthographicPts[i];
+                    
+            // Set Size
+            halls[i].transform.localScale   = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
+            corners[i].transform.localScale = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallWidth);
+            sliders[i].transform.localScale = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
+        }
+
+        maxHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
+
+    }
+
+    [Range(0, 1)]
+    public float[] hallDilationPct;
+    public float   maxHallLength;
+
+    public HallDilator hallDilator;
+    public bool        dilateHalls;
 }

@@ -4,34 +4,26 @@ using UnityEngine;
 
 public class GiantSlider : MonoBehaviour
 {
-    [Range(0, 1)]
-    public float percent;
+    BoxCollider box;
+
+    [Range(0, 1)] public float percent;
     Transform start, end, knob;
     
-    public HallwayDilator dilator;
-
     public bool devMode = true;
     bool isActive;
 
-    BoxCollider box;
 
     void Start() {
-        // dilator = GetComponentInParent<HallwayDilator>();
         start = transform.Find("start");
         end   = transform.Find("end");
         knob  = transform.Find("knob");
 
         box   = GetComponent<BoxCollider>();
-
-        SetSliderInfo();
     }
-
-
 
     void LateUpdate() {
         if(!isActive && !devMode) { return; }
         SetPercent();
-        SetDilator();
     }
 
     void OnTriggerEnter(Collider other)
@@ -41,18 +33,8 @@ public class GiantSlider : MonoBehaviour
         }    
     }
 
-    void SetSliderInfo() {
-        // start.transform.position = new Vector3(0, 0,  HallwayInfo.hallLength);
-        // end  .transform.position = new Vector3(0, 0, -HallwayInfo.hallLength);
-        // knob.GetComponent<KnobController>().bounds = start.position.z;
-    }
-
     void SetPercent() {
         percent = Extensions.mapRange(start.position.z, end.position.z, 0, 1, knob.position.z);
-    }
-
-    void SetDilator() {
-        // dilator.dilationPercent = percent;
     }
 
     public void SetColliderInfo(Vector3 info) {
