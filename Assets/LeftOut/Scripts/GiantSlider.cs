@@ -7,10 +7,13 @@ public class GiantSlider : MonoBehaviour
     [Range(0, 1)]
     public float percent;
     Transform start, end, knob;
+    
     public HallwayDilator dilator;
 
     public bool devMode = true;
     bool isActive;
+
+    BoxCollider box;
 
     void Start() {
         // dilator = GetComponentInParent<HallwayDilator>();
@@ -18,8 +21,12 @@ public class GiantSlider : MonoBehaviour
         end   = transform.Find("end");
         knob  = transform.Find("knob");
 
+        box   = GetComponent<BoxCollider>();
+
         SetSliderInfo();
     }
+
+
 
     void LateUpdate() {
         if(!isActive && !devMode) { return; }
@@ -45,6 +52,10 @@ public class GiantSlider : MonoBehaviour
     }
 
     void SetDilator() {
-        dilator.dilationPercent = percent;
+        // dilator.dilationPercent = percent;
+    }
+
+    public void SetColliderInfo(Vector3 info) {
+        box.size = info * 2;
     }
 }
