@@ -13,14 +13,14 @@
                               
 
   This shader was automatically generated from
-  Raymarching Toolkit/Assets/Shaders/RaymarchTemplate.shader
+  Raymarching Toolkit\Assets\Shaders\RaymarchTemplate.shader
   
-  for Raymarcher named 'Raymarcher' in scene 'Hallway_v2'.
+  for Raymarcher named 'Raymarcher' in scene 'KnobHallWay'.
 
 */
 
 
-Shader "Hidden/_Hallway_v2_379218810.generated"
+Shader "Hidden/_KnobHallWay_3974583067.generated"
 {
 
 SubShader
@@ -1261,19 +1261,19 @@ float fersertWaves(float3 p, float height) {
 }
 
 // Light Directional Light
-uniform float4 DirectionalLight_49505593PosAndRange;
-uniform float4 DirectionalLight_49505593ColorAndIntensity;
-uniform float3 DirectionalLight_49505593Direction;
-uniform float DirectionalLight_49505593Penumbra;
-uniform int DirectionalLight_49505593ShadowSteps;
+uniform float4 DirectionalLight_47781528PosAndRange;
+uniform float4 DirectionalLight_47781528ColorAndIntensity;
+uniform float3 DirectionalLight_47781528Direction;
+uniform float DirectionalLight_47781528Penumbra;
+uniform int DirectionalLight_47781528ShadowSteps;
 
 // UNIFORMS AND FUNCTIONS
-uniform float x_49505529_ce8993a9_x;
-uniform float x_49505529_ce8993a9_y;
-uniform float x_49505529_ce8993a9_z;
-uniform float x_49505562_ce8993a9_x;
-uniform float x_49505562_ce8993a9_y;
-uniform float x_49505562_ce8993a9_z;
+uniform float x_47781495_ce8993a9_x;
+uniform float x_47781495_ce8993a9_y;
+uniform float x_47781495_ce8993a9_z;
+uniform float x_47780720_ce8993a9_x;
+uniform float x_47780720_ce8993a9_y;
+uniform float x_47780720_ce8993a9_z;
 float object_Box(float3 p , float _INP_x, float _INP_y, float _INP_z) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Box.asset
     float3 d = abs(p)-float3(_INP_x,_INP_y,_INP_z);
@@ -1285,14 +1285,14 @@ float object_Box(float3 p , float _INP_x, float _INP_y, float _INP_z) {
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     
 }
-// uniforms for DilationBox
-uniform float4x4 _49505529Matrix;
-uniform float _49505529MinScale;
-// uniforms for ReferenceBox
-uniform float4x4 _49505562Matrix;
-uniform float _49505562MinScale;
-uniform float4 x_49505529_da843a44_color;
-uniform float4 x_49505562_da843a44_color;
+// uniforms for HallSegment
+uniform float4x4 _47781495Matrix;
+uniform float _47781495MinScale;
+// uniforms for HS-Dilated
+uniform float4x4 _47780720Matrix;
+uniform float _47780720MinScale;
+uniform float4 x_47781495_da843a44_color;
+uniform float4 x_47780720_da843a44_color;
 float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4 _INP_color) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Materials/SimpleColor.asset
     return _INP_color;
@@ -1302,11 +1302,11 @@ float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out 
     objectID = ceil(nf) / (float)2;
     [branch] if (nf <= 1) {
     //    objectID = 0.5;
-        return material_SimpleColor(normal, objPos(_49505529Matrix, p), rayDir, x_49505529_da843a44_color);
+        return material_SimpleColor(normal, objPos(_47781495Matrix, p), rayDir, x_47781495_da843a44_color);
     }
     else if(nf <= 2) {
     //    objectID = 1;
-        return material_SimpleColor(normal, objPos(_49505562Matrix, p), rayDir, x_49505562_da843a44_color);
+        return material_SimpleColor(normal, objPos(_47780720Matrix, p), rayDir, x_47780720_da843a44_color);
     }
         objectID = 0;
         return float3(1.0, 0.0, 1.0);
@@ -1318,9 +1318,9 @@ float2 map(float3 p) {
 	float2 result = float2(1.0, 0.0);
 	
 {
-    float _49505529Distance = object_Box(objPos(_49505529Matrix, p), x_49505529_ce8993a9_x, x_49505529_ce8993a9_y, x_49505529_ce8993a9_z) * _49505529MinScale;
-    float _49505562Distance = object_Box(objPos(_49505562Matrix, p), x_49505562_ce8993a9_x, x_49505562_ce8993a9_y, x_49505562_ce8993a9_z) * _49505562MinScale;
-    result = opU(float2(_49505529Distance, /*material ID*/0.5), float2(_49505562Distance, /*material ID*/1.5));
+    float _47781495Distance = object_Box(objPos(_47781495Matrix, p), x_47781495_ce8993a9_x, x_47781495_ce8993a9_y, x_47781495_ce8993a9_z) * _47781495MinScale;
+    float _47780720Distance = object_Box(objPos(_47780720Matrix, p), x_47780720_ce8993a9_x, x_47780720_ce8993a9_y, x_47780720_ce8993a9_z) * _47780720MinScale;
+    result = opU(float2(_47781495Distance, /*material ID*/0.5), float2(_47780720Distance, /*material ID*/1.5));
     }
 	return result;
 }
@@ -1335,10 +1335,10 @@ float3 getLights(in float3 color, in float3 pos, in float3 normal) {
 	
 {
 LightInfo light;
-light.posAndRange = DirectionalLight_49505593PosAndRange;
-light.colorAndIntensity = DirectionalLight_49505593ColorAndIntensity;
-light.direction = DirectionalLight_49505593Direction;
-lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_49505593Penumbra, DirectionalLight_49505593ShadowSteps);
+light.posAndRange = DirectionalLight_47781528PosAndRange;
+light.colorAndIntensity = DirectionalLight_47781528ColorAndIntensity;
+light.direction = DirectionalLight_47781528Direction;
+lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_47781528Penumbra, DirectionalLight_47781528ShadowSteps);
 }
 	return lightValue;
 }
