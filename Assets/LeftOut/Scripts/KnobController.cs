@@ -12,6 +12,8 @@ public class KnobController : MonoBehaviour
         ConstrainMovement();
     }
 
+    public Transform target;
+
     void ConstrainMovement() {
         transform.localPosition = new Vector3(0, 0, Mathf.Clamp(transform.localPosition.z, -bounds, bounds));
     }

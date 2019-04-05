@@ -10,7 +10,7 @@ public class GiantSlider : MonoBehaviour
     Transform start, end, knob;
     
     public bool devMode = true;
-    bool isActive;
+    public bool isActive;
 
 
     void Start() {
@@ -23,14 +23,36 @@ public class GiantSlider : MonoBehaviour
 
     void LateUpdate() {
         if(!isActive && !devMode) { return; }
+
         SetPercent();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) {
-            isActive = true;
+            SetKnobTarget(other.transform);
         }    
+    }
+
+    public void ReleaseTarget() {
+        target = null;
+        isActive = false;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player")) {
+            ReleaseTarget();
+        }    
+    }
+
+    void SetKnobTarget(Transform target) {
+        isActive = true;
+        knob.GetComponent<KnobController>().target = target;
+    }
+
+    void HandlePlayerExit() {
+
     }
 
     void SetPercent() {
