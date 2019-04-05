@@ -13,6 +13,7 @@ public class RealLabyrinthController : MonoBehaviour
         public float hallHeight = 5;     // y
         public float hallLength = 20;    // z
         public float labyrinthWidth;
+        public Vector3 hallDimensions;
     }
 
     public RealWorldInfo info_RealWorld;
@@ -62,7 +63,7 @@ public class RealLabyrinthController : MonoBehaviour
             hallDilator.UpdateHallDilation();
         }
 
-        UpdateSliders();
+        GetDilationFromSliders();
     }
 
     void UpdatePoints()
@@ -99,21 +100,16 @@ public class RealLabyrinthController : MonoBehaviour
             
             // w h w
             corners[i].GetObjectInput("radius").SetFloat(info_RealWorld.hallWidth);
- 
         }
 
         maxHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
+        info_RealWorld.hallDimensions = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
     }
 
-    void UpdateSliders() {
+    void GetDilationFromSliders() {
         
         for(int i = 0; i < hallDilationPct.Length; i++) {
-            // float local  = hallDilationPct[i];
-            // float slider = sliderScripts[i].percent;
-            
-            // if(slider != local) {
-                hallDilationPct[i] = sliderScripts[i].percent;
-            // }
+            hallDilationPct[i] = sliderScripts[i].percent;
         }
     }
 

@@ -14,6 +14,16 @@ public class KnobController : MonoBehaviour
 
     public Transform target;
 
+    float lerpSpeed = 10;
+    Vector3 targetPosition;
+
+    void Update() {
+        if (target != null) {
+            targetPosition = target.transform.position;
+            transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSpeed * Time.deltaTime );
+        }
+    }
+
     void ConstrainMovement() {
         transform.localPosition = new Vector3(0, 0, Mathf.Clamp(transform.localPosition.z, -bounds, bounds));
     }
