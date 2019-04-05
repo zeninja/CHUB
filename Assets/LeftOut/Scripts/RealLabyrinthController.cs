@@ -17,24 +17,24 @@ public class RealLabyrinthController : MonoBehaviour
 
     public RealWorldInfo info_RealWorld;
 
-    public List<GameObject> halls   = new List<GameObject>();
-    public List<GameObject> corners = new List<GameObject>();
+    public List<RaymarchObject> halls   = new List<RaymarchObject>();
+    public List<RaymarchObject> corners = new List<RaymarchObject>();
     public List<GameObject> sliders = new List<GameObject>();
 
     public List<Vector3> orthographicPts = new List<Vector3>();
     public List<Vector3> cornerPts       = new List<Vector3>();
 
-    void Start()
+    void Awake()
     {
         Init();
     }
 
     void Init()
     {
-        info_RealWorld.labyrinthWidth = info_RealWorld.hallLength * 2;
+        info_RealWorld.labyrinthWidth = info_RealWorld.hallLength + info_RealWorld.hallWidth;
 
-        float x = info_RealWorld.labyrinthWidth / 2;
-        float z = info_RealWorld.labyrinthWidth / 2;
+        float x = info_RealWorld.labyrinthWidth;
+        float z = info_RealWorld.labyrinthWidth;
 
         orthographicPts.Add(new Vector3(-x, 0, 0));
         orthographicPts.Add(new Vector3(0, 0, z));
@@ -45,6 +45,11 @@ public class RealLabyrinthController : MonoBehaviour
         cornerPts.Add(new Vector3(x, 0, z));
         cornerPts.Add(new Vector3(x, 0, -z));
         cornerPts.Add(new Vector3(-x, 0, -z));
+
+
+        for(int i = 0; i < 4; i++) {
+            sliderScripts[i] = sliders[i].GetComponent<GiantSlider>();
+        }
     }
 
     void Update()
@@ -56,14 +61,15 @@ public class RealLabyrinthController : MonoBehaviour
         {
             hallDilator.UpdateHallDilation();
         }
+
+        UpdateSliders();
     }
 
     void UpdatePoints()
     {
-        info_RealWorld.labyrinthWidth = info_RealWorld.hallLength + info_RealWorld.hallWidth;
 
-        float x = info_RealWorld.labyrinthWidth / 2;
-        float z = info_RealWorld.labyrinthWidth / 2;
+        float x = info_RealWorld.labyrinthWidth;
+        float z = info_RealWorld.labyrinthWidth;
 
         orthographicPts[0] = new Vector3(-x, 0,  0);
         orthographicPts[1] = new Vector3( 0, 0,  z);
@@ -82,19 +88,36 @@ public class RealLabyrinthController : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             // Set position
-            halls[i].transform.localPosition = orthographicPts[i];
+            halls[i].transform.localPosition   = orthographicPts[i];
             corners[i].transform.localPosition = cornerPts[i];
             sliders[i].transform.localPosition = orthographicPts[i];
-                    
-            // Set Size
-            halls[i].transform.localScale   = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
-            corners[i].transform.localScale = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallWidth);
-            sliders[i].transform.localScale = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
+
+            // w h l
+            halls[i].GetObjectInput("x").SetFloat(info_RealWorld.hallWidth);
+            halls[i].GetObjectInput("y").SetFloat(info_RealWorld.hallHeight);
+            halls[i].GetObjectInput("z").SetFloat(info_RealWorld.hallLength);
+            
+            // w h w
+            corners[i].GetObjectInput("radius").SetFloat(info_RealWorld.hallWidth);
+ 
         }
 
         maxHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
-
     }
+
+    void UpdateSliders() {
+        
+        for(int i = 0; i < hallDilationPct.Length; i++) {
+            // float local  = hallDilationPct[i];
+            // float slider = sliderScripts[i].percent;
+            
+            // if(slider != local) {
+                hallDilationPct[i] = sliderScripts[i].percent;
+            // }
+        }
+    }
+
+    GiantSlider[] sliderScripts = new GiantSlider[4];
 
     [Range(0, 1)]
     public float[] hallDilationPct;
