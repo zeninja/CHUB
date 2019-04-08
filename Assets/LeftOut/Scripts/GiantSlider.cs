@@ -12,8 +12,8 @@ public class GiantSlider : MonoBehaviour
     public bool devMode = true;
     public bool isActive;
 
-    public enum AlignmentAxis { x, z };
-    public AlignmentAxis alignmentAxis = AlignmentAxis.z;
+    // public enum AlignmentAxis { x, z };
+    // public AlignmentAxis alignmentAxis = AlignmentAxis.z;
 
 
     RealLabyrinthController lab;
@@ -88,12 +88,14 @@ public class GiantSlider : MonoBehaviour
 
     public void SetColliderInfo()
     {
-        // box.size = lab.info_RealWorld.hallDimensions * 2;
+        box.size = lab.info_RealWorld.hallDimensions * 2;
 
         // float d = alignmentAxis == AlignmentAxis.x ? lab.info_RealWorld.hallDimensions.x : lab.info_RealWorld.hallDimensions.z;
         
-        // start.transform.localPosition = new Vector3(0, 0, -d);
-        // end  .transform.localPosition = new Vector3(0, 0,  d);
+
+        float d = lab.info_RealWorld.hallLength;
+        start.transform.localPosition = new Vector3(0, 0, -d);
+        end  .transform.localPosition = new Vector3(0, 0,  d);
 
         // knob.GetComponent<KnobController>().bounds = d;
     }

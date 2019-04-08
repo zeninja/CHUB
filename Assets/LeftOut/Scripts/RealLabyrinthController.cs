@@ -20,7 +20,7 @@ public class RealLabyrinthController : MonoBehaviour
 
     public List<RaymarchObject> halls   = new List<RaymarchObject>();
     public List<RaymarchObject> corners = new List<RaymarchObject>();
-    public List<GameObject> sliders = new List<GameObject>();
+    public List<GameObject>     sliders = new List<GameObject>();
 
     public List<Vector3> orthographicPts = new List<Vector3>();
     public List<Vector3> cornerPts       = new List<Vector3>();
@@ -68,6 +68,8 @@ public class RealLabyrinthController : MonoBehaviour
 
     void UpdatePoints()
     {
+
+        info_RealWorld.labyrinthWidth = info_RealWorld.hallLength + info_RealWorld.hallWidth;
 
         float x = info_RealWorld.labyrinthWidth;
         float z = info_RealWorld.labyrinthWidth;

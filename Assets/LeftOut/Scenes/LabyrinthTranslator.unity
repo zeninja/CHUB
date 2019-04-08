@@ -163,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &104515451
 Transform:
   m_ObjectHideFlags: 0
@@ -5284,7 +5284,6 @@ MonoBehaviour:
   percent: 0
   devMode: 1
   isActive: 0
-  alignmentAxis: 1
 --- !u!65 &536398422944459163
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5825,7 +5824,6 @@ MonoBehaviour:
   percent: 0
   devMode: 1
   isActive: 0
-  alignmentAxis: 0
 --- !u!65 &536398423920939859
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5924,7 +5922,6 @@ MonoBehaviour:
   percent: 0
   devMode: 1
   isActive: 0
-  alignmentAxis: 0
 --- !u!65 &536398424012128957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5988,7 +5985,6 @@ MonoBehaviour:
   percent: 0
   devMode: 1
   isActive: 0
-  alignmentAxis: 1
 --- !u!65 &536398424026305295
 BoxCollider:
   m_ObjectHideFlags: 0
