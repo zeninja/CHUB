@@ -15,7 +15,6 @@ public class GiantSlider : MonoBehaviour
     // public enum AlignmentAxis { x, z };
     // public AlignmentAxis alignmentAxis = AlignmentAxis.z;
 
-
     RealLabyrinthController lab;
 
     void Start()
@@ -29,6 +28,17 @@ public class GiantSlider : MonoBehaviour
         // Don't love this but here we are
         lab = GetComponentInParent<RealLabyrinthController>();
         SetColliderInfo();
+
+        SetSize();
+
+    }
+
+    void SetSize()
+    {
+        start.transform.localPosition = new Vector3(0, 0, lab.info_RealWorld.hallLength);
+        end.transform.localPosition   = new Vector3(0, 0, -lab.info_RealWorld.hallLength);
+        box.size = lab.info_RealWorld.hallDimensions;
+        knob.GetComponent<KnobController>().bounds = lab.info_RealWorld.hallLength;
     }
 
     void LateUpdate()
@@ -91,16 +101,17 @@ public class GiantSlider : MonoBehaviour
         box.size = lab.info_RealWorld.hallDimensions * 2;
 
         // float d = alignmentAxis == AlignmentAxis.x ? lab.info_RealWorld.hallDimensions.x : lab.info_RealWorld.hallDimensions.z;
-        
+
 
         float d = lab.info_RealWorld.hallLength;
         start.transform.localPosition = new Vector3(0, 0, -d);
-        end  .transform.localPosition = new Vector3(0, 0,  d);
+        end.transform.localPosition = new Vector3(0, 0, d);
 
         // knob.GetComponent<KnobController>().bounds = d;
     }
 
-    void Update() {
+    void Update()
+    {
         // should be able to move this to start only eventually
         // TODO
         // REMOVE
