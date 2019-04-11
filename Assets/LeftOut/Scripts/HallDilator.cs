@@ -9,7 +9,7 @@ public class HallDilator : MonoBehaviour
     public RealLabyrinthController realLabryinth;
     public float dilationAmount = 10;
 
-    void Update()
+    void LateUpdate()
     {
         UpdateHallDilation();
     }
@@ -26,13 +26,6 @@ public class HallDilator : MonoBehaviour
             float easedSlider         = animCurve.Evaluate(sliderCompletionPct);
             float finalHallLength     = startHallLength + dilationAmount * easedSlider;
 
-            // startHallLength     = realLabryinth.undilatedTotalHallLength;
-            // sliderCompletionPct = realLabryinth.hallDilationPct[i];
-            // easedSlider         = animCurve.Evaluate(sliderCompletionPct);
-            // finalHallLength     = startHallLength + dilationAmount * easedSlider;
-
-
-            Debug.Log("SETTING DILATED HALL " + i + ": " + finalHallLength);
             d.GetObjectInput("z").SetFloat(finalHallLength);
             i++;
         }
