@@ -5,6 +5,25 @@ using RaymarchingToolkit;
 
 public class RealLabyrinthController : MonoBehaviour
 {
+    private static RealLabyrinthController instance;
+    public static RealLabyrinthController GetInstance() {
+        return instance;
+    }
+
+    void Awake() {
+        if(instance == null) {
+            instance = this;
+        } else {
+            if(instance != this) {
+                Destroy(gameObject);
+            }
+        }
+
+
+        Init();
+
+    }
+
 
     [System.Serializable]
     public class RealWorldInfo
@@ -14,6 +33,8 @@ public class RealLabyrinthController : MonoBehaviour
         public float hallLength = 20;    // z
         public float hallwayAndCornerLength;
         public Vector3 hallDimensions;
+        public Vector3 cornerDimensions;
+        public float totalHallLength;
     }
 
     public RealWorldInfo info_RealWorld;
@@ -25,17 +46,12 @@ public class RealLabyrinthController : MonoBehaviour
     public List<Vector3> orthographicPts = new List<Vector3>();
     public List<Vector3> cornerPts = new List<Vector3>();
 
-    void Awake()
-    {
-        Init();
-    }
-
     void Init()
     {
         info_RealWorld.hallwayAndCornerLength = info_RealWorld.hallLength + info_RealWorld.hallWidth;
 
-        float x = info_RealWorld.hallwayAndCornerLength;
-        float z = info_RealWorld.hallwayAndCornerLength;
+        float x = info_RealWorld.hallwayAndCornerLength / 2;
+        float z = info_RealWorld.hallwayAndCornerLength / 2;
 
         orthographicPts.Add(new Vector3(-x, 0, 0));
         orthographicPts.Add(new Vector3(0, 0, z));
@@ -47,6 +63,7 @@ public class RealLabyrinthController : MonoBehaviour
         cornerPts.Add(new Vector3(x, 0, -z));
         cornerPts.Add(new Vector3(-x, 0, -z));
 
+        info_RealWorld.totalHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
 
         for (int i = 0; i < 4; i++)
         {
@@ -59,10 +76,10 @@ public class RealLabyrinthController : MonoBehaviour
 
     void Update()
     {
-        UpdatePoints();
-        ModifyHalls();
+        // UpdatePoints();
+        GetHallDilation();
 
-        undilatedTotalHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
+        info_RealWorld.totalHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
 
     }
 
@@ -105,12 +122,8 @@ public class RealLabyrinthController : MonoBehaviour
         }
 
         // undilatedTotalHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
-        info_RealWorld.hallDimensions = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
-    }
-
-    void ModifyHalls()
-    {
-        GetHallDilation();
+        info_RealWorld.hallDimensions   = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
+        info_RealWorld.cornerDimensions = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallWidth);
     }
 
     void GetHallDilation()
@@ -125,7 +138,6 @@ public class RealLabyrinthController : MonoBehaviour
 
     [Range(0, 1)]
     public float[] hallDilationPct;
-    public float undilatedTotalHallLength;
 
     public bool dilateHalls;
     public bool UseDilation()

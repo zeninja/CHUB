@@ -7,8 +7,9 @@ public class CornerController : MonoBehaviour
 {
     RaymarchObject r;
     BoxCollider box;
+    public GiantSlider sliderToReset;
+    public GiantSlider sliderToPrep;
 
-    float cornerScale;
 
     // Start is called before the first frame update
     void Start()
@@ -20,25 +21,35 @@ public class CornerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         CheckCornerSize();
     }
 
-    void CheckCornerSize() {
-        float cornerScale = r.GetObjectInput("radius").floatValue;
-        
-        if (box.size.x != cornerScale) {
-            box.size = Vector3.one * cornerScale * 2;  
-        }
-    }
+    void CheckCornerSize()
+    {
+        box.size = RealLabyrinthController.GetInstance().info_RealWorld.cornerDimensions;
 
-    // GameObject nextHallKnob;
+        // float cornerScale = r.GetObjectInput("radius").floatValue;
+        // if (box.size.x != cornerScale)
+        // {
+        //     box.size = Vector3.one * cornerScale * 2;
+        // }
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) {
-            Debug.Log("Corner hit, but no code here");
-            // RealLabyrinthController.HandleCornerHit(nextHallKnob);
+        if (other.CompareTag("Player"))
+        {
+            // sliderToReset.SetAtEnd();
+            sliderToPrep.PrepSlider();
         }
     }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            sliderToReset.CheckReset();
+        }
+    }
+
 }

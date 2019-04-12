@@ -5,6 +5,28 @@ using RaymarchingToolkit;
 
 public class HallDilator : MonoBehaviour
 {
+
+    private static HallDilator instance;
+    public static HallDilator GetInstance()
+    {
+        return instance;
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     public List<RaymarchObject> dilatedHalls = new List<RaymarchObject>();
     public RealLabyrinthController realLabryinth;
     public float dilationAmount = 10;
@@ -17,13 +39,23 @@ public class HallDilator : MonoBehaviour
         DilateLength();
         DilateHeight();
         DilateWidth();
+
+        // Debug.Log("dialted width " + dilatedWidth);
     }
 
     public AnimationCurve animCurve;
 
-    public bool dilateLength;
-    public bool dilateHeight;
-    public bool dilateWidth;
+    bool dilateLength;
+    bool dilateHeight;
+    bool dilateWidth;
+
+    static float finalWidth;
+    static float finalHeight;
+    static float finalLength;
+
+    public static float GetDilatedWidth() { return finalWidth; }
+    public static float GetDilatedHeight() { return finalHeight; }
+    public static float GetDilatedLength() { return finalLength; }
 
     public void DilateLength()
     {
@@ -32,12 +64,15 @@ public class HallDilator : MonoBehaviour
         int i = 0;
         foreach (RaymarchObject d in dilatedHalls)
         {
-            float startHallLength = realLabryinth.undilatedTotalHallLength;
+            float startHallLength = realLabryinth.info_RealWorld.totalHallLength;
             float sliderCompletionPct = realLabryinth.hallDilationPct[i];
             float easedSlider = animCurve.Evaluate(sliderCompletionPct);
-            float finalHallLength = startHallLength + dilationAmount * easedSlider;
 
-            d.GetObjectInput("z").SetFloat(finalHallLength);
+            float dilatedLength = startHallLength + dilationAmount * easedSlider;
+
+            finalLength = dilatedLength;
+
+            d.GetObjectInput("z").SetFloat(dilatedLength);
             i++;
         }
     }
@@ -52,9 +87,12 @@ public class HallDilator : MonoBehaviour
             float startHallHeight = realLabryinth.info_RealWorld.hallHeight;
             float sliderCompletionPct = realLabryinth.hallDilationPct[i];
             float easedSlider = animCurve.Evaluate(sliderCompletionPct);
-            float finalHallLength = startHallHeight + dilationAmount * easedSlider;
 
-            d.GetObjectInput("y").SetFloat(finalHallLength);
+            float dilatedHeight = startHallHeight + dilationAmount * easedSlider;
+
+            finalHeight = dilatedHeight;
+
+            d.GetObjectInput("y").SetFloat(dilatedHeight);
             i++;
         }
     }
@@ -69,16 +107,21 @@ public class HallDilator : MonoBehaviour
             float startHallWidth = realLabryinth.info_RealWorld.hallWidth;
             float sliderCompletionPct = realLabryinth.hallDilationPct[i];
             float easedSlider = animCurve.Evaluate(sliderCompletionPct);
-            float finalHallLength = startHallWidth + dilationAmount * easedSlider;
 
-            d.GetObjectInput("x").SetFloat(finalHallLength);
+            float dilatedWidth = startHallWidth + dilationAmount * easedSlider;
+
+            finalWidth = dilatedWidth;
+
+            Debug.Log(dilatedWidth + "; " + finalWidth);
+
+            d.GetObjectInput("x").SetFloat(dilatedWidth);
             i++;
         }
     }
 
     public void SetDilation(bool w, bool h, bool l)
     {
-        dilateWidth  = w;
+        dilateWidth = w;
         dilateHeight = h;
         dilateLength = l;
     }

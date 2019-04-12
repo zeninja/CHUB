@@ -12,6 +12,9 @@ public class GiantSlider : MonoBehaviour
     public bool devMode = true;
     public bool isActive;
 
+    public enum SliderType { length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight };
+    public SliderType sliderType = SliderType.length;
+
     // public enum AlignmentAxis { x, z };
     // public AlignmentAxis alignmentAxis = AlignmentAxis.z;
 
@@ -24,19 +27,19 @@ public class GiantSlider : MonoBehaviour
         knob = transform.Find("knob");
         box = GetComponent<BoxCollider>();
 
-
         // Don't love this but here we are
         lab = GetComponentInParent<RealLabyrinthController>();
         SetColliderInfo();
 
         SetSize();
+        ResetValue();
 
     }
 
     void SetSize()
     {
-        start.transform.localPosition = new Vector3(0, 0, lab.info_RealWorld.hallLength);
-        end.transform.localPosition   = new Vector3(0, 0, -lab.info_RealWorld.hallLength);
+        start.transform.localPosition = new Vector3(0, 0, -lab.info_RealWorld.hallLength / 2);
+        end.transform.localPosition   = new Vector3(0, 0,  lab.info_RealWorld.hallLength / 2);
         box.size = lab.info_RealWorld.hallDimensions;
         knob.GetComponent<KnobController>().bounds = lab.info_RealWorld.hallLength;
     }
@@ -50,7 +53,7 @@ public class GiantSlider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("HIT");
+        // Debug.Log("HIT");
         if (other.CompareTag("Player"))
         {
             SetKnobTarget(other.transform);
@@ -68,7 +71,8 @@ public class GiantSlider : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ReleaseTarget();
-            RoundValue();
+            // RoundValue();
+            // ResetValue();
         }
     }
 
@@ -78,18 +82,39 @@ public class GiantSlider : MonoBehaviour
         isActive = false;
     }
 
-    void RoundValue()
+    public void SetAtEnd()
     {
-        if (percent > .9f)
+        if (!isActive)
         {
             knob.transform.position = end.transform.position;
         }
+    }
 
-        if (percent < .1f)
+    public void CheckReset()
+    {
+        if (!isActive)
         {
-            knob.transform.position = start.transform.position;
+            ResetValue();
         }
     }
+
+    public void ResetValue()
+    {
+        Debug.Log("Value reset");
+        knob.transform.position = start.transform.position;
+    }
+
+    // void RoundValue()
+    // {
+    //     if (percent > .9f)
+    //     {
+    //         knob.transform.position = end.transform.position;
+    //     }
+    //     if (percent < .1f)
+    //     {
+    //         knob.transform.position = start.transform.position;
+    //     }
+    // }
 
     void GetPercentByKnob()
     {
@@ -110,12 +135,40 @@ public class GiantSlider : MonoBehaviour
         // knob.GetComponent<KnobController>().bounds = d;
     }
 
-    void Update()
+    public void PrepSlider()
     {
-        // should be able to move this to start only eventually
-        // TODO
-        // REMOVE
-        // DEBUG
-        SetColliderInfo();
+        switch (sliderType)
+        {
+
+            // width, height, length
+            case SliderType.length:
+                HallDilator.GetInstance().SetDilation(false, false, true);
+                break;
+            case SliderType.width:
+                HallDilator.GetInstance().SetDilation(true, false, false);
+                break;
+            case SliderType.height:
+                HallDilator.GetInstance().SetDilation(false, true, false);
+                break;
+            case SliderType.lengthAndWidth:
+                HallDilator.GetInstance().SetDilation(true, false, true);
+                break;
+            case SliderType.lengthAndHeight:
+                HallDilator.GetInstance().SetDilation(false, true, true);
+                break;
+            case SliderType.widthAndHeight:
+                HallDilator.GetInstance().SetDilation(true, true, false);
+                break;
+
+        }
     }
+
+    // void Update()
+    // {
+    //     // should be able to move this to start only eventually
+    //     // TODO
+    //     // REMOVE
+    //     // DEBUG
+    //     // SetColliderInfo();
+    // }
 }
