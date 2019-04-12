@@ -17,7 +17,7 @@ public class VoidLabyrinthController : MonoBehaviour
         // SetHallPositions();
     }
 
-    void Update()
+    void LateUpdate()
     {
         // SetHallDimenions();
         SetHallPositions();
@@ -30,13 +30,14 @@ public class VoidLabyrinthController : MonoBehaviour
     {
 
         Vector3 heightCompensator = new Vector3(0, realLabyrinth.info_RealWorld.hallHeight / 2, 0);
-        Vector3 widthCompensator = new Vector3(HallDilator.GetDilatedWidth() / 2f, 0, 0);
 
         // Debug.Log(widthCompensator);
 
         for (int i = 0; i < 4; i++)
         {
             Vector3 orthoPt = realLabyrinth.orthographicPts[i] * 2 ;
+            Vector3 widthCompensator = new Vector3(HallDilator.GetInstance().GetDilatedDimensions(i).x / 2f, 0, 0);
+
             // voidHalls[i].transform.localPosition = orthoPt + widthCompensator;
             // Debug.Log("SETTING HALL POSITIONS");
             // + heightCompensator + widthCompensator; //+ realLabyrinth.orthographicPts[i].normalized * voidHalls[i].GetObjectInput("x").floatValue + heightCompensator;

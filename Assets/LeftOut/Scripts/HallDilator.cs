@@ -49,13 +49,7 @@ public class HallDilator : MonoBehaviour
     bool dilateHeight;
     bool dilateWidth;
 
-    static float finalWidth;
-    static float finalHeight;
-    static float finalLength;
-
-    public static float GetDilatedWidth() { return finalWidth; }
-    public static float GetDilatedHeight() { return finalHeight; }
-    public static float GetDilatedLength() { return finalLength; }
+    public static Vector3[] dilatedDimensions = new Vector3[4];
 
     public void DilateLength()
     {
@@ -69,11 +63,8 @@ public class HallDilator : MonoBehaviour
             float easedSlider = animCurve.Evaluate(sliderCompletionPct);
 
             float dilatedLength = startHallLength + dilationAmount * easedSlider;
+            dilatedDimensions[i] = new Vector3(dilatedDimensions[i].x, dilatedDimensions[i].y, dilatedLength);
 
-            if (sliderCompletionPct != 0) 
-            {
-                finalLength = dilatedLength;
-            }
 
             d.GetObjectInput("z").SetFloat(dilatedLength);
             i++;
@@ -92,11 +83,8 @@ public class HallDilator : MonoBehaviour
             float easedSlider = animCurve.Evaluate(sliderCompletionPct);
 
             float dilatedHeight = startHallHeight + dilationAmount * easedSlider;
+            dilatedDimensions[i] = new Vector3(dilatedDimensions[i].x, dilatedHeight, dilatedDimensions[i].z);
 
-            if (sliderCompletionPct != 0) 
-            {
-                finalHeight = dilatedHeight;
-            }
 
             d.GetObjectInput("y").SetFloat(dilatedHeight);
             i++;
@@ -116,16 +104,17 @@ public class HallDilator : MonoBehaviour
 
             float dilatedWidth = startHallWidth + dilationAmount * easedSlider;
 
-            if (sliderCompletionPct != 0) 
-            {
-                finalWidth = dilatedWidth;
-            }
+            dilatedDimensions[i] = new Vector3(dilatedWidth, dilatedDimensions[i].y, dilatedDimensions[i].z);
 
-            Debug.Log(dilatedWidth + "; " + finalWidth);
+            // Debug.Log(dilatedWidth + "; " + finalWidth);
 
             d.GetObjectInput("x").SetFloat(dilatedWidth);
             i++;
         }
+    }
+
+    public Vector3 GetDilatedDimensions(int i) {
+        return dilatedDimensions[i];
     }
 
     public void SetDilation(bool w, bool h, bool l)
