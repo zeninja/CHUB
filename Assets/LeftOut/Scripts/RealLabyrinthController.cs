@@ -60,14 +60,7 @@ public class RealLabyrinthController : MonoBehaviour
     void Update()
     {
         UpdatePoints();
-        // SetPosAndSize();
-
-        if (dilateHalls)
-        {
-            GetDilationFromSliders();
-            // hallDilator.UpdateHallDilation();
-        }
-
+        ModifyHalls();
 
         undilatedTotalHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
 
@@ -98,7 +91,7 @@ public class RealLabyrinthController : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             // Set position
-            halls[i].transform.localPosition   = orthographicPts[i];
+            halls[i].transform.localPosition = orthographicPts[i];
             corners[i].transform.localPosition = cornerPts[i];
             sliders[i].transform.localPosition = orthographicPts[i];
 
@@ -115,9 +108,13 @@ public class RealLabyrinthController : MonoBehaviour
         info_RealWorld.hallDimensions = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
     }
 
-    void GetDilationFromSliders()
+    void ModifyHalls()
     {
+        GetHallDilation();
+    }
 
+    void GetHallDilation()
+    {
         for (int i = 0; i < hallDilationPct.Length; i++)
         {
             hallDilationPct[i] = sliderScripts[i].percent;
@@ -130,6 +127,9 @@ public class RealLabyrinthController : MonoBehaviour
     public float[] hallDilationPct;
     public float undilatedTotalHallLength;
 
-    public HallDilator hallDilator;
     public bool dilateHalls;
+    public bool UseDilation()
+    {
+        return dilateHalls;
+    }
 }

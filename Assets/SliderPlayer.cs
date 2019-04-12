@@ -11,7 +11,7 @@ public class SliderPlayer : MonoBehaviour
 
     void Update() {
         Vector3 targetPos = target.transform.position + offset;
-        // targetPos = new Vector3(targetPos.x, 0, targetPos.z);
+        targetPos = new Vector3(targetPos.x, 0, targetPos.z);
         transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * lerpSpeed);
     }
 }
