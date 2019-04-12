@@ -6,15 +6,21 @@ using RaymarchingToolkit;
 public class RealLabyrinthController : MonoBehaviour
 {
     private static RealLabyrinthController instance;
-    public static RealLabyrinthController GetInstance() {
+    public static RealLabyrinthController GetInstance()
+    {
         return instance;
     }
 
-    void Awake() {
-        if(instance == null) {
+    void Awake()
+    {
+        if (instance == null)
+        {
             instance = this;
-        } else {
-            if(instance != this) {
+        }
+        else
+        {
+            if (instance != this)
+            {
                 Destroy(gameObject);
             }
         }
@@ -122,7 +128,7 @@ public class RealLabyrinthController : MonoBehaviour
         }
 
         // undilatedTotalHallLength = info_RealWorld.hallLength + info_RealWorld.hallWidth * 2;
-        info_RealWorld.hallDimensions   = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
+        info_RealWorld.hallDimensions = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallLength);
         info_RealWorld.cornerDimensions = new Vector3(info_RealWorld.hallWidth, info_RealWorld.hallHeight, info_RealWorld.hallWidth);
     }
 
@@ -144,4 +150,17 @@ public class RealLabyrinthController : MonoBehaviour
     {
         return dilateHalls;
     }
+
+    // void OnDrawGizmos()
+    // {
+    //     for (int i = 0; i < 4; i++)
+    //     {
+    //         Gizmos.color = Color.red;
+    //         Gizmos.DrawWireSphere(orthographicPts[i], .5f);
+
+    //         Gizmos.color = Color.blue;
+    //         Gizmos.DrawWireSphere(cornerPts[i], .5f);
+
+    //     }
+    // }
 }

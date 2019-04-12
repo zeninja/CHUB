@@ -13,35 +13,39 @@ public class VoidLabyrinthController : MonoBehaviour
 
     void Start()
     {
-        StartHallDimensions();
+        InitialHallDimensions();
         // SetHallPositions();
     }
 
     void Update()
     {
-    //     // SetHallDimenions();
+        // SetHallDimenions();
         SetHallPositions();
-    //     // SetGroundInfo();
+        // SetGroundInfo();
     }
+
+    Vector3[] adjustedPoints = new Vector3[4];
 
     void SetHallPositions()
     {
 
         Vector3 heightCompensator = new Vector3(0, realLabyrinth.info_RealWorld.hallHeight / 2, 0);
-        Vector3 widthCompensator  = new Vector3(HallDilator.GetDilatedWidth() / 2f, 0, 0);
+        Vector3 widthCompensator = new Vector3(HallDilator.GetDilatedWidth() / 2f, 0, 0);
 
-        Debug.Log(widthCompensator);
+        // Debug.Log(widthCompensator);
 
         for (int i = 0; i < 4; i++)
         {
-            Vector3 orthoPt = realLabyrinth.orthographicPts[i] * 2;
-            voidHalls[i].transform.localPosition = orthoPt + widthCompensator;
-            Debug.Log("SETTING HALL POSITIONS");
+            Vector3 orthoPt = realLabyrinth.orthographicPts[i] * 2 ;
+            // voidHalls[i].transform.localPosition = orthoPt + widthCompensator;
+            // Debug.Log("SETTING HALL POSITIONS");
             // + heightCompensator + widthCompensator; //+ realLabyrinth.orthographicPts[i].normalized * voidHalls[i].GetObjectInput("x").floatValue + heightCompensator;
+
+            adjustedPoints[i] = orthoPt + widthCompensator;
         }
     }
 
-    void StartHallDimensions()
+    void InitialHallDimensions()
     {
         for (int i = 0; i < 4; i++)
         {
@@ -55,5 +59,19 @@ public class VoidLabyrinthController : MonoBehaviour
     // {
     //     ground.GetObjectInput("y").SetFloat(realLabyrinth.info_RealWorld.hallHeight);
     // }
+
+
+    void OnDrawGizmos()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(adjustedPoints[i], .5f);
+
+            // Gizmos.color = Color.blue;
+            // Gizmos.DrawWireSphere(cornerPts[i], .5f);
+
+        }
+    }
 
 }

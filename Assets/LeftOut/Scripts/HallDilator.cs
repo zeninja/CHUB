@@ -70,7 +70,10 @@ public class HallDilator : MonoBehaviour
 
             float dilatedLength = startHallLength + dilationAmount * easedSlider;
 
-            finalLength = dilatedLength;
+            if (sliderCompletionPct != 0) 
+            {
+                finalLength = dilatedLength;
+            }
 
             d.GetObjectInput("z").SetFloat(dilatedLength);
             i++;
@@ -90,7 +93,10 @@ public class HallDilator : MonoBehaviour
 
             float dilatedHeight = startHallHeight + dilationAmount * easedSlider;
 
-            finalHeight = dilatedHeight;
+            if (sliderCompletionPct != 0) 
+            {
+                finalHeight = dilatedHeight;
+            }
 
             d.GetObjectInput("y").SetFloat(dilatedHeight);
             i++;
@@ -110,7 +116,10 @@ public class HallDilator : MonoBehaviour
 
             float dilatedWidth = startHallWidth + dilationAmount * easedSlider;
 
-            finalWidth = dilatedWidth;
+            if (sliderCompletionPct != 0) 
+            {
+                finalWidth = dilatedWidth;
+            }
 
             Debug.Log(dilatedWidth + "; " + finalWidth);
 

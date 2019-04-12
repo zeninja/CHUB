@@ -41,7 +41,7 @@ public class GiantSlider : MonoBehaviour
         start.transform.localPosition = new Vector3(0, 0, -lab.info_RealWorld.hallLength / 2);
         end.transform.localPosition   = new Vector3(0, 0,  lab.info_RealWorld.hallLength / 2);
         box.size = lab.info_RealWorld.hallDimensions;
-        knob.GetComponent<KnobController>().bounds = lab.info_RealWorld.hallLength;
+        knob.GetComponent<KnobController>().bounds = lab.info_RealWorld.hallLength / 2 ;
     }
 
     void LateUpdate()
