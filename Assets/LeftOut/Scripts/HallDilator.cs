@@ -28,20 +28,23 @@ public class HallDilator : MonoBehaviour
     }
 
     public List<RaymarchObject> dilatedHalls = new List<RaymarchObject>();
-    public RealLabyrinthController realLabryinth;
+    public VoidLabyrinthController labyrinth;
     public float dilationAmount = 10;
 
+    void Start() {
+        DilateHalls();
+    }
 
-    void LateUpdate()
+    public void DilateHalls()
     {
-        if (!realLabryinth.UseDilation()) { return; }
-
         DilateLength();
         DilateHeight();
         DilateWidth();
 
-        // Debug.Log("dialted width " + dilatedWidth);
+        AdjustPositions();
     }
+
+
 
     public AnimationCurve animCurve;
 
@@ -49,22 +52,24 @@ public class HallDilator : MonoBehaviour
     bool dilateHeight;
     bool dilateWidth;
 
-    public static Vector3[] dilatedDimensions = new Vector3[4];
+    [SerializeField]
+    public Vector3[] dilatedDimensions = new Vector3[4];
+
 
     public void DilateLength()
     {
         if (!dilateLength) { return; }
+        Debug.Log("dialting");
 
         int i = 0;
         foreach (RaymarchObject d in dilatedHalls)
         {
-            float startHallLength = realLabryinth.info_RealWorld.totalHallLength;
-            float sliderCompletionPct = realLabryinth.hallDilationPct[i];
+            float startHallLength = InfoManager.GetInstance().voidWorld.hallLength;
+            float sliderCompletionPct = labyrinth.hallDilationPct[i];
             float easedSlider = animCurve.Evaluate(sliderCompletionPct);
 
             float dilatedLength = startHallLength + dilationAmount * easedSlider;
             dilatedDimensions[i] = new Vector3(dilatedDimensions[i].x, dilatedDimensions[i].y, dilatedLength);
-
 
             d.GetObjectInput("z").SetFloat(dilatedLength);
             i++;
@@ -78,13 +83,12 @@ public class HallDilator : MonoBehaviour
         int i = 0;
         foreach (RaymarchObject d in dilatedHalls)
         {
-            float startHallHeight = realLabryinth.info_RealWorld.hallHeight;
-            float sliderCompletionPct = realLabryinth.hallDilationPct[i];
+            float startHallHeight = InfoManager.GetInstance().voidWorld.hallHeight;
+            float sliderCompletionPct = labyrinth.hallDilationPct[i];
             float easedSlider = animCurve.Evaluate(sliderCompletionPct);
 
             float dilatedHeight = startHallHeight + dilationAmount * easedSlider;
             dilatedDimensions[i] = new Vector3(dilatedDimensions[i].x, dilatedHeight, dilatedDimensions[i].z);
-
 
             d.GetObjectInput("y").SetFloat(dilatedHeight);
             i++;
@@ -98,23 +102,16 @@ public class HallDilator : MonoBehaviour
         int i = 0;
         foreach (RaymarchObject d in dilatedHalls)
         {
-            float startHallWidth = realLabryinth.info_RealWorld.hallWidth;
-            float sliderCompletionPct = realLabryinth.hallDilationPct[i];
+            float startHallWidth = InfoManager.GetInstance().voidWorld.hallWidth;
+            float sliderCompletionPct = labyrinth.hallDilationPct[i];
             float easedSlider = animCurve.Evaluate(sliderCompletionPct);
 
             float dilatedWidth = startHallWidth + dilationAmount * easedSlider;
-
             dilatedDimensions[i] = new Vector3(dilatedWidth, dilatedDimensions[i].y, dilatedDimensions[i].z);
-
-            // Debug.Log(dilatedWidth + "; " + finalWidth);
 
             d.GetObjectInput("x").SetFloat(dilatedWidth);
             i++;
         }
-    }
-
-    public Vector3 GetDilatedDimensions(int i) {
-        return dilatedDimensions[i];
     }
 
     public void SetDilation(bool w, bool h, bool l)
@@ -122,5 +119,32 @@ public class HallDilator : MonoBehaviour
         dilateWidth = w;
         dilateHeight = h;
         dilateLength = l;
+    }
+
+
+    void AdjustPositions()
+    {
+        int i = 0;
+        foreach (RaymarchObject d in dilatedHalls)
+        {
+            Vector3 orthDir    = InfoManager.GetInstance().orthographicPts[i].normalized;
+            float distTowall   = InfoManager.GetInstance().realWorld.distanceToInnerWall;
+            float dilatedWidth = dilatedDimensions[i].x;
+
+            Vector3 adjustedPos = orthDir * (distTowall + dilatedWidth);
+
+            d.transform.localPosition = new Vector3(adjustedPos.x, 0, adjustedPos.z);
+            i++;
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(InfoManager.GetInstance().orthographicPts[i].normalized * (InfoManager.GetInstance().realWorld.distanceToInnerWall + dilatedDimensions[i].x), .125f);
+        }
     }
 }

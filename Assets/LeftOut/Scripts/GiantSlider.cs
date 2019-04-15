@@ -15,10 +15,7 @@ public class GiantSlider : MonoBehaviour
     public enum SliderType { length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight };
     public SliderType sliderType = SliderType.length;
 
-    // public enum AlignmentAxis { x, z };
-    // public AlignmentAxis alignmentAxis = AlignmentAxis.z;
 
-    RealLabyrinthController lab;
 
     void Start()
     {
@@ -27,53 +24,30 @@ public class GiantSlider : MonoBehaviour
         knob = transform.Find("knob");
         box = GetComponent<BoxCollider>();
 
-        // Don't love this but here we are
-        lab = GetComponentInParent<RealLabyrinthController>();
-        SetColliderInfo();
+        // SetColliderInfo();
 
-        SetSize();
-        ResetValue();
-
+        SetKnobInfo();
+        ResetToStart();
     }
 
-    void SetSize()
+    void SetKnobInfo()
     {
-        start.transform.localPosition = new Vector3(0, 0, -lab.info_RealWorld.hallLength / 2);
-        end.transform.localPosition   = new Vector3(0, 0,  lab.info_RealWorld.hallLength / 2);
-        box.size = lab.info_RealWorld.hallDimensions;
-        knob.GetComponent<KnobController>().bounds = lab.info_RealWorld.hallLength / 2 ;
+        start.transform.localPosition = new Vector3(0, 0, -SliderManager.sliderLength / 2);
+        end.transform.localPosition   = new Vector3(0, 0,  SliderManager.sliderLength / 2);
+        knob.GetComponent<KnobController>().bounds       = SliderManager.sliderLength / 2 ;
+        // box.size = InfoManager.GetInstance().realWorld.hallDimensions;
     }
 
     void LateUpdate()
     {
         if (!devMode && !isActive) { return; }
-
         GetPercentByKnob();
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // Debug.Log("HIT");
-        if (other.CompareTag("Player"))
-        {
-            SetKnobTarget(other.transform);
-        }
-    }
-
-    void SetKnobTarget(Transform target)
+    public void SetKnobTarget(Transform target)
     {
         isActive = true;
         knob.GetComponent<KnobController>().target = target;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            ReleaseTarget();
-            // RoundValue();
-            // ResetValue();
-        }
     }
 
     public void ReleaseTarget()
@@ -82,64 +56,23 @@ public class GiantSlider : MonoBehaviour
         isActive = false;
     }
 
-    public void SetAtEnd()
+    void ResetToStart()
     {
-        if (!isActive)
-        {
-            knob.transform.position = end.transform.position;
-        }
-    }
-
-    public void CheckReset()
-    {
-        if (!isActive)
-        {
-            ResetValue();
-        }
-    }
-
-    public void ResetValue()
-    {
-        Debug.Log("Value reset");
+        // Debug.Log("Value reset");
         knob.transform.position = start.transform.position;
     }
-
-    // void RoundValue()
-    // {
-    //     if (percent > .9f)
-    //     {
-    //         knob.transform.position = end.transform.position;
-    //     }
-    //     if (percent < .1f)
-    //     {
-    //         knob.transform.position = start.transform.position;
-    //     }
-    // }
 
     void GetPercentByKnob()
     {
         percent = Extensions.mapRange(start.localPosition.z, end.localPosition.z, 0, 1, knob.localPosition.z);
     }
 
-    public void SetColliderInfo()
+    public void SetDilationType()
     {
-        box.size = lab.info_RealWorld.hallDimensions * 2;
+        // if(isActive) { return; }    // only change type if not currently being used
 
-        // float d = alignmentAxis == AlignmentAxis.x ? lab.info_RealWorld.hallDimensions.x : lab.info_RealWorld.hallDimensions.z;
-
-
-        float d = lab.info_RealWorld.hallLength;
-        start.transform.localPosition = new Vector3(0, 0, -d);
-        end.transform.localPosition = new Vector3(0, 0, d);
-
-        // knob.GetComponent<KnobController>().bounds = d;
-    }
-
-    public void PrepSlider()
-    {
         switch (sliderType)
         {
-
             // width, height, length
             case SliderType.length:
                 HallDilator.GetInstance().SetDilation(false, false, true);
@@ -163,12 +96,56 @@ public class GiantSlider : MonoBehaviour
         }
     }
 
-    // void Update()
+    public void RoundValue()
+    {
+        if (percent > .9f)
+        {
+            knob.transform.position = end.transform.position;
+        }
+        if (percent < .1f)
+        {
+            knob.transform.position = start.transform.position;
+        }
+    }
+
+    public void SetAtEnd()
+    {
+        if (!isActive)
+        {
+            knob.transform.position = end.transform.position;
+        }
+    }
+
+    public void CheckReset()
+    {
+        if (!isActive)
+        {
+            ResetToStart();
+        }
+    }
+
+    // void OnTriggerEnter(Collider other)
     // {
-    //     // should be able to move this to start only eventually
-    //     // TODO
-    //     // REMOVE
-    //     // DEBUG
-    //     // SetColliderInfo();
+    //     // Debug.Log("HIT");
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         SetKnobTarget(other.transform);
+    //     }
+    // }
+
+    // void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         ReleaseTarget();
+    //     }
+    // }
+
+    // public void SetColliderInfo()
+    // {
+        // box.size = InfoManager.GetInstance().realWorld.hallDimensions;
+        // float d  = InfoManager.GetInstance().realWorld.hallLength;
+        // start.transform.localPosition = new Vector3(0, 0, -d);
+        // end.transform.localPosition = new Vector3(0, 0, d);
     // }
 }

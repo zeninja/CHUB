@@ -7,72 +7,65 @@ using RaymarchingToolkit;
 public class VoidLabyrinthController : MonoBehaviour
 {
     public List<RaymarchObject> voidHalls = new List<RaymarchObject>();
-    public RealLabyrinthController realLabyrinth;
-    public RaymarchObject ground;
+    // public RaymarchObject ground;
 
+    public HallDilator hallDilator;
 
     void Start()
     {
-        InitialHallDimensions();
-        // SetHallPositions();
+        SetVoidHallDimensions();
     }
 
-    void LateUpdate()
+    void Update()
     {
-        // SetHallDimenions();
-        SetHallPositions();
-        // SetGroundInfo();
+        GetHallDilationFromSliders();
+        hallDilator.DilateHalls();
     }
 
-    Vector3[] adjustedPoints = new Vector3[4];
-
-    void SetHallPositions()
-    {
-
-        Vector3 heightCompensator = new Vector3(0, realLabyrinth.info_RealWorld.hallHeight / 2, 0);
-
-        // Debug.Log(widthCompensator);
-
-        for (int i = 0; i < 4; i++)
-        {
-            Vector3 orthoPt = realLabyrinth.orthographicPts[i] * 2 ;
-            Vector3 widthCompensator = new Vector3(HallDilator.GetInstance().GetDilatedDimensions(i).x / 2f, 0, 0);
-
-            // voidHalls[i].transform.localPosition = orthoPt + widthCompensator;
-            // Debug.Log("SETTING HALL POSITIONS");
-            // + heightCompensator + widthCompensator; //+ realLabyrinth.orthographicPts[i].normalized * voidHalls[i].GetObjectInput("x").floatValue + heightCompensator;
-
-            adjustedPoints[i] = orthoPt + widthCompensator;
-        }
-    }
-
-    void InitialHallDimensions()
+    void SetVoidHallDimensions()
     {
         for (int i = 0; i < 4; i++)
         {
-            voidHalls[i].GetObjectInput("x").SetFloat(realLabyrinth.info_RealWorld.hallWidth);
-            voidHalls[i].GetObjectInput("y").SetFloat(realLabyrinth.info_RealWorld.hallHeight + 1);
-            voidHalls[i].GetObjectInput("z").SetFloat(realLabyrinth.info_RealWorld.totalHallLength);
+            voidHalls[i].GetObjectInput("x").SetFloat(InfoManager.GetInstance().voidWorld.hallWidth);
+            voidHalls[i].GetObjectInput("y").SetFloat(InfoManager.GetInstance().voidWorld.hallHeight);
+            voidHalls[i].GetObjectInput("z").SetFloat(InfoManager.GetInstance().voidWorld.hallLength);
         }
     }
 
-    // void SetGroundInfo()
+    // void SetVoidHallPositions()
     // {
-    //     ground.GetObjectInput("y").SetFloat(realLabyrinth.info_RealWorld.hallHeight);
+    //     for (int i = 0; i < 4; i++)
+    //     {
+    //         voidHalls[i].transform.position = InfoManager.GetInstance().orthographicPts[i] * InfoManager.GetInstance().voidWorld.distToHall_frwd;
+    //     }
     // }
 
+    [Range(0, 1f)]
+    public List<float> hallDilationPct = new List<float>(4);
+    public List<GiantSlider> sliders = new List<GiantSlider>(4);
+    // public bool dilateHalls;
 
-    void OnDrawGizmos()
+    void GetHallDilationFromSliders()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < hallDilationPct.Count; i++)
         {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(adjustedPoints[i], .5f);
-
-            // Gizmos.color = Color.blue;
-            // Gizmos.DrawWireSphere(cornerPts[i], .5f);
-
+            hallDilationPct[i] = sliders[i].percent;
         }
     }
 
+    // public bool UseDilation()
+    // {
+    //     return dilateHalls;
+    // }
+
+    // void OnDrawGizmos()
+    // {
+    //     for (int i = 0; i < 4; i++)
+    //     {
+    //         // Gizmos.color = Color.yellow;
+    //         // Gizmos.DrawWireSphere(adjustedPoints[i], .5f);
+    //         Gizmos.color = Color.red;
+    //         Gizmos.DrawWireSphere(realLabyrinth.orthographicPts[i].normalized, .25f);
+    //     }
+    // }
 }

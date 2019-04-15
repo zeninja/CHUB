@@ -7,40 +7,40 @@ public class CornerController : MonoBehaviour
 {
     RaymarchObject r;
     BoxCollider box;
-    public GiantSlider sliderToReset;
-    public GiantSlider sliderToPrep;
+    public GiantSlider slider;
+
+    public enum CornerType { start, end, reset };
+    public CornerType cornerType;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        r   = GetComponent<RaymarchObject>();
+        r = GetComponent<RaymarchObject>();
         box = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckCornerSize();
-    }
-
-    void CheckCornerSize()
-    {
-        box.size = RealLabyrinthController.GetInstance().info_RealWorld.cornerDimensions;
-
-        // float cornerScale = r.GetObjectInput("radius").floatValue;
-        // if (box.size.x != cornerScale)
-        // {
-        //     box.size = Vector3.one * cornerScale * 2;
-        // }
+        // CheckCornerSize();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // sliderToReset.SetAtEnd();
-            sliderToPrep.PrepSlider();
+            if (cornerType == CornerType.start)
+            {
+                slider.SetDilationType();
+                slider.SetKnobTarget(other.transform);
+                slider.RoundValue();
+            }
+
+            if (cornerType == CornerType.reset)
+            {
+                slider.CheckReset();
+            }
         }
     }
 
@@ -48,8 +48,21 @@ public class CornerController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            sliderToReset.CheckReset();
+            if (cornerType == CornerType.start)
+            {
+                slider.CheckReset();
+            }
+            if (cornerType == CornerType.end)
+            {
+                slider.RoundValue();
+                slider.ReleaseTarget();
+            }
         }
     }
 
+    // void CheckCornerSize()
+    // {
+    //     Debug.Log("Corner scale not changing");
+    //     // box.size = RealLabyrinthController.GetInstance().info_RealWorld.cornerDimensions;
+    // }
 }
