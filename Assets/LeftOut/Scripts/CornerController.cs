@@ -9,7 +9,7 @@ public class CornerController : MonoBehaviour
     BoxCollider box;
     public GiantSlider slider;
 
-    public enum CornerType { start, end, reset };
+    public enum CornerType { start, end };
     public CornerType cornerType;
 
 
@@ -32,14 +32,14 @@ public class CornerController : MonoBehaviour
         {
             if (cornerType == CornerType.start)
             {
-                slider.SetDilationType();
-                slider.SetKnobTarget(other.transform);
-                slider.RoundValue();
+                slider.CheckReset();
             }
 
-            if (cornerType == CornerType.reset)
+            if (cornerType == CornerType.end)
             {
-                slider.CheckReset();
+                // slider.CheckReset();
+                // slider.SetAtEnd();
+                // slider.RoundValue();
             }
         }
     }
@@ -48,14 +48,15 @@ public class CornerController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (cornerType == CornerType.start)
-            {
-                slider.CheckReset();
-            }
+            // if (cornerType == CornerType.start)
+            // {
+            //     slider.CheckReset();
+            // }
             if (cornerType == CornerType.end)
             {
-                slider.RoundValue();
-                slider.ReleaseTarget();
+                // slider.RoundValue();
+                // slider.TryReleaseTarget();
+                slider.CheckReset();
             }
         }
     }

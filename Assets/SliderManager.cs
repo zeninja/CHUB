@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SliderManager : MonoBehaviour
 {
-    public GiantSlider[] sliders;
+    GiantSlider[] sliders;
     public static float sliderLength = 2;
 
     void Start()
@@ -14,6 +14,5 @@ public class SliderManager : MonoBehaviour
 
     void Update() {
         sliderLength = InfoManager.GetInstance().realWorld.hallLength;
-        // sliderLength = InfoManager.GetInstance().realWorld.hallLength;
     }
 }

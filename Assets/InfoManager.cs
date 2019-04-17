@@ -112,8 +112,8 @@ public class InfoManager : MonoBehaviour
 
     void SetVoidHallDimensions()
     {
-        float x = voidWorld.hallWidth = (realWorld.hallWidth) / 2;
-        float y = voidWorld.hallHeight = (realWorld.hallHeight + 1) / 2;
+        float x = voidWorld.hallWidth  = (realWorld.hallWidth) / 2;
+        float y = voidWorld.hallHeight = (realWorld.hallHeight / 2 + 1);
         float z = voidWorld.hallLength = (realWorld.hallLength + realWorld.hallWidth * 2) / 2;
 
         voidWorld.baseHallDimensions = new Vector3(x, y, z);

@@ -182,7 +182,7 @@ PrefabInstance:
     - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: sliderType
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3093274415704312302, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
@@ -259,6 +259,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &263043687
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263043688}
+  - component: {fileID: 263043689}
+  m_Layer: 0
+  m_Name: NewMechanic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &263043688
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263043687}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263043689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263043687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9a466d023c8dd4bacadca0af5f62d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &268436127
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,6 +626,7 @@ GameObject:
   - component: {fileID: 320261466}
   - component: {fileID: 320261467}
   - component: {fileID: 320261469}
+  - component: {fileID: 320261468}
   m_Layer: 0
   m_Name: SliderController
   m_TagString: Player
@@ -598,9 +642,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320261465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.66, y: 0, z: 2.66}
+  m_LocalPosition: {x: 1.53, y: 0, z: 1.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1176357646}
   m_Father: {fileID: 139651394}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -618,6 +663,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &320261468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320261465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f801c3b3029bdcd42890be2f718944d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &320261469
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -677,14 +734,14 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46974385
+  _savedGUID: 46880234
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
     inputs:
     - name: x
       valueType: 0
-      floatValue: 0.75
+      floatValue: 0.5
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -814,7 +871,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: z
       valueType: 0
-      floatValue: 2.75
+      floatValue: 2
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -946,7 +1003,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118171747
+    lastHash: -2145997648
 --- !u!1 &397987174
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +1030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397987174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1894788731}
@@ -1007,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46974414
+  _savedGUID: 46880263
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -1276,7 +1333,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118171004
+    lastHash: -2145997556
 --- !u!1001 &400685959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1342,6 +1399,11 @@ PrefabInstance:
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: sliderType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093274415704312302, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
@@ -1813,14 +1875,14 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46974472
+  _savedGUID: 46880331
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
     inputs:
     - name: x
       valueType: 0
-      floatValue: 0.75
+      floatValue: 0.5
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -1950,7 +2012,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: z
       valueType: 0
-      floatValue: 2.75
+      floatValue: 2
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -2082,7 +2144,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118170820
+    lastHash: -2145996690
 --- !u!1 &540434298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,7 +2218,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46974503
+  _savedGUID: 46880362
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -2425,7 +2487,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118170075
+    lastHash: -2145996596
 --- !u!1 &661138026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2611,7 +2673,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 49685453
+  _savedGUID: 46881077
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -2684,8 +2746,9 @@ MonoBehaviour:
   - {fileID: 520978080}
   - {fileID: 327378458}
   - {fileID: 1863663388}
+  labyrinthMarble: {fileID: 397987177}
   labyrinth: {fileID: 1798464242}
-  dilationAmount: 100
+  dilationAmount: 15
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -2719,6 +2782,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  dilateLength: 0
+  dilateHeight: 0
+  dilateWidth: 0
   dilatedDimensions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
@@ -2794,7 +2860,12 @@ PrefabInstance:
     - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: sliderType
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: isActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3093274415704312302, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
@@ -2916,7 +2987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &1081676616
 Camera:
   m_ObjectHideFlags: 0
@@ -2966,13 +3037,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081676615}
-  m_LocalRotation: {x: 0.500601, y: -0, z: -0, w: 0.8656782}
-  m_LocalPosition: {x: 0, y: 17.76, z: -6.67}
+  m_LocalRotation: {x: 0.3702575, y: 0, z: 0, w: 0.92892915}
+  m_LocalPosition: {x: 0, y: 11, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 60.08, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 43.463, y: 0, z: 0}
 --- !u!1 &1098510850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,6 +3357,79 @@ MonoBehaviour:
           m_RotationOrder: 4
   hash:
     lastHash: -2118142922
+--- !u!1 &1176357645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176357646}
+  - component: {fileID: 1176357647}
+  m_Layer: 0
+  m_Name: First Person Cam
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1176357646
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176357645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: -0.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 320261466}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1176357647
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176357645}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &1255211536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,14 +3598,14 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46975342
+  _savedGUID: 46881259
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
     inputs:
     - name: x
       valueType: 0
-      floatValue: 0.75
+      floatValue: 0.5
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -3591,7 +3735,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: z
       valueType: 0
-      floatValue: 2.75
+      floatValue: 2
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -3723,7 +3867,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118142083
+    lastHash: -2145967790
 --- !u!1 &1515042384
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,13 +3878,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1515042386}
   - component: {fileID: 1515042385}
+  - component: {fileID: 1515042387}
   m_Layer: 0
   m_Name: IntersectionObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1515042385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3907,6 +4052,20 @@ Transform:
   m_Father: {fileID: 732386796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1515042387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515042384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246cc59c7a84ea44f87f6b70acfe30c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 320261466}
+  offset: {x: 0, y: -0.05, z: 0}
 --- !u!1 &1568418273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4021,11 +4180,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46975433
+  _savedGUID: 46881321
   ShadowSharpness: 5
   ShadowSteps: 25
   hash:
-    lastHash: -551987713
+    lastHash: -579813501
 --- !u!1 &1693037059
 GameObject:
   m_ObjectHideFlags: 0
@@ -4418,12 +4577,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d3f105c9f6ab644aad487a3b16aadc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hallDilator: {fileID: 826753608}
   voidHalls:
   - {fileID: 1423589368}
   - {fileID: 520978080}
   - {fileID: 327378458}
   - {fileID: 1863663388}
-  hallDilator: {fileID: 826753608}
   hallDilationPct:
   - 0
   - 0
@@ -4434,7 +4593,7 @@ MonoBehaviour:
   - {fileID: 515189009}
   - {fileID: 517957592}
   - {fileID: 429996967}
-  dilateHalls: 1
+  syncHalls: 1
 --- !u!1 &1863663386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,14 +4637,14 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46975497
+  _savedGUID: 46882036
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
     inputs:
     - name: x
       valueType: 0
-      floatValue: 0.75
+      floatValue: 0.5
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -4615,7 +4774,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: z
       valueType: 0
-      floatValue: 2.75
+      floatValue: 2
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -4747,7 +4906,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118140962
+    lastHash: -2145939986
 --- !u!1 &1894788730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4788,12 +4947,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894788730}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 47923820
+  _savedGUID: 46882063
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -4837,6 +4996,7 @@ MonoBehaviour:
   - {fileID: 1863663388}
   - {fileID: 397987177}
   - {fileID: 630758041}
+  - {fileID: 1894788732}
   _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_LabyrinthTranslator_27487178.generated.shader
   _lastShader: {fileID: 4800000, guid: bb440011da721ce42a21c2e8f3f9981d, type: 3}
   Steps: 160
@@ -4930,7 +5090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e4ff5e6adb284f4ea5ab6d6ea6e89e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliders: []
 --- !u!114 &536398422944459162 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
@@ -5015,6 +5174,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: sliderType
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}

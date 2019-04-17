@@ -12,10 +12,11 @@ public class GiantSlider : MonoBehaviour
     public bool devMode = true;
     public bool isActive;
 
-    public enum SliderType { length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight };
+    public enum SliderType { length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight, all };
     public SliderType sliderType = SliderType.length;
 
-
+    public delegate void ValueChange();
+    public static event ValueChange OnValueChanged;
 
     void Start()
     {
@@ -33,8 +34,8 @@ public class GiantSlider : MonoBehaviour
     void SetKnobInfo()
     {
         start.transform.localPosition = new Vector3(0, 0, -SliderManager.sliderLength / 2);
-        end.transform.localPosition   = new Vector3(0, 0,  SliderManager.sliderLength / 2);
-        knob.GetComponent<KnobController>().bounds       = SliderManager.sliderLength / 2 ;
+        end.transform.localPosition = new Vector3(0, 0, SliderManager.sliderLength / 2);
+        knob.GetComponent<KnobController>().bounds = SliderManager.sliderLength / 2;
         // box.size = InfoManager.GetInstance().realWorld.hallDimensions;
     }
 
@@ -46,54 +47,65 @@ public class GiantSlider : MonoBehaviour
 
     public void SetKnobTarget(Transform target)
     {
-        isActive = true;
         knob.GetComponent<KnobController>().target = target;
     }
 
-    public void ReleaseTarget()
+    public void TryReleaseTarget()
     {
+        // only release the target if the player goes into a new hallway, not back into the current hallway (as indicated by isActive)
+        if (isActive) { return; }
         knob.GetComponent<KnobController>().target = null;
-        isActive = false;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("HIT");
+        if (other.CompareTag("Player"))
+        {
+            SetDilationType();
+            SetKnobTarget(other.transform);
+            isActive = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isActive = false;
+            TryReleaseTarget();
+            RoundValue();
+            CheckReset();
+        }
+    }
+
+    public void CheckReset()
+    {
+        if (!isActive)
+        {
+            ResetToStart();
+        }
     }
 
     void ResetToStart()
     {
-        // Debug.Log("Value reset");
         knob.transform.position = start.transform.position;
     }
 
+    float lastPercent;
     void GetPercentByKnob()
     {
         percent = Extensions.mapRange(start.localPosition.z, end.localPosition.z, 0, 1, knob.localPosition.z);
-    }
 
-    public void SetDilationType()
-    {
-        // if(isActive) { return; }    // only change type if not currently being used
-
-        switch (sliderType)
+        if (lastPercent != percent)
         {
-            // width, height, length
-            case SliderType.length:
-                HallDilator.GetInstance().SetDilation(false, false, true);
-                break;
-            case SliderType.width:
-                HallDilator.GetInstance().SetDilation(true, false, false);
-                break;
-            case SliderType.height:
-                HallDilator.GetInstance().SetDilation(false, true, false);
-                break;
-            case SliderType.lengthAndWidth:
-                HallDilator.GetInstance().SetDilation(true, false, true);
-                break;
-            case SliderType.lengthAndHeight:
-                HallDilator.GetInstance().SetDilation(false, true, true);
-                break;
-            case SliderType.widthAndHeight:
-                HallDilator.GetInstance().SetDilation(true, true, false);
-                break;
-
+            if (OnValueChanged != null)
+            {
+                OnValueChanged();
+            }
         }
+
+        lastPercent = percent;
     }
 
     public void RoundValue()
@@ -116,36 +128,36 @@ public class GiantSlider : MonoBehaviour
         }
     }
 
-    public void CheckReset()
+    public void SetDilationType()
     {
-        if (!isActive)
+        // if(isActive) { return; }    // only change type if not currently being used
+
+        // Debug.Log("Set dilation type");
+
+        switch (sliderType)
         {
-            ResetToStart();
+            // width, height, length
+            case SliderType.length:
+                HallDilator.GetInstance().SetDilation(false, false, true);
+                break;
+            case SliderType.width:
+                HallDilator.GetInstance().SetDilation(true, false, false);
+                break;
+            case SliderType.height:
+                HallDilator.GetInstance().SetDilation(false, true, false);
+                break;
+            case SliderType.lengthAndWidth:
+                HallDilator.GetInstance().SetDilation(true, false, true);
+                break;
+            case SliderType.lengthAndHeight:
+                HallDilator.GetInstance().SetDilation(false, true, true);
+                break;
+            case SliderType.widthAndHeight:
+                HallDilator.GetInstance().SetDilation(true, true, false);
+                break;
+            case SliderType.all:
+                HallDilator.GetInstance().SetDilation(true, true, true);
+                break;
         }
     }
-
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     // Debug.Log("HIT");
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         SetKnobTarget(other.transform);
-    //     }
-    // }
-
-    // void OnTriggerExit(Collider other)
-    // {
-    //     if (other.CompareTag("Player"))
-    //     {
-    //         ReleaseTarget();
-    //     }
-    // }
-
-    // public void SetColliderInfo()
-    // {
-        // box.size = InfoManager.GetInstance().realWorld.hallDimensions;
-        // float d  = InfoManager.GetInstance().realWorld.hallLength;
-        // start.transform.localPosition = new Vector3(0, 0, -d);
-        // end.transform.localPosition = new Vector3(0, 0, d);
-    // }
 }
