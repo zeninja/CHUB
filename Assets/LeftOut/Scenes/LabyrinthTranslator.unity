@@ -122,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_Name
-      value: GiantSlider2
+      value: HallController2
       objectReference: {fileID: 0}
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: dilationType
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
 --- !u!4 &28856536 stripped
@@ -227,6 +232,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 28856535}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &57807432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 400685959}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ddfcdc3a6377940ac24c74661137f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &139651393
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,51 +274,8 @@ Transform:
   - {fileID: 320261466}
   - {fileID: 2127536198}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &263043687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 263043688}
-  - component: {fileID: 263043689}
-  m_Layer: 0
-  m_Name: NewMechanic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &263043688
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263043687}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &263043689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263043687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b9a466d023c8dd4bacadca0af5f62d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &268436127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +977,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145997519
+    lastHash: -2145997515
 --- !u!1 &397987174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1307,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145996776
+    lastHash: -2145996772
 --- !u!1001 &400685959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1344,7 +1318,7 @@ PrefabInstance:
     - target: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_Name
-      value: GiantSlider4
+      value: HallController4
       objectReference: {fileID: 0}
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
@@ -1440,6 +1414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: dilationType
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
@@ -2144,7 +2123,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145969744
+    lastHash: -2145969740
 --- !u!1 &540434298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,7 +2466,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145969650
+    lastHash: -2145969646
 --- !u!1 &661138026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,7 +2652,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46881077
+  _savedGUID: 46881135
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -2747,41 +2726,7 @@ MonoBehaviour:
   - {fileID: 327378458}
   - {fileID: 1863663388}
   labyrinthMarble: {fileID: 397987177}
-  labyrinth: {fileID: 1798464242}
   dilationAmount: 15
-  animCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5007924
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   dilateLength: 0
   dilateHeight: 0
   dilateWidth: 0
@@ -2790,6 +2735,22 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  hallControllers:
+  - {fileID: 7354371974278775845}
+  - {fileID: 1999263623}
+  - {fileID: 1679318981}
+  - {fileID: 57807432}
+  hallDilationPct:
+  - 0
+  - 0
+  - 0
+  - 0
+  syncHalls: 0
+  sliders:
+  - {fileID: 536398422944459162}
+  - {fileID: 515189009}
+  - {fileID: 517957592}
+  - {fileID: 429996967}
 --- !u!1001 &866852354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2800,7 +2761,7 @@ PrefabInstance:
     - target: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_Name
-      value: GiantSlider3
+      value: HallController3
       objectReference: {fileID: 0}
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
@@ -2865,7 +2826,7 @@ PrefabInstance:
     - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: isActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3093274415704312302, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
@@ -2901,6 +2862,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: dilationType
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
@@ -2939,7 +2905,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &986541326
 MonoBehaviour:
@@ -3042,7 +3008,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 43.463, y: 0, z: 0}
 --- !u!1 &1098510850
 GameObject:
@@ -3867,7 +3833,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145966947
+    lastHash: -2145966943
 --- !u!1 &1515042384
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,6 +4151,18 @@ MonoBehaviour:
   ShadowSteps: 25
   hash:
     lastHash: -579786563
+--- !u!114 &1679318981 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 866852354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ddfcdc3a6377940ac24c74661137f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1693037059
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,7 +4518,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1798464241}
-  - component: {fileID: 1798464242}
   m_Layer: 0
   m_Name: LABYRINTH
   m_TagString: Untagged
@@ -4563,37 +4540,8 @@ Transform:
   - {fileID: 1568418274}
   - {fileID: 1255211537}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1798464242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798464240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4d3f105c9f6ab644aad487a3b16aadc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hallDilator: {fileID: 826753608}
-  voidHalls:
-  - {fileID: 1423589368}
-  - {fileID: 520978080}
-  - {fileID: 327378458}
-  - {fileID: 1863663388}
-  hallDilationPct:
-  - 0
-  - 0
-  - 0
-  - 0
-  sliders:
-  - {fileID: 536398422944459162}
-  - {fileID: 515189009}
-  - {fileID: 517957592}
-  - {fileID: 429996967}
-  syncHalls: 1
 --- !u!1 &1863663386
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,7 +4585,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46882094
+  _savedGUID: 46882096
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -4906,7 +4854,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145939794
+    lastHash: -2145939788
 --- !u!1 &1894788730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4947,16 +4895,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894788730}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46882100
+  _savedGUID: 46882123
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
     inputs: []
+--- !u!114 &1999263623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 28856535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ddfcdc3a6377940ac24c74661137f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2025338249
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,6 +4956,7 @@ MonoBehaviour:
   - {fileID: 1863663388}
   - {fileID: 397987177}
   - {fileID: 630758041}
+  - {fileID: 1894788732}
   _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_LabyrinthTranslator_27487178.generated.shader
   _lastShader: {fileID: 4800000, guid: bb440011da721ce42a21c2e8f3f9981d, type: 3}
   Steps: 160
@@ -5051,7 +5012,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2127536198}
-  - component: {fileID: 2127536199}
   m_Layer: 0
   m_Name: Sliders
   m_TagString: Untagged
@@ -5077,18 +5037,6 @@ Transform:
   m_Father: {fileID: 139651394}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2127536199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127536197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e4ff5e6adb284f4ea5ab6d6ea6e89e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &536398422944459162 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
@@ -5117,7 +5065,7 @@ PrefabInstance:
     - target: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_Name
-      value: GiantSlider1
+      value: HallController1
       objectReference: {fileID: 0}
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
@@ -5174,10 +5122,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+    - target: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
-      propertyPath: sliderType
-      value: 1
+      propertyPath: dilationType
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
+--- !u!114 &7354371974278775845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3093274414906071831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ddfcdc3a6377940ac24c74661137f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

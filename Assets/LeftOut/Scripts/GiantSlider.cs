@@ -12,20 +12,17 @@ public class GiantSlider : MonoBehaviour
     public bool devMode = true;
     public bool isActive;
 
-    public enum SliderType { length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight, all };
-    public SliderType sliderType = SliderType.length;
-
     public delegate void ValueChange();
     public static event ValueChange OnValueChanged;
 
     void Start()
     {
         start = transform.Find("start");
-        end = transform.Find("end");
-        knob = transform.Find("knob");
-        box = GetComponent<BoxCollider>();
+        end   = transform.Find("end");
+        knob  = transform.Find("knob");
+        box   = GetComponent<BoxCollider>();
 
-        // SetColliderInfo();
+        hallController = GetComponent<HallController>();
 
         SetKnobInfo();
         ResetToStart();
@@ -33,9 +30,11 @@ public class GiantSlider : MonoBehaviour
 
     void SetKnobInfo()
     {
-        start.transform.localPosition = new Vector3(0, 0, -SliderManager.sliderLength / 2);
-        end.transform.localPosition = new Vector3(0, 0, SliderManager.sliderLength / 2);
-        knob.GetComponent<KnobController>().bounds = SliderManager.sliderLength / 2;
+        float sliderLength = InfoManager.GetInstance().realWorld.hallLength;
+
+        start.transform.localPosition = new Vector3(0, 0, -sliderLength / 2);
+        end.transform.localPosition   = new Vector3(0, 0,  sliderLength / 2);
+        knob.GetComponent<KnobController>().bounds      =  sliderLength / 2;
         // box.size = InfoManager.GetInstance().realWorld.hallDimensions;
     }
 
@@ -57,12 +56,14 @@ public class GiantSlider : MonoBehaviour
         knob.GetComponent<KnobController>().target = null;
     }
 
+    HallController hallController;
+
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("HIT");
         if (other.CompareTag("Player"))
         {
-            SetDilationType();
+            hallController.SetDilationType();
             SetKnobTarget(other.transform);
             isActive = true;
         }
@@ -128,36 +129,9 @@ public class GiantSlider : MonoBehaviour
         }
     }
 
-    public void SetDilationType()
-    {
-        // if(isActive) { return; }    // only change type if not currently being used
 
-        // Debug.Log("Set dilation type");
+    public void SetSliderState() {
 
-        switch (sliderType)
-        {
-            // width, height, length
-            case SliderType.length:
-                HallDilator.GetInstance().SetDilation(false, false, true);
-                break;
-            case SliderType.width:
-                HallDilator.GetInstance().SetDilation(true, false, false);
-                break;
-            case SliderType.height:
-                HallDilator.GetInstance().SetDilation(false, true, false);
-                break;
-            case SliderType.lengthAndWidth:
-                HallDilator.GetInstance().SetDilation(true, false, true);
-                break;
-            case SliderType.lengthAndHeight:
-                HallDilator.GetInstance().SetDilation(false, true, true);
-                break;
-            case SliderType.widthAndHeight:
-                HallDilator.GetInstance().SetDilation(true, true, false);
-                break;
-            case SliderType.all:
-                HallDilator.GetInstance().SetDilation(true, true, true);
-                break;
-        }
     }
+
 }
