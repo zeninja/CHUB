@@ -27,7 +27,6 @@ public class HallDilator : MonoBehaviour
         }
     }
 
-    public List<RaymarchObject> dilatedHalls = new List<RaymarchObject>();
     // List<Vector3> startPositions = new List<Vector3>();
     public RaymarchObject labyrinthMarble;
     // public VoidLabyrinthController labyrinth;
@@ -94,9 +93,9 @@ public class HallDilator : MonoBehaviour
 
         float startHallLength = InfoManager.GetInstance().voidWorld.hallLength;
         float startHallHeight = InfoManager.GetInstance().voidWorld.hallHeight;
-        float startHallWidth = InfoManager.GetInstance().voidWorld.hallWidth;
+        float startHallWidth  = InfoManager.GetInstance().voidWorld.hallWidth;
 
-        float dilatedWidth = startHallWidth;
+        float dilatedWidth  = startHallWidth;
         float dilatedLength = startHallLength;
         float dilatedHeight = startHallHeight;
 
@@ -157,16 +156,18 @@ public class HallDilator : MonoBehaviour
 
     Vector3 GetAdjustedPosition(int i)
     {
-        Vector3 orthDir = InfoManager.GetInstance().orthographicPts[i].normalized;   // x, z only
-        float distTowall = InfoManager.GetInstance().realWorld.distanceToInnerWall;
-        float dilatedWidth = dilatedDimensions[i].x;
-        float halvedWidth = dilatedWidth / 2;
+        Vector3 orthDir     = InfoManager.GetInstance().orthographicPts[i].normalized;   // x, z only
+        float distTowall    = InfoManager.GetInstance().realWorld.distanceToInnerWall;
+        float dilatedWidth  = dilatedDimensions[i].x;
+        float halvedWidth   = dilatedWidth / 2;
         float dilatedHeight = dilatedDimensions[i].y;
         float dilatedLength = dilatedDimensions[i].z;
 
         Vector3 adjustedPos = orthDir * (distTowall + dilatedWidth) + Vector3.up * (dilatedHeight / 2f);
         return adjustedPos;
     }
+
+    public List<RaymarchObject> dilatedHalls = new List<RaymarchObject>();
 
     [Range(0, 1)]
     public float[] hallDilationPct = new float[4];
