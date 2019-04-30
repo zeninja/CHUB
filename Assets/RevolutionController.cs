@@ -5,4 +5,10 @@ using UnityEngine;
 public class RevolutionController : MonoBehaviour
 {
     public int numRevolutions;
+    public GiantSlider[] sliders;
+ 
+ 
+    void CheckRevolutions(GiantSlider target) {
+        
+    }
 }

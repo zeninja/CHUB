@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour {
 
-    // public enum SnippetType { V1, V2, V3 };
-    // public SnippetType snippetType = SnippetType.V3;
+    public enum SnippetType { V1, V2, V3 };
+    public SnippetType snippetType = SnippetType.V3;
+
+    public enum SliderIndex { zero, one, two, three, none };
+    public SliderIndex sliderIndex = SliderIndex.none;
 
     public string target;
 
@@ -36,6 +39,10 @@ public class ObjectController : MonoBehaviour {
             percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
         }
 
+        if(sliderIndex != SliderIndex.none) {
+            percent = SliderInfo.GetInstance().GetSlider((int)sliderIndex);
+        }
+
         float x = GetFloatValue (xCurve, xRange);
         float y = GetFloatValue (yCurve, yRange);
         float z = GetFloatValue (zCurve, zRange);
@@ -54,19 +61,18 @@ public class ObjectController : MonoBehaviour {
     }
 
     void SetObjectInput (Vector3 noise) {
-        obj.GetObjectInput (target).SetVector3 ((Vector2) noise);
+        // obj.GetObjectInput (target).SetVector3 ((Vector2) noise);
 
-
-        // switch (snippetType) {
-        //     case SnippetType.V1:
-        //         obj.GetInput (target).SetFloat (noise.x);
-        //         break;
-        //     case SnippetType.V2:
-        //         obj.GetInput (target).SetVector3 ((Vector2) noise);
-        //         break;
-        //     case SnippetType.V3:
-        //         obj.GetInput (target).SetVector3 (noise);
-        //         break;
-        // }
+        switch (snippetType) {
+            case SnippetType.V1:
+                obj.GetObjectInput (target).SetFloat (noise.x);
+                break;
+            case SnippetType.V2:
+                obj.GetObjectInput (target).SetVector3 ((Vector2) noise);
+                break;
+            case SnippetType.V3:
+                obj.GetObjectInput (target).SetVector3 (noise);
+                break;
+        }
     }
 }

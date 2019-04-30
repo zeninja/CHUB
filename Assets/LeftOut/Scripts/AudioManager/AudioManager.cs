@@ -1,9 +1,8 @@
-using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
-{
+public class AudioManager : MonoBehaviour {
 
 	public static AudioManager instance;
 
@@ -11,21 +10,16 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds;
 
-	void Awake()
-	{
-		if (instance != null)
-		{
-			Destroy(gameObject);
-		}
-		else
-		{
+	void Awake () {
+		if (instance != null) {
+			Destroy (gameObject);
+		} else {
 			instance = this;
-			DontDestroyOnLoad(gameObject);
+			DontDestroyOnLoad (gameObject);
 		}
 
-		foreach (Sound s in sounds)
-		{
-			s.source = gameObject.AddComponent<AudioSource>();
+		foreach (Sound s in sounds) {
+			s.source = gameObject.AddComponent<AudioSource> ();
 			s.source.clip = s.clip;
 			s.source.loop = s.loop;
 
@@ -33,19 +27,35 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
-	public void Play(string sound)
-	{
-		Sound s = Array.Find(sounds, item => item.name == sound);
-		if (s == null)
-		{
-			Debug.LogWarning("Sound: " + name + " not found!");
+	public void Play (string sound) {
+		Sound s = Array.Find (sounds, item => item.name == sound);
+		if (s == null) {
+			Debug.LogWarning ("Sound: " + name + " not found!");
 			return;
 		}
 
-		s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+		s.source.volume = s.volume * (1f + UnityEngine.Random.Range (-s.volumeVariance / 2f, s.volumeVariance / 2f));
+		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range (-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
-		s.source.Play();
+		s.source.Play ();
+
+		Debug.Log("Playing: " + sound);
+	}
+	
+
+	bool hasStarted;
+
+	public void HandleSliderEntered () {
+		if (!hasStarted) {
+			AudioManager.instance.Play ("LabyrinthStart");
+			hasStarted = true;
+
+			Invoke ("SwitchToDrone", 15);
+		}
+	}
+
+	void SwitchToDrone() {
+		Play("Drone");
 	}
 
 }

@@ -20,7 +20,7 @@
 */
 
 
-Shader "Hidden/_LabyrinthTranslator_27487178.generated"
+Shader "Hidden/_LabyrinthTranslator_156569897.generated"
 {
 
 SubShader
@@ -1261,19 +1261,25 @@ float fersertWaves(float3 p, float height) {
 }
 
 // Light Directional Light
-uniform float4 DirectionalLight_46857294PosAndRange;
-uniform float4 DirectionalLight_46857294ColorAndIntensity;
-uniform float3 DirectionalLight_46857294Direction;
-uniform float DirectionalLight_46857294Penumbra;
-uniform int DirectionalLight_46857294ShadowSteps;
+uniform float4 DirectionalLight_46883022PosAndRange;
+uniform float4 DirectionalLight_46883022ColorAndIntensity;
+uniform float3 DirectionalLight_46883022Direction;
+uniform float DirectionalLight_46883022Penumbra;
+uniform int DirectionalLight_46883022ShadowSteps;
+// Light Directional Light (1)
+uniform float4 DirectionalLight1_3630915602PosAndRange;
+uniform float4 DirectionalLight1_3630915602ColorAndIntensity;
+uniform float3 DirectionalLight1_3630915602Direction;
+uniform float DirectionalLight1_3630915602Penumbra;
+uniform int DirectionalLight1_3630915602ShadowSteps;
 
 // UNIFORMS AND FUNCTIONS
-uniform float x_46857137_d6b53711_x;
-uniform float x_46857137_d6b53711_y;
-uniform float x_46857137_d6b53711_z;
-uniform float3 x_46857137_d6b53711_separation;
-uniform float3 x_46857137_d6b53711_noisedisplacement;
-uniform sampler2D x_46857137_d6b53711_noisetex;
+uniform float x_46882193_d6b53711_x;
+uniform float x_46882193_d6b53711_y;
+uniform float x_46882193_d6b53711_z;
+uniform float3 x_46882193_d6b53711_separation;
+uniform float3 x_46882193_d6b53711_noisedisplacement;
+uniform sampler2D x_46882193_d6b53711_noisetex;
 float3 modifier_Repeat(float3 p , float _INP_x, float _INP_y, float _INP_z, float3 _INP_separation, float3 _INP_noisedisplacement, sampler2D _INP_noisetex) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Modifiers/Repeat.asset
     float3 repeat = _INP_separation;
@@ -1292,26 +1298,26 @@ float3 modifier_Repeat(float3 p , float _INP_x, float _INP_y, float _INP_z, floa
     
     return result;
 }
-uniform float4x4 _46857137Matrix;
-uniform float4x4 _46857137InverseMatrix;
-uniform float x_46857232_ce8993a9_x;
-uniform float x_46857232_ce8993a9_y;
-uniform float x_46857232_ce8993a9_z;
-uniform float x_46856145_ce8993a9_x;
-uniform float x_46856145_ce8993a9_y;
-uniform float x_46856145_ce8993a9_z;
-uniform float x_46855370_ce8993a9_x;
-uniform float x_46855370_ce8993a9_y;
-uniform float x_46855370_ce8993a9_z;
-uniform float x_46858009_ce8993a9_x;
-uniform float x_46858009_ce8993a9_y;
-uniform float x_46858009_ce8993a9_z;
-uniform float x_46855378_ce8993a9_x;
-uniform float x_46855378_ce8993a9_y;
-uniform float x_46855378_ce8993a9_z;
-uniform float x_46856176_ce8993a9_x;
-uniform float x_46856176_ce8993a9_y;
-uniform float x_46856176_ce8993a9_z;
+uniform float4x4 _46882193Matrix;
+uniform float4x4 _46882193InverseMatrix;
+uniform float x_46882960_ce8993a9_x;
+uniform float x_46882960_ce8993a9_y;
+uniform float x_46882960_ce8993a9_z;
+uniform float x_46881164_ce8993a9_x;
+uniform float x_46881164_ce8993a9_y;
+uniform float x_46881164_ce8993a9_z;
+uniform float x_46881040_ce8993a9_x;
+uniform float x_46881040_ce8993a9_y;
+uniform float x_46881040_ce8993a9_z;
+uniform float x_46883086_ce8993a9_x;
+uniform float x_46883086_ce8993a9_y;
+uniform float x_46883086_ce8993a9_z;
+uniform float x_46881069_ce8993a9_x;
+uniform float x_46881069_ce8993a9_y;
+uniform float x_46881069_ce8993a9_z;
+uniform float x_46881195_ce8993a9_x;
+uniform float x_46881195_ce8993a9_y;
+uniform float x_46881195_ce8993a9_z;
 float object_Box(float3 p , float _INP_x, float _INP_y, float _INP_z) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Box.asset
     float3 d = abs(p)-float3(_INP_x,_INP_y,_INP_z);
@@ -1323,14 +1329,15 @@ float object_Box(float3 p , float _INP_x, float _INP_y, float _INP_z) {
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     
 }
-uniform float x_46857172_6492bb9b_radius;
-uniform float x_46856304_6492bb9b_radius;
+uniform float x_46882249_6492bb9b_radius;
+uniform float x_46882005_6492bb9b_radius;
+uniform float x_3631845042_6492bb9b_radius;
 float object_Sphere(float3 p , float _INP_radius) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Sphere.asset
     return length(p) - _INP_radius;
 }
-uniform float x_46857077_399aefe0_radius;
-uniform float x_46857077_399aefe0_height;
+uniform float x_46882131_399aefe0_radius;
+uniform float x_46882131_399aefe0_height;
 float object_Cylinder(float3 p , float _INP_radius, float _INP_height) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Cylinder.asset
     float2 d = abs(float2(length(p.xz),p.y)) - float2(_INP_radius, _INP_height);
@@ -1340,8 +1347,8 @@ float object_Cylinder(float3 p , float _INP_radius, float _INP_height) {
     // Copyright © 2013 Inigo Quilez
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }
-uniform float x_46857015_b845704d_height;
-uniform float x_46857015_b845704d_radius;
+uniform float x_46882069_b845704d_height;
+uniform float x_46882069_b845704d_radius;
 float object_Cone(float3 p , float _INP_height, float _INP_radius) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Cone.asset
     float2 q = float2( length(p.xz), p.y );
@@ -1353,8 +1360,10 @@ float object_Cone(float3 p , float _INP_height, float _INP_radius) {
     // Copyright © 2013 Inigo Quilez
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }
-uniform float2 x_46858071_1ec48586_freq;
-uniform float2 x_46858071_1ec48586_extranoise;
+uniform float2 x_46883148_1ec48586_freq;
+uniform float2 x_46883148_1ec48586_extranoise;
+uniform float2 x_3631845013_1ec48586_freq;
+uniform float2 x_3631845013_1ec48586_extranoise;
 float object_Desert(float3 p , float2 _INP_freq, float2 _INP_extranoise) {
     // Generated from Assets/Raymarching Toolkit/Examples/Assets/Desert/Desert.asset
     float disp = 1.0;
@@ -1365,38 +1374,44 @@ float object_Desert(float3 p , float2 _INP_freq, float2 _INP_extranoise) {
     return p.y + disp;
 }
 // uniforms for Hall
-uniform float4x4 _46857232Matrix;
-uniform float _46857232MinScale;
+uniform float4x4 _46882960Matrix;
+uniform float _46882960MinScale;
 // uniforms for Hall
-uniform float4x4 _46856145Matrix;
-uniform float _46856145MinScale;
+uniform float4x4 _46881164Matrix;
+uniform float _46881164MinScale;
 // uniforms for Hall
-uniform float4x4 _46855370Matrix;
-uniform float _46855370MinScale;
+uniform float4x4 _46881040Matrix;
+uniform float _46881040MinScale;
 // uniforms for Hall
-uniform float4x4 _46858009Matrix;
-uniform float _46858009MinScale;
+uniform float4x4 _46883086Matrix;
+uniform float _46883086MinScale;
 // uniforms for LABYRINTH-MARBLE
-uniform float4x4 _46855378Matrix;
-uniform float _46855378MinScale;
+uniform float4x4 _46881069Matrix;
+uniform float _46881069MinScale;
 // uniforms for Graphics
-uniform float4x4 _46856176Matrix;
-uniform float _46856176MinScale;
+uniform float4x4 _46881195Matrix;
+uniform float _46881195MinScale;
 // uniforms for Sphere
-uniform float4x4 _46857172Matrix;
-uniform float _46857172MinScale;
+uniform float4x4 _46882249Matrix;
+uniform float _46882249MinScale;
 // uniforms for Cylinder
-uniform float4x4 _46857077Matrix;
-uniform float _46857077MinScale;
+uniform float4x4 _46882131Matrix;
+uniform float _46882131MinScale;
 // uniforms for Cone
-uniform float4x4 _46857015Matrix;
-uniform float _46857015MinScale;
+uniform float4x4 _46882069Matrix;
+uniform float _46882069MinScale;
 // uniforms for Sphere
-uniform float4x4 _46856304Matrix;
-uniform float _46856304MinScale;
+uniform float4x4 _46882005Matrix;
+uniform float _46882005MinScale;
 // uniforms for Desert
-uniform float4x4 _46858071Matrix;
-uniform float _46858071MinScale;
+uniform float4x4 _46883148Matrix;
+uniform float _46883148MinScale;
+// uniforms for Sphere
+uniform float4x4 _3631845042Matrix;
+uniform float _3631845042MinScale;
+// uniforms for Desert
+uniform float4x4 _3631845013Matrix;
+uniform float _3631845013MinScale;
 float2 blend_Subtract(float2 a, float2 b /*, [object params] */) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Blends/Subtract.asset
     return float2(max(-a.x, b.x), b.y);
@@ -1406,67 +1421,77 @@ float2 blend_Intersection(float2 a, float2 b /*, [object params] */) {
     return max(a, b);
     
 }
-uniform float4 x_46857232_da843a44_color;
-uniform float4 x_46856145_da843a44_color;
-uniform float4 x_46855370_da843a44_color;
-uniform float4 x_46858009_da843a44_color;
-uniform float4 x_46855378_da843a44_color;
-uniform float4 x_46856176_da843a44_color;
-uniform float4 x_46857172_da843a44_color;
-uniform float4 x_46857077_da843a44_color;
-uniform float4 x_46857015_da843a44_color;
-uniform float4 x_46856304_da843a44_color;
-uniform float4 x_46858071_da843a44_color;
+uniform float4 x_46882960_da843a44_color;
+uniform float4 x_46881164_da843a44_color;
+uniform float4 x_46881040_da843a44_color;
+uniform float4 x_46883086_da843a44_color;
+uniform float4 x_46881069_da843a44_color;
+uniform float4 x_46881195_da843a44_color;
+uniform float4 x_46882249_da843a44_color;
+uniform float4 x_46882131_da843a44_color;
+uniform float4 x_46882069_da843a44_color;
+uniform float4 x_46882005_da843a44_color;
+uniform float4 x_46883148_da843a44_color;
+uniform float4 x_3631845042_da843a44_color;
+uniform float4 x_3631845013_da843a44_color;
 float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4 _INP_color) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Materials/SimpleColor.asset
     return _INP_color;
 }
 float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out float objectID)
 {
-    objectID = ceil(nf) / (float)11;
+    objectID = ceil(nf) / (float)13;
     [branch] if (nf <= 1) {
-    //    objectID = 0.09090909;
-        return material_SimpleColor(normal, objPos(_46857232Matrix, p), rayDir, x_46857232_da843a44_color);
+    //    objectID = 0.07692308;
+        return material_SimpleColor(normal, objPos(_46882960Matrix, p), rayDir, x_46882960_da843a44_color);
     }
     else if(nf <= 2) {
-    //    objectID = 0.1818182;
-        return material_SimpleColor(normal, objPos(_46856145Matrix, p), rayDir, x_46856145_da843a44_color);
+    //    objectID = 0.1538462;
+        return material_SimpleColor(normal, objPos(_46881164Matrix, p), rayDir, x_46881164_da843a44_color);
     }
     else if(nf <= 3) {
-    //    objectID = 0.2727273;
-        return material_SimpleColor(normal, objPos(_46855370Matrix, p), rayDir, x_46855370_da843a44_color);
+    //    objectID = 0.2307692;
+        return material_SimpleColor(normal, objPos(_46881040Matrix, p), rayDir, x_46881040_da843a44_color);
     }
     else if(nf <= 4) {
-    //    objectID = 0.3636364;
-        return material_SimpleColor(normal, objPos(_46858009Matrix, p), rayDir, x_46858009_da843a44_color);
+    //    objectID = 0.3076923;
+        return material_SimpleColor(normal, objPos(_46883086Matrix, p), rayDir, x_46883086_da843a44_color);
     }
     else if(nf <= 5) {
-    //    objectID = 0.4545455;
-        return material_SimpleColor(normal, objPos(_46855378Matrix, p), rayDir, x_46855378_da843a44_color);
+    //    objectID = 0.3846154;
+        return material_SimpleColor(normal, objPos(_46881069Matrix, p), rayDir, x_46881069_da843a44_color);
     }
     else if(nf <= 6) {
-    //    objectID = 0.5454546;
-        return material_SimpleColor(normal, objPos(_46856176Matrix, p), rayDir, x_46856176_da843a44_color);
+    //    objectID = 0.4615385;
+        return material_SimpleColor(normal, objPos(_46881195Matrix, p), rayDir, x_46881195_da843a44_color);
     }
     else if(nf <= 7) {
-    //    objectID = 0.6363636;
-        return material_SimpleColor(normal, objPos(_46857172Matrix, p), rayDir, x_46857172_da843a44_color);
+    //    objectID = 0.5384616;
+        return material_SimpleColor(normal, objPos(_46882249Matrix, p), rayDir, x_46882249_da843a44_color);
     }
     else if(nf <= 8) {
-    //    objectID = 0.7272727;
-        return material_SimpleColor(normal, objPos(_46857077Matrix, p), rayDir, x_46857077_da843a44_color);
+    //    objectID = 0.6153846;
+        return material_SimpleColor(normal, objPos(_46882131Matrix, p), rayDir, x_46882131_da843a44_color);
     }
     else if(nf <= 9) {
-    //    objectID = 0.8181818;
-        return material_SimpleColor(normal, objPos(_46857015Matrix, p), rayDir, x_46857015_da843a44_color);
+    //    objectID = 0.6923077;
+        return material_SimpleColor(normal, objPos(_46882069Matrix, p), rayDir, x_46882069_da843a44_color);
     }
     else if(nf <= 10) {
-    //    objectID = 0.9090909;
-        return material_SimpleColor(normal, objPos(_46856304Matrix, p), rayDir, x_46856304_da843a44_color);
+    //    objectID = 0.7692308;
+        return material_SimpleColor(normal, objPos(_46882005Matrix, p), rayDir, x_46882005_da843a44_color);
     }
     else if(nf <= 11) {
+    //    objectID = 0.8461539;
+        return material_SimpleColor(normal, objPos(_46883148Matrix, p), rayDir, x_46883148_da843a44_color);
+    }
+    else if(nf <= 12) {
+    //    objectID = 0.9230769;
+        return material_SimpleColor(normal, objPos(_3631845042Matrix, p), rayDir, x_3631845042_da843a44_color);
+    }
+    else if(nf <= 13) {
     //    objectID = 1;
-        return material_SimpleColor(normal, objPos(_46858071Matrix, p), rayDir, x_46858071_da843a44_color);
+        return material_SimpleColor(normal, objPos(_3631845013Matrix, p), rayDir, x_3631845013_da843a44_color);
     }
         objectID = 0;
         return float3(1.0, 0.0, 1.0);
@@ -1478,19 +1503,21 @@ float2 map(float3 p) {
 	float2 result = float2(1.0, 0.0);
 	
 {
-    float _46857232Distance = object_Box(objPos(_46857232Matrix, p), x_46857232_ce8993a9_x, x_46857232_ce8993a9_y, x_46857232_ce8993a9_z) * _46857232MinScale;
-    float _46856145Distance = object_Box(objPos(_46856145Matrix, p), x_46856145_ce8993a9_x, x_46856145_ce8993a9_y, x_46856145_ce8993a9_z) * _46856145MinScale;
-    float _46855370Distance = object_Box(objPos(_46855370Matrix, p), x_46855370_ce8993a9_x, x_46855370_ce8993a9_y, x_46855370_ce8993a9_z) * _46855370MinScale;
-    float _46858009Distance = object_Box(objPos(_46858009Matrix, p), x_46858009_ce8993a9_x, x_46858009_ce8993a9_y, x_46858009_ce8993a9_z) * _46858009MinScale;
-    float _46855378Distance = object_Box(objPos(_46855378Matrix, p), x_46855378_ce8993a9_x, x_46855378_ce8993a9_y, x_46855378_ce8993a9_z) * _46855378MinScale;
-    float _46856176Distance = object_Box(objPos(_46856176Matrix, p), x_46856176_ce8993a9_x, x_46856176_ce8993a9_y, x_46856176_ce8993a9_z) * _46856176MinScale;
-    float _46857172Distance = object_Sphere(objPos(_46857172Matrix, p), x_46857172_6492bb9b_radius) * _46857172MinScale;
-    float3 p_46857137 = objPos(_46857137InverseMatrix, modifier_Repeat(objPos(_46857137Matrix, p), x_46857137_d6b53711_x, x_46857137_d6b53711_y, x_46857137_d6b53711_z, x_46857137_d6b53711_separation, x_46857137_d6b53711_noisedisplacement, x_46857137_d6b53711_noisetex));
-    float _46857077Distance = object_Cylinder(objPos(_46857077Matrix, p_46857137), x_46857077_399aefe0_radius, x_46857077_399aefe0_height) * _46857077MinScale;
-    float _46857015Distance = object_Cone(objPos(_46857015Matrix, p_46857137), x_46857015_b845704d_height, x_46857015_b845704d_radius) * _46857015MinScale;
-    float _46856304Distance = object_Sphere(objPos(_46856304Matrix, p), x_46856304_6492bb9b_radius) * _46856304MinScale;
-    float _46858071Distance = object_Desert(objPos(_46858071Matrix, p), x_46858071_1ec48586_freq, x_46858071_1ec48586_extranoise) * _46858071MinScale;
-    result = opU(opU(opU(blend_Subtract(opU(opU(opU(float2(_46857232Distance, /*material ID*/0.5), float2(_46856145Distance, /*material ID*/1.5)), float2(_46855370Distance, /*material ID*/2.5)), float2(_46858009Distance, /*material ID*/3.5)), float2(_46855378Distance, /*material ID*/4.5)), float2(_46856176Distance, /*material ID*/5.5)), blend_Intersection(float2(_46857172Distance, /*material ID*/6.5), opU(float2(_46857077Distance, /*material ID*/7.5), float2(_46857015Distance, /*material ID*/8.5)))), blend_Intersection(float2(_46856304Distance, /*material ID*/9.5), float2(_46858071Distance, /*material ID*/10.5)));
+    float _46882960Distance = object_Box(objPos(_46882960Matrix, p), x_46882960_ce8993a9_x, x_46882960_ce8993a9_y, x_46882960_ce8993a9_z) * _46882960MinScale;
+    float _46881164Distance = object_Box(objPos(_46881164Matrix, p), x_46881164_ce8993a9_x, x_46881164_ce8993a9_y, x_46881164_ce8993a9_z) * _46881164MinScale;
+    float _46881040Distance = object_Box(objPos(_46881040Matrix, p), x_46881040_ce8993a9_x, x_46881040_ce8993a9_y, x_46881040_ce8993a9_z) * _46881040MinScale;
+    float _46883086Distance = object_Box(objPos(_46883086Matrix, p), x_46883086_ce8993a9_x, x_46883086_ce8993a9_y, x_46883086_ce8993a9_z) * _46883086MinScale;
+    float _46881069Distance = object_Box(objPos(_46881069Matrix, p), x_46881069_ce8993a9_x, x_46881069_ce8993a9_y, x_46881069_ce8993a9_z) * _46881069MinScale;
+    float _46881195Distance = object_Box(objPos(_46881195Matrix, p), x_46881195_ce8993a9_x, x_46881195_ce8993a9_y, x_46881195_ce8993a9_z) * _46881195MinScale;
+    float _46882249Distance = object_Sphere(objPos(_46882249Matrix, p), x_46882249_6492bb9b_radius) * _46882249MinScale;
+    float3 p_46882193 = objPos(_46882193InverseMatrix, modifier_Repeat(objPos(_46882193Matrix, p), x_46882193_d6b53711_x, x_46882193_d6b53711_y, x_46882193_d6b53711_z, x_46882193_d6b53711_separation, x_46882193_d6b53711_noisedisplacement, x_46882193_d6b53711_noisetex));
+    float _46882131Distance = object_Cylinder(objPos(_46882131Matrix, p_46882193), x_46882131_399aefe0_radius, x_46882131_399aefe0_height) * _46882131MinScale;
+    float _46882069Distance = object_Cone(objPos(_46882069Matrix, p_46882193), x_46882069_b845704d_height, x_46882069_b845704d_radius) * _46882069MinScale;
+    float _46882005Distance = object_Sphere(objPos(_46882005Matrix, p), x_46882005_6492bb9b_radius) * _46882005MinScale;
+    float _46883148Distance = object_Desert(objPos(_46883148Matrix, p), x_46883148_1ec48586_freq, x_46883148_1ec48586_extranoise) * _46883148MinScale;
+    float _3631845042Distance = object_Sphere(objPos(_3631845042Matrix, p), x_3631845042_6492bb9b_radius) * _3631845042MinScale;
+    float _3631845013Distance = object_Desert(objPos(_3631845013Matrix, p), x_3631845013_1ec48586_freq, x_3631845013_1ec48586_extranoise) * _3631845013MinScale;
+    result = opU(opU(opU(opU(blend_Subtract(opU(opU(opU(float2(_46882960Distance, /*material ID*/0.5), float2(_46881164Distance, /*material ID*/1.5)), float2(_46881040Distance, /*material ID*/2.5)), float2(_46883086Distance, /*material ID*/3.5)), float2(_46881069Distance, /*material ID*/4.5)), float2(_46881195Distance, /*material ID*/5.5)), blend_Intersection(float2(_46882249Distance, /*material ID*/6.5), opU(float2(_46882131Distance, /*material ID*/7.5), float2(_46882069Distance, /*material ID*/8.5)))), blend_Intersection(float2(_46882005Distance, /*material ID*/9.5), float2(_46883148Distance, /*material ID*/10.5))), blend_Intersection(float2(_3631845042Distance, /*material ID*/11.5), float2(_3631845013Distance, /*material ID*/12.5)));
     }
 	return result;
 }
@@ -1505,10 +1532,17 @@ float3 getLights(in float3 color, in float3 pos, in float3 normal) {
 	
 {
 LightInfo light;
-light.posAndRange = DirectionalLight_46857294PosAndRange;
-light.colorAndIntensity = DirectionalLight_46857294ColorAndIntensity;
-light.direction = DirectionalLight_46857294Direction;
-lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_46857294Penumbra, DirectionalLight_46857294ShadowSteps);
+light.posAndRange = DirectionalLight_46883022PosAndRange;
+light.colorAndIntensity = DirectionalLight_46883022ColorAndIntensity;
+light.direction = DirectionalLight_46883022Direction;
+lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_46883022Penumbra, DirectionalLight_46883022ShadowSteps);
+}
+{
+LightInfo light;
+light.posAndRange = DirectionalLight1_3630915602PosAndRange;
+light.colorAndIntensity = DirectionalLight1_3630915602ColorAndIntensity;
+light.direction = DirectionalLight1_3630915602Direction;
+lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight1_3630915602Penumbra, DirectionalLight1_3630915602ShadowSteps);
 }
 	return lightValue;
 }
