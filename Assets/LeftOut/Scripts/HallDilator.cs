@@ -171,4 +171,13 @@ public class HallDilator : MonoBehaviour {
         }
     }
 
+    bool taken;
+    bool available;
+
+    
+
+    bool isEmpty() {
+        return !taken && available;
+    }
+
 }
