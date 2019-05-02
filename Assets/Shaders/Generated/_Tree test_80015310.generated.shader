@@ -13,14 +13,14 @@
                               
 
   This shader was automatically generated from
-  Raymarching Toolkit\Assets\Shaders\RaymarchTemplate.shader
+  Raymarching Toolkit/Assets/Shaders/RaymarchTemplate.shader
   
-  for Raymarcher named 'Raymarcher' in scene 'Untitled'.
+  for Raymarcher named 'Raymarcher' in scene 'Tree test'.
 
 */
 
 
-Shader "Hidden/_Untitled_995447914.generated"
+Shader "Hidden/_Tree test_80015310.generated"
 {
 
 SubShader
@@ -1261,32 +1261,69 @@ float fersertWaves(float3 p, float height) {
 }
 
 // Light Directional Light
-uniform float4 DirectionalLight_3632615479PosAndRange;
-uniform float4 DirectionalLight_3632615479ColorAndIntensity;
-uniform float3 DirectionalLight_3632615479Direction;
-uniform float DirectionalLight_3632615479Penumbra;
-uniform int DirectionalLight_3632615479ShadowSteps;
+uniform float4 DirectionalLight_46968617PosAndRange;
+uniform float4 DirectionalLight_46968617ColorAndIntensity;
+uniform float3 DirectionalLight_46968617Direction;
+uniform float DirectionalLight_46968617Penumbra;
+uniform int DirectionalLight_46968617ShadowSteps;
 
 // UNIFORMS AND FUNCTIONS
-uniform float x_3632615487_6492bb9b_radius;
-float object_Sphere(float3 p , float _INP_radius) {
-    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Sphere.asset
-    return length(p) - _INP_radius;
+uniform float x_46968613_1d59cc68_freq;
+uniform float x_46968613_1d59cc68_intensity;
+uniform float x_46968613_1d59cc68_speed;
+float3 modifier_Displacement(float3 p , float _INP_freq, float _INP_intensity, float _INP_speed) {
+    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Modifiers/Displacement.asset
+    float timeOffset = _Time.z * _INP_speed;
+    return p + sin(_INP_freq*p.x + timeOffset)*sin(_INP_freq*p.y + timeOffset)*sin(_INP_freq*p.z + timeOffset)*_INP_intensity;
 }
-// uniforms for Sphere
-uniform float4x4 _3632615487Matrix;
-uniform float _3632615487MinScale;
-uniform float4 x_3632615487_da843a44_color;
+uniform float4x4 _46968613Matrix;
+uniform float4x4 _46968613InverseMatrix;
+uniform float x_46968590_399aefe0_radius;
+uniform float x_46968590_399aefe0_height;
+float object_Cylinder(float3 p , float _INP_radius, float _INP_height) {
+    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Cylinder.asset
+    float2 d = abs(float2(length(p.xz),p.y)) - float2(_INP_radius, _INP_height);
+    return min(max(d.x,d.y),0.0) + length(max(d,0.0));
+    
+    // The MIT License
+    // Copyright © 2013 Inigo Quilez
+    // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}
+uniform float x_46968588_b845704d_height;
+uniform float x_46968588_b845704d_radius;
+float object_Cone(float3 p , float _INP_height, float _INP_radius) {
+    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Cone.asset
+    float2 q = float2( length(p.xz), p.y );
+    float d1 = -q.y-_INP_height;
+    float d2 = max( dot(q,float2(1/_INP_radius,0.5)), q.y);
+    return length(max(float2(d1,d2),0.0)) + min(max(d1,d2), 0.);
+    
+    // The MIT License
+    // Copyright © 2013 Inigo Quilez
+    // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}
+// uniforms for Cylinder
+uniform float4x4 _46968590Matrix;
+uniform float _46968590MinScale;
+// uniforms for Cone
+uniform float4x4 _46968588Matrix;
+uniform float _46968588MinScale;
+uniform float4 x_46968590_da843a44_color;
+uniform float4 x_46968588_da843a44_color;
 float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4 _INP_color) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Materials/SimpleColor.asset
     return _INP_color;
 }
 float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out float objectID)
 {
-    objectID = ceil(nf) / (float)1;
+    objectID = ceil(nf) / (float)2;
     [branch] if (nf <= 1) {
+    //    objectID = 0.5;
+        return material_SimpleColor(normal, objPos(_46968590Matrix, p), rayDir, x_46968590_da843a44_color);
+    }
+    else if(nf <= 2) {
     //    objectID = 1;
-        return material_SimpleColor(normal, objPos(_3632615487Matrix, p), rayDir, x_3632615487_da843a44_color);
+        return material_SimpleColor(normal, objPos(_46968588Matrix, p), rayDir, x_46968588_da843a44_color);
     }
         objectID = 0;
         return float3(1.0, 0.0, 1.0);
@@ -1298,8 +1335,10 @@ float2 map(float3 p) {
 	float2 result = float2(1.0, 0.0);
 	
 {
-    float _3632615487Distance = object_Sphere(objPos(_3632615487Matrix, p), x_3632615487_6492bb9b_radius) * _3632615487MinScale;
-    result = float2(_3632615487Distance, /*material ID*/0.5);
+    float3 p_46968613 = objPos(_46968613InverseMatrix, modifier_Displacement(objPos(_46968613Matrix, p), x_46968613_1d59cc68_freq, x_46968613_1d59cc68_intensity, x_46968613_1d59cc68_speed));
+    float _46968590Distance = object_Cylinder(objPos(_46968590Matrix, p_46968613), x_46968590_399aefe0_radius, x_46968590_399aefe0_height) * _46968590MinScale;
+    float _46968588Distance = object_Cone(objPos(_46968588Matrix, p_46968613), x_46968588_b845704d_height, x_46968588_b845704d_radius) * _46968588MinScale;
+    result = opU(float2(_46968590Distance, /*material ID*/0.5), float2(_46968588Distance, /*material ID*/1.5));
     }
 	return result;
 }
@@ -1314,10 +1353,10 @@ float3 getLights(in float3 color, in float3 pos, in float3 normal) {
 	
 {
 LightInfo light;
-light.posAndRange = DirectionalLight_3632615479PosAndRange;
-light.colorAndIntensity = DirectionalLight_3632615479ColorAndIntensity;
-light.direction = DirectionalLight_3632615479Direction;
-lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_3632615479Penumbra, DirectionalLight_3632615479ShadowSteps);
+light.posAndRange = DirectionalLight_46968617PosAndRange;
+light.colorAndIntensity = DirectionalLight_46968617ColorAndIntensity;
+light.direction = DirectionalLight_46968617Direction;
+lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_46968617Penumbra, DirectionalLight_46968617ShadowSteps);
 }
 	return lightValue;
 }

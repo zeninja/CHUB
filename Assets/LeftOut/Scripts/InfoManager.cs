@@ -50,8 +50,12 @@ public class InfoManager : MonoBehaviour
         public float hallHeight;
         public Vector3 baseHallDimensions;   // This is the dimensions of the hallway (a complete hallway = hall + 2 corners)
                                              // It gets subtracted from the "marble" of the labyrinth to make the halls
-        public float distToHall_frwd;
-        public float distToHall_hztl;
+
+                                             
+        // public float distToHall_frwd;
+        // public float distToHall_hztl;
+
+
     }
 
     public List<Vector3> orthographicPts = new List<Vector3>();
@@ -118,8 +122,8 @@ public class InfoManager : MonoBehaviour
 
         voidWorld.baseHallDimensions = new Vector3(x, y, z);
 
-        voidWorld.distToHall_frwd = realWorld.hallLength + realWorld.hallWidth / 2;
-        voidWorld.distToHall_hztl = realWorld.hallLength + realWorld.hallWidth / 2;
+        // voidWorld.distToHall_frwd = realWorld.hallLength + realWorld.hallWidth / 2;
+        // voidWorld.distToHall_hztl = realWorld.hallLength + realWorld.hallWidth / 2;
     }
 
     void SetHallDimensions()
