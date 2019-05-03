@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ddfcdc3a6377940ac24c74661137f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dilationType: 0
+  dilationType: 6
   curve:
     serializedVersion: 2
     m_Curve:
@@ -278,7 +278,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3286553742817224922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

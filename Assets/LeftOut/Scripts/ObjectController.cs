@@ -31,12 +31,17 @@ public class ObjectController : MonoBehaviour {
 
     void Start () {
         obj = GetComponent<RaymarchObject> ();
+
+        randomStart = Random.Range(0, 1);
     }
+
+    float randomStart;
 
     void Update () {
 
         if (autoOscillate) {
-            percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
+            // percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
+            percent = Mathf.PerlinNoise(Time.time, randomStart);
         }
 
         if(sliderIndex != SliderIndex.none) {
