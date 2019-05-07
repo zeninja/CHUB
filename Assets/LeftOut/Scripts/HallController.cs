@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HallController : MonoBehaviour
 {
-    public enum DilationType { length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight, all };
+    public enum DilationType { none, length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight, all };
     public DilationType dilationType = DilationType.length;
     public AnimationCurve curve;
 
@@ -45,6 +45,9 @@ public class HallController : MonoBehaviour
                 break;
             case DilationType.all:
                 HallDilator.GetInstance().SetDilation(true, true, true);
+                break;
+            case DilationType.none:
+                HallDilator.GetInstance().SetDilation(false, false, false);
                 break;
         }
     }
