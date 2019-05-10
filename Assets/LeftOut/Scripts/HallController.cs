@@ -4,24 +4,12 @@ using UnityEngine;
 
 public class HallController : MonoBehaviour
 {
-    public enum DilationType { length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight, all };
+    public enum DilationType { none, length, width, height, lengthAndWidth, lengthAndHeight, widthAndHeight, all };
     public DilationType dilationType = DilationType.length;
     public AnimationCurve curve;
 
-    // void OnEnable()
-    // {
-    //     GiantSlider.OnValueChanged += OnValueChanged;
-    // }
-
-    // void OnDisable()
-    // {
-    //     GiantSlider.OnValueChanged -= OnValueChanged;
-    // }
-
     public void SetDilationType()
     {
-        // if(isActive) { return; }    // only change type if not currently being used
-
         switch (dilationType)
         {
             // width, height, length
@@ -46,11 +34,9 @@ public class HallController : MonoBehaviour
             case DilationType.all:
                 HallDilator.GetInstance().SetDilation(true, true, true);
                 break;
+            case DilationType.none:
+                HallDilator.GetInstance().SetDilation(false, false, false);
+                break;
         }
     }
-
-    // void OnValueChanged() {
-        
-    //     Debug.Log("Slider value changed");
-    // }
 }

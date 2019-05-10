@@ -1263,12 +1263,12 @@ float fersertWaves(float3 p, float height) {
 // no light uniforms in scene
 
 // UNIFORMS AND FUNCTIONS
-uniform float x_49709331_d6b53711_x;
-uniform float x_49709331_d6b53711_y;
-uniform float x_49709331_d6b53711_z;
-uniform float3 x_49709331_d6b53711_separation;
-uniform float3 x_49709331_d6b53711_noisedisplacement;
-uniform sampler2D x_49709331_d6b53711_noisetex;
+uniform float x_48791506_d6b53711_x;
+uniform float x_48791506_d6b53711_y;
+uniform float x_48791506_d6b53711_z;
+uniform float3 x_48791506_d6b53711_separation;
+uniform float3 x_48791506_d6b53711_noisedisplacement;
+uniform sampler2D x_48791506_d6b53711_noisetex;
 float3 modifier_Repeat(float3 p , float _INP_x, float _INP_y, float _INP_z, float3 _INP_separation, float3 _INP_noisedisplacement, sampler2D _INP_noisetex) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Modifiers/Repeat.asset
     float3 repeat = _INP_separation;
@@ -1287,15 +1287,15 @@ float3 modifier_Repeat(float3 p , float _INP_x, float _INP_y, float _INP_z, floa
     
     return result;
 }
-uniform float4x4 _49709331Matrix;
-uniform float4x4 _49709331InverseMatrix;
-uniform float x_49709362_6492bb9b_radius;
+uniform float4x4 _48791506Matrix;
+uniform float4x4 _48791506InverseMatrix;
+uniform float x_48791537_6492bb9b_radius;
 float object_Sphere(float3 p , float _INP_radius) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Sphere.asset
     return length(p) - _INP_radius;
 }
-uniform float x_49688402_399aefe0_radius;
-uniform float x_49688402_399aefe0_height;
+uniform float x_48790737_399aefe0_radius;
+uniform float x_48790737_399aefe0_height;
 float object_Cylinder(float3 p , float _INP_radius, float _INP_height) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Cylinder.asset
     float2 d = abs(float2(length(p.xz),p.y)) - float2(_INP_radius, _INP_height);
@@ -1305,8 +1305,8 @@ float object_Cylinder(float3 p , float _INP_radius, float _INP_height) {
     // Copyright © 2013 Inigo Quilez
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }
-uniform float x_49688400_b845704d_height;
-uniform float x_49688400_b845704d_radius;
+uniform float x_48790735_b845704d_height;
+uniform float x_48790735_b845704d_radius;
 float object_Cone(float3 p , float _INP_height, float _INP_radius) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Cone.asset
     float2 q = float2( length(p.xz), p.y );
@@ -1319,22 +1319,22 @@ float object_Cone(float3 p , float _INP_height, float _INP_radius) {
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }
 // uniforms for Sphere
-uniform float4x4 _49709362Matrix;
-uniform float _49709362MinScale;
+uniform float4x4 _48791537Matrix;
+uniform float _48791537MinScale;
 // uniforms for Cylinder
-uniform float4x4 _49688402Matrix;
-uniform float _49688402MinScale;
+uniform float4x4 _48790737Matrix;
+uniform float _48790737MinScale;
 // uniforms for Cone
-uniform float4x4 _49688400Matrix;
-uniform float _49688400MinScale;
+uniform float4x4 _48790735Matrix;
+uniform float _48790735MinScale;
 float2 blend_Intersection(float2 a, float2 b /*, [object params] */) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Blends/Intersection.asset
     return max(a, b);
     
 }
-uniform float4 x_49709362_da843a44_color;
-uniform float4 x_49688402_da843a44_color;
-uniform float4 x_49688400_da843a44_color;
+uniform float4 x_48791537_da843a44_color;
+uniform float4 x_48790737_da843a44_color;
+uniform float4 x_48790735_da843a44_color;
 float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4 _INP_color) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Materials/SimpleColor.asset
     return _INP_color;
@@ -1344,15 +1344,15 @@ float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out 
     objectID = ceil(nf) / (float)3;
     [branch] if (nf <= 1) {
     //    objectID = 0.3333333;
-        return material_SimpleColor(normal, objPos(_49709362Matrix, p), rayDir, x_49709362_da843a44_color);
+        return material_SimpleColor(normal, objPos(_48791537Matrix, p), rayDir, x_48791537_da843a44_color);
     }
     else if(nf <= 2) {
     //    objectID = 0.6666667;
-        return material_SimpleColor(normal, objPos(_49688402Matrix, p), rayDir, x_49688402_da843a44_color);
+        return material_SimpleColor(normal, objPos(_48790737Matrix, p), rayDir, x_48790737_da843a44_color);
     }
     else if(nf <= 3) {
     //    objectID = 1;
-        return material_SimpleColor(normal, objPos(_49688400Matrix, p), rayDir, x_49688400_da843a44_color);
+        return material_SimpleColor(normal, objPos(_48790735Matrix, p), rayDir, x_48790735_da843a44_color);
     }
         objectID = 0;
         return float3(1.0, 0.0, 1.0);
@@ -1364,11 +1364,11 @@ float2 map(float3 p) {
 	float2 result = float2(1.0, 0.0);
 	
 {
-    float _49709362Distance = object_Sphere(objPos(_49709362Matrix, p), x_49709362_6492bb9b_radius) * _49709362MinScale;
-    float3 p_49709331 = objPos(_49709331InverseMatrix, modifier_Repeat(objPos(_49709331Matrix, p), x_49709331_d6b53711_x, x_49709331_d6b53711_y, x_49709331_d6b53711_z, x_49709331_d6b53711_separation, x_49709331_d6b53711_noisedisplacement, x_49709331_d6b53711_noisetex));
-    float _49688402Distance = object_Cylinder(objPos(_49688402Matrix, p_49709331), x_49688402_399aefe0_radius, x_49688402_399aefe0_height) * _49688402MinScale;
-    float _49688400Distance = object_Cone(objPos(_49688400Matrix, p_49709331), x_49688400_b845704d_height, x_49688400_b845704d_radius) * _49688400MinScale;
-    result = blend_Intersection(float2(_49709362Distance, /*material ID*/0.5), opU(float2(_49688402Distance, /*material ID*/1.5), float2(_49688400Distance, /*material ID*/2.5)));
+    float _48791537Distance = object_Sphere(objPos(_48791537Matrix, p), x_48791537_6492bb9b_radius) * _48791537MinScale;
+    float3 p_48791506 = objPos(_48791506InverseMatrix, modifier_Repeat(objPos(_48791506Matrix, p), x_48791506_d6b53711_x, x_48791506_d6b53711_y, x_48791506_d6b53711_z, x_48791506_d6b53711_separation, x_48791506_d6b53711_noisedisplacement, x_48791506_d6b53711_noisetex));
+    float _48790737Distance = object_Cylinder(objPos(_48790737Matrix, p_48791506), x_48790737_399aefe0_radius, x_48790737_399aefe0_height) * _48790737MinScale;
+    float _48790735Distance = object_Cone(objPos(_48790735Matrix, p_48791506), x_48790735_b845704d_height, x_48790735_b845704d_radius) * _48790735MinScale;
+    result = blend_Intersection(float2(_48791537Distance, /*material ID*/0.5), opU(float2(_48790737Distance, /*material ID*/1.5), float2(_48790735Distance, /*material ID*/2.5)));
     }
 	return result;
 }

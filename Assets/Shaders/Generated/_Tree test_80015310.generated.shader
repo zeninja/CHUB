@@ -1261,25 +1261,15 @@ float fersertWaves(float3 p, float height) {
 }
 
 // Light Directional Light
-uniform float4 DirectionalLight_46968617PosAndRange;
-uniform float4 DirectionalLight_46968617ColorAndIntensity;
-uniform float3 DirectionalLight_46968617Direction;
-uniform float DirectionalLight_46968617Penumbra;
-uniform int DirectionalLight_46968617ShadowSteps;
+uniform float4 DirectionalLight_48790611PosAndRange;
+uniform float4 DirectionalLight_48790611ColorAndIntensity;
+uniform float3 DirectionalLight_48790611Direction;
+uniform float DirectionalLight_48790611Penumbra;
+uniform int DirectionalLight_48790611ShadowSteps;
 
 // UNIFORMS AND FUNCTIONS
-uniform float x_46968613_1d59cc68_freq;
-uniform float x_46968613_1d59cc68_intensity;
-uniform float x_46968613_1d59cc68_speed;
-float3 modifier_Displacement(float3 p , float _INP_freq, float _INP_intensity, float _INP_speed) {
-    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Modifiers/Displacement.asset
-    float timeOffset = _Time.z * _INP_speed;
-    return p + sin(_INP_freq*p.x + timeOffset)*sin(_INP_freq*p.y + timeOffset)*sin(_INP_freq*p.z + timeOffset)*_INP_intensity;
-}
-uniform float4x4 _46968613Matrix;
-uniform float4x4 _46968613InverseMatrix;
-uniform float x_46968590_399aefe0_radius;
-uniform float x_46968590_399aefe0_height;
+uniform float x_48790580_399aefe0_radius;
+uniform float x_48790580_399aefe0_height;
 float object_Cylinder(float3 p , float _INP_radius, float _INP_height) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Cylinder.asset
     float2 d = abs(float2(length(p.xz),p.y)) - float2(_INP_radius, _INP_height);
@@ -1289,8 +1279,8 @@ float object_Cylinder(float3 p , float _INP_radius, float _INP_height) {
     // Copyright © 2013 Inigo Quilez
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }
-uniform float x_46968588_b845704d_height;
-uniform float x_46968588_b845704d_radius;
+uniform float x_48790578_b845704d_height;
+uniform float x_48790578_b845704d_radius;
 float object_Cone(float3 p , float _INP_height, float _INP_radius) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Cone.asset
     float2 q = float2( length(p.xz), p.y );
@@ -1303,13 +1293,13 @@ float object_Cone(float3 p , float _INP_height, float _INP_radius) {
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 }
 // uniforms for Cylinder
-uniform float4x4 _46968590Matrix;
-uniform float _46968590MinScale;
+uniform float4x4 _48790580Matrix;
+uniform float _48790580MinScale;
 // uniforms for Cone
-uniform float4x4 _46968588Matrix;
-uniform float _46968588MinScale;
-uniform float4 x_46968590_da843a44_color;
-uniform float4 x_46968588_da843a44_color;
+uniform float4x4 _48790578Matrix;
+uniform float _48790578MinScale;
+uniform float4 x_48790580_da843a44_color;
+uniform float4 x_48790578_da843a44_color;
 float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4 _INP_color) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Materials/SimpleColor.asset
     return _INP_color;
@@ -1319,11 +1309,11 @@ float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out 
     objectID = ceil(nf) / (float)2;
     [branch] if (nf <= 1) {
     //    objectID = 0.5;
-        return material_SimpleColor(normal, objPos(_46968590Matrix, p), rayDir, x_46968590_da843a44_color);
+        return material_SimpleColor(normal, objPos(_48790580Matrix, p), rayDir, x_48790580_da843a44_color);
     }
     else if(nf <= 2) {
     //    objectID = 1;
-        return material_SimpleColor(normal, objPos(_46968588Matrix, p), rayDir, x_46968588_da843a44_color);
+        return material_SimpleColor(normal, objPos(_48790578Matrix, p), rayDir, x_48790578_da843a44_color);
     }
         objectID = 0;
         return float3(1.0, 0.0, 1.0);
@@ -1335,10 +1325,9 @@ float2 map(float3 p) {
 	float2 result = float2(1.0, 0.0);
 	
 {
-    float3 p_46968613 = objPos(_46968613InverseMatrix, modifier_Displacement(objPos(_46968613Matrix, p), x_46968613_1d59cc68_freq, x_46968613_1d59cc68_intensity, x_46968613_1d59cc68_speed));
-    float _46968590Distance = object_Cylinder(objPos(_46968590Matrix, p_46968613), x_46968590_399aefe0_radius, x_46968590_399aefe0_height) * _46968590MinScale;
-    float _46968588Distance = object_Cone(objPos(_46968588Matrix, p_46968613), x_46968588_b845704d_height, x_46968588_b845704d_radius) * _46968588MinScale;
-    result = opU(float2(_46968590Distance, /*material ID*/0.5), float2(_46968588Distance, /*material ID*/1.5));
+    float _48790580Distance = object_Cylinder(objPos(_48790580Matrix, p), x_48790580_399aefe0_radius, x_48790580_399aefe0_height) * _48790580MinScale;
+    float _48790578Distance = object_Cone(objPos(_48790578Matrix, p), x_48790578_b845704d_height, x_48790578_b845704d_radius) * _48790578MinScale;
+    result = opU(float2(_48790580Distance, /*material ID*/0.5), float2(_48790578Distance, /*material ID*/1.5));
     }
 	return result;
 }
@@ -1353,10 +1342,10 @@ float3 getLights(in float3 color, in float3 pos, in float3 normal) {
 	
 {
 LightInfo light;
-light.posAndRange = DirectionalLight_46968617PosAndRange;
-light.colorAndIntensity = DirectionalLight_46968617ColorAndIntensity;
-light.direction = DirectionalLight_46968617Direction;
-lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_46968617Penumbra, DirectionalLight_46968617ShadowSteps);
+light.posAndRange = DirectionalLight_48790611PosAndRange;
+light.colorAndIntensity = DirectionalLight_48790611ColorAndIntensity;
+light.direction = DirectionalLight_48790611Direction;
+lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_48790611Penumbra, DirectionalLight_48790611ShadowSteps);
 }
 	return lightValue;
 }
