@@ -32,7 +32,9 @@ public class HallDilator : MonoBehaviour
     void Start()
     {
         FindLabyrinthMarbleAndHalls();
-        // DilateHalls();
+        // init values by "dilating halls"
+        // they dont actually dilate bc the values are 0
+        DilateHalls();
     }
 
     void FindLabyrinthMarbleAndHalls() {
@@ -49,13 +51,13 @@ public class HallDilator : MonoBehaviour
     [SerializeField]
     public Vector3[] dilatedDimensions = new Vector3[4];
 
-    Vector3 AdjustHeightPos(int i)
-    {
-        float dilatehdHeight = dilatedDimensions[i].y;
+    // Vector3 AdjustHeightPos(int i)
+    // {
+    //     float dilatehdHeight = dilatedDimensions[i].y;
 
-        Vector3 adjustedPos = new Vector3(0, dilatehdHeight / 2, 0);
-        return adjustedPos;
-    }
+    //     Vector3 adjustedPos = new Vector3(0, dilatehdHeight / 2, 0);
+    //     return adjustedPos;
+    // }
 
     public void SetDilation(bool w, bool h, bool l)
     {
@@ -95,9 +97,11 @@ public class HallDilator : MonoBehaviour
     {
         List<float> dilatedHeights = new List<float>();
 
+        float startHallWidth  = InfoManager.GetInstance().voidWorld.hallWidth;
         float startHallLength = InfoManager.GetInstance().voidWorld.hallLength;
         float startHallHeight = InfoManager.GetInstance().voidWorld.hallHeight;
-        float startHallWidth  = InfoManager.GetInstance().voidWorld.hallWidth;
+
+        Debug.Log("Starthall height:" + startHallHeight);
 
         float dilatedWidth  = startHallWidth;
         float dilatedLength = startHallLength;
@@ -219,7 +223,7 @@ public class HallDilator : MonoBehaviour
                 centers[i].transform.position = norm * (innerWall + dilation);
 
                 if(i == 0) {
-                    Debug.Log(innerWall + "\n" + norm + "\n" + dilation);
+                    // Debug.Log(innerWall + "\n" + norm + "\n" + dilation);
                 }
             }
 

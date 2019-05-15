@@ -14,6 +14,10 @@ public class GiantSlider : MonoBehaviour {
     public delegate void ValueChange ();
     public static event ValueChange OnValueChanged;
 
+
+    public enum SliderState { prep, active, completed };
+    public SliderState state = SliderState.prep;
+
     void Start () {
         start = transform.Find ("start");
         end = transform.Find ("end");
@@ -44,11 +48,6 @@ public class GiantSlider : MonoBehaviour {
         knob.GetComponent<KnobController> ().target = target;
     }
 
-    public void TryReleaseTarget () {
-        // only release the target if the player goes into a new hallway, not back into the current hallway (as indicated by isActive)
-        if (isActive) { return; }
-        knob.GetComponent<KnobController> ().target = null;
-    }
 
     HallController hallController;
 
@@ -100,12 +99,16 @@ public class GiantSlider : MonoBehaviour {
         }
     }
 
+    void ReleaseTarget() {
+        knob.GetComponent<KnobController> ().target = null;
+    }
+
     // ------------------------------------------
 
     // Start corner
     public void HandleStartEntered () {
+        
         ResetIfNotActive ();
-
         AudioManager.instance.HandleSliderEntered ();
     }
 
@@ -123,7 +126,8 @@ public class GiantSlider : MonoBehaviour {
     }
 
     public void HandleSliderExited () {
-        TryReleaseTarget ();
+        // TryReleaseTarget ();
+        ReleaseTarget();
         RoundValue ();
 
     }
@@ -132,6 +136,7 @@ public class GiantSlider : MonoBehaviour {
     public void HandleExitEntered () {
         if (isActive) {
             AudioManager.instance.Play ("HallCompleted");
+            RevolutionController.GetInstance().HandleSliderCompleted(this);
         }
 
         isActive = false;
@@ -140,5 +145,18 @@ public class GiantSlider : MonoBehaviour {
 
     public void HandleExitExited () {
 
+    }
+
+
+    // -----------------------------------------------------------------------------
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = isActive ? Color.green : Color.red;
+        // Gizmos.DrawWireSphere(transform.position, .25f);
+
+        if(isActive) {
+            Gizmos.DrawWireCube(transform.position, transform.localScale * 2);
+        }
     }
 }

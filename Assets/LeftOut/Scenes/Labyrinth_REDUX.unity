@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -124,6 +124,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallController2
       objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -222,7 +228,7 @@ PrefabInstance:
     - target: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: dilationType
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
@@ -1279,6 +1285,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallController4
       objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1377,7 +1389,7 @@ PrefabInstance:
     - target: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: dilationType
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
@@ -1775,6 +1787,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallController3
       objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1878,7 +1896,7 @@ PrefabInstance:
     - target: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: dilationType
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
@@ -2360,13 +2378,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 926391422}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a72847f0930a1848aeb3e81061e3025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   labyrinthMarble: {fileID: 0}
-  dilationAmount: 42.74
+  dilationAmount: 10
   dilateLength: 0
   dilateHeight: 0
   dilateWidth: 0
@@ -2631,7 +2649,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46857048
+  _savedGUID: 46882036
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -2703,7 +2721,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: y
       valueType: 0
-      floatValue: 1
+      floatValue: 2
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -2900,7 +2918,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2146405385
+    lastHash: -2145939896
 --- !u!4 &931708095
 Transform:
   m_ObjectHideFlags: 0
@@ -2909,7 +2927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931708093}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 1.5}
+  m_LocalPosition: {x: 0, y: 1, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1329228119}
@@ -2968,9 +2986,9 @@ MonoBehaviour:
     hallDimensions: {x: 0, y: 0, z: 0}
     cornerDimensions: {x: 0, y: 0, z: 0}
   voidWorld:
-    hallLength: 0
-    hallWidth: 0
-    hallHeight: 0
+    hallLength: 1
+    hallWidth: 2
+    hallHeight: 2
     baseHallDimensions: {x: 0, y: 0, z: 0}
   orthographicPts: []
   cornerPts: []
@@ -2988,6 +3006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ebd82d7bf5e35a469b8ea7ef222b03b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStage: 
 --- !u!114 &986541328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3351,7 +3370,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46857143
+  _savedGUID: 46882131
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -3630,7 +3649,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46857238
+  _savedGUID: 46882247
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -3702,7 +3721,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: y
       valueType: 0
-      floatValue: 1
+      floatValue: 2
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -3899,7 +3918,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2146407276
+    lastHash: -2145937942
 --- !u!4 &1343506736
 Transform:
   m_ObjectHideFlags: 0
@@ -3908,7 +3927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343506734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1329228119}
@@ -4134,7 +4153,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46857982
+  _savedGUID: 46882991
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -4206,7 +4225,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: y
       valueType: 0
-      floatValue: 1
+      floatValue: 2
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -4403,7 +4422,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2146414152
+    lastHash: -2145931066
 --- !u!4 &1576611520
 Transform:
   m_ObjectHideFlags: 0
@@ -4412,7 +4431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576611518}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -1.5}
+  m_LocalPosition: {x: 0, y: 1, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1329228119}
@@ -4530,11 +4549,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46858038
+  _savedGUID: 46883026
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -582378395
+    lastHash: -579756820
 --- !u!1 &1656285617
 GameObject:
   m_ObjectHideFlags: 0
@@ -4551,7 +4570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1656285618
 Transform:
   m_ObjectHideFlags: 0
@@ -4578,7 +4597,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46858044
+  _savedGUID: 49743181
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -4847,7 +4866,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2146435172
+    lastHash: 484305192
 --- !u!1 &1664125328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4953,13 +4972,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671695057}
-  m_LocalRotation: {x: 0.21718645, y: -0, z: -0, w: 0.9761302}
-  m_LocalPosition: {x: 0, y: 26.17, z: -28.83}
+  m_LocalRotation: {x: 0.4877573, y: -0, z: -0, w: 0.8729793}
+  m_LocalPosition: {x: 0, y: 32.1, z: -10.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 25.088001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.387, y: 0, z: 0}
 --- !u!1 &1914559306
 GameObject:
   m_ObjectHideFlags: 0
@@ -4989,7 +5008,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46858102
+  _savedGUID: 46883090
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -5061,7 +5080,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: y
       valueType: 0
-      floatValue: 1
+      floatValue: 2
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -5258,7 +5277,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2146436007
+    lastHash: -2145909925
 --- !u!4 &1914559308
 Transform:
   m_ObjectHideFlags: 0
@@ -5267,7 +5286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914559306}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalPosition: {x: 1.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1329228119}
@@ -5303,6 +5322,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1956478242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3093274414906071831}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1956478243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956478242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8736e8f5f944fdcbf4130e2b1f38d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1970934715
 GameObject:
   m_ObjectHideFlags: 0
@@ -5332,7 +5369,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46858133
+  _savedGUID: 46883146
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -5601,7 +5638,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2146436101
+    lastHash: -2145909113
 --- !u!4 &1970934717
 Transform:
   m_ObjectHideFlags: 0
@@ -6461,10 +6498,9 @@ MonoBehaviour:
   - {fileID: 931708094}
   - {fileID: 1914559307}
   - {fileID: 1576611519}
-  - {fileID: 1656285619}
   - {fileID: 1970934716}
   - {fileID: 1153592236}
-  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_Labyrinth_REDUX_3087230072.generated.shader
+  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated/_Labyrinth_REDUX_3087230072.generated.shader
   _lastShader: {fileID: 4800000, guid: a83b3f78c323487478c96ce7ba2f7b8b, type: 3}
   Steps: 160
   AmbientColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
@@ -6554,11 +6590,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46858261
+  _savedGUID: 46883925
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -1717612156
+    lastHash: -1714983941
 --- !u!108 &2118071918
 Light:
   m_ObjectHideFlags: 0
@@ -6655,7 +6691,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3093274414906071831}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1956478242}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3fb9d4f0eadd204fa7ff7ce087acdb2, type: 3}
@@ -6679,6 +6715,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: HallController1
       objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000,
+        type: 0}
     - target: {fileID: 3286553741694136971, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6734,5 +6776,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: dilationType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093274414987369745, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}

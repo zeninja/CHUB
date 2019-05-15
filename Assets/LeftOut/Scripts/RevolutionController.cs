@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RevolutionController : MonoBehaviour
 {
-    private RevolutionController instance;
-    public  RevolutionController GetInstance() {
+    private static RevolutionController instance;
+    public static RevolutionController GetInstance() {
         return instance;
     }
 
@@ -19,12 +19,12 @@ public class RevolutionController : MonoBehaviour
         }
     }
 
-    int world = 1;
-    int level = 1;
+    public static int world = 1;
+    public static int level = 1;
 
-    string currentStage;
+    public static string currentStage;
 
-    int lastTriggeredSlider;
+    int lastTriggeredSlider = -1;
 
     void Start() {
         SetCurrentStage();
@@ -40,7 +40,8 @@ public class RevolutionController : MonoBehaviour
 
         if(level > 4) {
             world++;
-            level = 0;
+            level = 1;
+            lastTriggeredSlider = 0;
         }
 
         SetCurrentStage();
@@ -60,5 +61,9 @@ public class RevolutionController : MonoBehaviour
 
     void SetCurrentStage() {
         currentStage = world + "-" + level;
+    }
+
+    void OnGUI() {
+        GUI.Label(new Rect(0, 0, 100, 100), currentStage);
     }
 }
