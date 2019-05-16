@@ -40,8 +40,8 @@ public class HallDilator : MonoBehaviour
     void FindLabyrinthMarbleAndHalls() {
         labyrinthMarble = GameObject.FindGameObjectWithTag("Marble").GetComponent<RaymarchObject>();
         dilatedHalls    = HallLocator.GetInstance().halls;
-        sliders         = SliderInfo.GetInstance().sliders;
-        hallControllers = SliderInfo.GetInstance().GetComponentsInChildren<HallController>();
+        sliders         = MetaSlider.GetInstance().sliders;
+        hallControllers = MetaSlider.GetInstance().GetComponentsInChildren<HallController>();
     }
 
     public bool dilateLength;

@@ -45,7 +45,7 @@ public class ObjectController : MonoBehaviour {
         }
 
         if(sliderIndex != SliderIndex.none) {
-            percent = SliderInfo.GetInstance().GetSlider((int)sliderIndex);
+            percent = MetaSlider.GetInstance().GetSliderValue((int)sliderIndex);
         }
 
         float x = GetFloatValue (xCurve, xRange);

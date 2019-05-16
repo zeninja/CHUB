@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GiantSlider : MonoBehaviour {
-    BoxCollider box;
+
+    public SliderState state = SliderState.prep;
+    public enum SliderState { prep, active, completed }
+
+    // BoxCollider box;
 
     [Range (0, 1)] public float percent;
     Transform start, end, knob;
@@ -14,15 +18,16 @@ public class GiantSlider : MonoBehaviour {
     public delegate void ValueChange ();
     public static event ValueChange OnValueChanged;
 
+    public delegate void BackslideEvent (float p);
+    public static event BackslideEvent OnBackslide;
 
-    public enum SliderState { prep, active, completed };
-    public SliderState state = SliderState.prep;
+    public bool canBackslide = false;
 
     void Start () {
         start = transform.Find ("start");
         end = transform.Find ("end");
         knob = transform.Find ("knob");
-        box = GetComponent<BoxCollider> ();
+        // box = GetComponent<BoxCollider> ();
 
         hallController = GetComponent<HallController> ();
 
@@ -48,11 +53,10 @@ public class GiantSlider : MonoBehaviour {
         knob.GetComponent<KnobController> ().target = target;
     }
 
-
     HallController hallController;
 
     void OnTriggerEnter (Collider other) {
-        Debug.Log ("HIT");
+        // Debug.Log ("Slider entered");
         if (other.CompareTag ("Player")) {
             HandleSliderEntered (other.transform);
         }
@@ -74,18 +78,38 @@ public class GiantSlider : MonoBehaviour {
         knob.transform.position = start.transform.position;
     }
 
+    float maxPercent;
     float lastPercent;
 
     void GetPercentByKnob () {
         percent = Extensions.mapRange (start.localPosition.z, end.localPosition.z, 0, 1, knob.localPosition.z);
 
-        if (lastPercent != percent) {
-            // EventManager.TriggerEvent ("OnValueChanged");
+        // nothing has changed
+        if (lastPercent == percent) { return; }
 
+        if (percent > lastPercent) {
+            // forward progress is always allowed
+            maxPercent = percent;
             if (OnValueChanged != null) {
                 OnValueChanged ();
             }
-        }
+        } else // trying to back up
+            if (percent < lastPercent) {
+
+                if (canBackslide) {
+
+                    // backing up allowed
+                    if (OnValueChanged != null) {
+                        OnValueChanged ();
+                    }
+                } else {
+
+                    // no backing up allowed
+                    if (OnBackslide != null) {
+                        OnBackslide (maxPercent - percent);
+                    }
+                }
+            }
 
         lastPercent = percent;
     }
@@ -99,7 +123,7 @@ public class GiantSlider : MonoBehaviour {
         }
     }
 
-    void ReleaseTarget() {
+    void ReleaseTarget () {
         knob.GetComponent<KnobController> ().target = null;
     }
 
@@ -107,7 +131,7 @@ public class GiantSlider : MonoBehaviour {
 
     // Start corner
     public void HandleStartEntered () {
-        
+
         ResetIfNotActive ();
         AudioManager.instance.HandleSliderEntered ();
     }
@@ -127,7 +151,7 @@ public class GiantSlider : MonoBehaviour {
 
     public void HandleSliderExited () {
         // TryReleaseTarget ();
-        ReleaseTarget();
+        ReleaseTarget ();
         RoundValue ();
 
     }
@@ -136,7 +160,7 @@ public class GiantSlider : MonoBehaviour {
     public void HandleExitEntered () {
         if (isActive) {
             AudioManager.instance.Play ("HallCompleted");
-            RevolutionController.GetInstance().HandleSliderCompleted(this);
+            MetaSlider.GetInstance ().HandleSliderCompleted (this);
         }
 
         isActive = false;
@@ -147,16 +171,15 @@ public class GiantSlider : MonoBehaviour {
 
     }
 
-
     // -----------------------------------------------------------------------------
 
-    void OnDrawGizmos()
-    {
+    void OnDrawGizmos () {
         Gizmos.color = isActive ? Color.green : Color.red;
         // Gizmos.DrawWireSphere(transform.position, .25f);
 
-        if(isActive) {
-            Gizmos.DrawWireCube(transform.position, transform.localScale * 2);
-        }
+        // if(isActive) {
+        //     Gizmos.DrawWireCube(transform.position, transform.localScale * 2);
+        // }
     }
+
 }

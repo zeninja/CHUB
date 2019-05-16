@@ -51,7 +51,7 @@ public class RevolutionController : MonoBehaviour
 
     int GetSliderIndex(GiantSlider slider) {
         for(int i = 0; i < 4; i++) {
-            if (slider == SliderInfo.GetInstance().sliders[i]) {
+            if (slider == MetaSlider.GetInstance().sliders[i]) {
                 return i;
             }
         }
