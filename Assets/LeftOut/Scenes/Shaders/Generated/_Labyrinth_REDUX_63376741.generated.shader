@@ -1261,31 +1261,31 @@ float fersertWaves(float3 p, float height) {
 }
 
 // Light Directional Light
-uniform float4 DirectionalLight_46886903PosAndRange;
-uniform float4 DirectionalLight_46886903ColorAndIntensity;
-uniform float3 DirectionalLight_46886903Direction;
-uniform float DirectionalLight_46886903Penumbra;
-uniform int DirectionalLight_46886903ShadowSteps;
+uniform float4 DirectionalLight_46884177PosAndRange;
+uniform float4 DirectionalLight_46884177ColorAndIntensity;
+uniform float3 DirectionalLight_46884177Direction;
+uniform float DirectionalLight_46884177Penumbra;
+uniform int DirectionalLight_46884177ShadowSteps;
 // Light Directional Light (1)
-uniform float4 DirectionalLight1_46887800PosAndRange;
-uniform float4 DirectionalLight1_46887800ColorAndIntensity;
-uniform float3 DirectionalLight1_46887800Direction;
-uniform float DirectionalLight1_46887800Penumbra;
-uniform int DirectionalLight1_46887800ShadowSteps;
+uniform float4 DirectionalLight1_46885099PosAndRange;
+uniform float4 DirectionalLight1_46885099ColorAndIntensity;
+uniform float3 DirectionalLight1_46885099Direction;
+uniform float DirectionalLight1_46885099Penumbra;
+uniform int DirectionalLight1_46885099ShadowSteps;
 
 // UNIFORMS AND FUNCTIONS
-uniform float x_46885101_ce8993a9_x;
-uniform float x_46885101_ce8993a9_y;
-uniform float x_46885101_ce8993a9_z;
-uniform float x_46885849_ce8993a9_x;
-uniform float x_46885849_ce8993a9_y;
-uniform float x_46885849_ce8993a9_z;
-uniform float x_46886998_ce8993a9_x;
-uniform float x_46886998_ce8993a9_y;
-uniform float x_46886998_ce8993a9_z;
-uniform float x_3628832214_ce8993a9_x;
-uniform float x_3628832214_ce8993a9_y;
-uniform float x_3628832214_ce8993a9_z;
+uniform float x_46883092_ce8993a9_x;
+uniform float x_46883092_ce8993a9_y;
+uniform float x_46883092_ce8993a9_z;
+uniform float x_46884948_ce8993a9_x;
+uniform float x_46884948_ce8993a9_y;
+uniform float x_46884948_ce8993a9_z;
+uniform float x_46882995_ce8993a9_x;
+uniform float x_46882995_ce8993a9_y;
+uniform float x_46882995_ce8993a9_z;
+uniform float x_46884014_ce8993a9_x;
+uniform float x_46884014_ce8993a9_y;
+uniform float x_46884014_ce8993a9_z;
 float object_Box(float3 p , float _INP_x, float _INP_y, float _INP_z) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Objects/Box.asset
     float3 d = abs(p)-float3(_INP_x,_INP_y,_INP_z);
@@ -1297,26 +1297,26 @@ float object_Box(float3 p , float _INP_x, float _INP_y, float _INP_z) {
     // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     
 }
-// uniforms for InnerWall
-uniform float4x4 _46885101Matrix;
-uniform float _46885101MinScale;
 // uniforms for VOID
-uniform float4x4 _46885849Matrix;
-uniform float _46885849MinScale;
+uniform float4x4 _46883092Matrix;
+uniform float _46883092MinScale;
 // uniforms for MARBLE
-uniform float4x4 _46886998Matrix;
-uniform float _46886998MinScale;
+uniform float4x4 _46884948Matrix;
+uniform float _46884948MinScale;
+// uniforms for InnerWall
+uniform float4x4 _46882995Matrix;
+uniform float _46882995MinScale;
 // uniforms for FLOOR
-uniform float4x4 _3628832214Matrix;
-uniform float _3628832214MinScale;
+uniform float4x4 _46884014Matrix;
+uniform float _46884014MinScale;
 float2 blend_Subtract(float2 a, float2 b /*, [object params] */) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Blends/Subtract.asset
     return float2(max(-a.x, b.x), b.y);
 }
-uniform float4 x_46885101_da843a44_color;
-uniform float4 x_46885849_da843a44_color;
-uniform float4 x_46886998_da843a44_color;
-uniform float4 x_3628832214_da843a44_color;
+uniform float4 x_46883092_da843a44_color;
+uniform float4 x_46884948_da843a44_color;
+uniform float4 x_46882995_da843a44_color;
+uniform float4 x_46884014_da843a44_color;
 float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4 _INP_color) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Materials/SimpleColor.asset
     return _INP_color;
@@ -1326,19 +1326,19 @@ float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out 
     objectID = ceil(nf) / (float)4;
     [branch] if (nf <= 1) {
     //    objectID = 0.25;
-        return material_SimpleColor(normal, objPos(_46885101Matrix, p), rayDir, x_46885101_da843a44_color);
+        return material_SimpleColor(normal, objPos(_46883092Matrix, p), rayDir, x_46883092_da843a44_color);
     }
     else if(nf <= 2) {
     //    objectID = 0.5;
-        return material_SimpleColor(normal, objPos(_46885849Matrix, p), rayDir, x_46885849_da843a44_color);
+        return material_SimpleColor(normal, objPos(_46884948Matrix, p), rayDir, x_46884948_da843a44_color);
     }
     else if(nf <= 3) {
     //    objectID = 0.75;
-        return material_SimpleColor(normal, objPos(_46886998Matrix, p), rayDir, x_46886998_da843a44_color);
+        return material_SimpleColor(normal, objPos(_46882995Matrix, p), rayDir, x_46882995_da843a44_color);
     }
     else if(nf <= 4) {
     //    objectID = 1;
-        return material_SimpleColor(normal, objPos(_3628832214Matrix, p), rayDir, x_3628832214_da843a44_color);
+        return material_SimpleColor(normal, objPos(_46884014Matrix, p), rayDir, x_46884014_da843a44_color);
     }
         objectID = 0;
         return float3(1.0, 0.0, 1.0);
@@ -1350,11 +1350,11 @@ float2 map(float3 p) {
 	float2 result = float2(1.0, 0.0);
 	
 {
-    float _46885101Distance = object_Box(objPos(_46885101Matrix, p), x_46885101_ce8993a9_x, x_46885101_ce8993a9_y, x_46885101_ce8993a9_z) * _46885101MinScale;
-    float _46885849Distance = object_Box(objPos(_46885849Matrix, p), x_46885849_ce8993a9_x, x_46885849_ce8993a9_y, x_46885849_ce8993a9_z) * _46885849MinScale;
-    float _46886998Distance = object_Box(objPos(_46886998Matrix, p), x_46886998_ce8993a9_x, x_46886998_ce8993a9_y, x_46886998_ce8993a9_z) * _46886998MinScale;
-    float _3628832214Distance = object_Box(objPos(_3628832214Matrix, p), x_3628832214_ce8993a9_x, x_3628832214_ce8993a9_y, x_3628832214_ce8993a9_z) * _3628832214MinScale;
-    result = opU(opU(float2(_46885101Distance, /*material ID*/0.5), blend_Subtract(float2(_46885849Distance, /*material ID*/1.5), float2(_46886998Distance, /*material ID*/2.5))), float2(_3628832214Distance, /*material ID*/3.5));
+    float _46883092Distance = object_Box(objPos(_46883092Matrix, p), x_46883092_ce8993a9_x, x_46883092_ce8993a9_y, x_46883092_ce8993a9_z) * _46883092MinScale;
+    float _46884948Distance = object_Box(objPos(_46884948Matrix, p), x_46884948_ce8993a9_x, x_46884948_ce8993a9_y, x_46884948_ce8993a9_z) * _46884948MinScale;
+    float _46882995Distance = object_Box(objPos(_46882995Matrix, p), x_46882995_ce8993a9_x, x_46882995_ce8993a9_y, x_46882995_ce8993a9_z) * _46882995MinScale;
+    float _46884014Distance = object_Box(objPos(_46884014Matrix, p), x_46884014_ce8993a9_x, x_46884014_ce8993a9_y, x_46884014_ce8993a9_z) * _46884014MinScale;
+    result = opU(opU(blend_Subtract(float2(_46883092Distance, /*material ID*/0.5), float2(_46884948Distance, /*material ID*/1.5)), float2(_46882995Distance, /*material ID*/2.5)), float2(_46884014Distance, /*material ID*/3.5));
     }
 	return result;
 }
@@ -1369,17 +1369,17 @@ float3 getLights(in float3 color, in float3 pos, in float3 normal) {
 	
 {
 LightInfo light;
-light.posAndRange = DirectionalLight_46886903PosAndRange;
-light.colorAndIntensity = DirectionalLight_46886903ColorAndIntensity;
-light.direction = DirectionalLight_46886903Direction;
-lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_46886903Penumbra, DirectionalLight_46886903ShadowSteps);
+light.posAndRange = DirectionalLight_46884177PosAndRange;
+light.colorAndIntensity = DirectionalLight_46884177ColorAndIntensity;
+light.direction = DirectionalLight_46884177Direction;
+lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight_46884177Penumbra, DirectionalLight_46884177ShadowSteps);
 }
 {
 LightInfo light;
-light.posAndRange = DirectionalLight1_46887800PosAndRange;
-light.colorAndIntensity = DirectionalLight1_46887800ColorAndIntensity;
-light.direction = DirectionalLight1_46887800Direction;
-lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight1_46887800Penumbra, DirectionalLight1_46887800ShadowSteps);
+light.posAndRange = DirectionalLight1_46885099PosAndRange;
+light.colorAndIntensity = DirectionalLight1_46885099ColorAndIntensity;
+light.direction = DirectionalLight1_46885099Direction;
+lightValue += getDirectionalLight(input, light)* softshadow(input.pos, -light.direction, INFINITY, DirectionalLight1_46885099Penumbra, DirectionalLight1_46885099ShadowSteps);
 }
 	return lightValue;
 }

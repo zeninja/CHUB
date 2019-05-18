@@ -29,6 +29,7 @@ public class GiantSlider : MonoBehaviour {
         start = transform.Find ("start");
         end = transform.Find ("end");
         knob = transform.Find ("knob");
+        // box = GetComponent<BoxCollider>();
 
         hallController = GetComponent<HallController> ();
 

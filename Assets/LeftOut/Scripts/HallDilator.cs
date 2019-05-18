@@ -66,16 +66,16 @@ public class HallDilator : MonoBehaviour
         dilateLength = l;
     }
 
-    void OnDrawGizmos()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            // if (InfoManager.GetInstance().orthographicPts.Count == 0) { return; }
-            // Gizmos.color = Color.yellow;
-            // Gizmos.DrawWireSphere(centers[i].transform.position, .125f);
-            // Gizmos.DrawWireSphere(InfoManager.GetInstance().orthographicPts[i] + InfoManager.GetInstance().orthographicPts[i].normalized * dilatedDimensions[i].x, .125f);
-        }
-    }
+    // void OnDrawGizmos()
+    // {
+    //     for (int i = 0; i < 4; i++)
+    //     {
+    //         // if (InfoManager.GetInstance().orthographicPts.Count == 0) { return; }
+    //         // Gizmos.color = Color.yellow;
+    //         // Gizmos.DrawWireSphere(centers[i].transform.position, .125f);
+    //         // Gizmos.DrawWireSphere(InfoManager.GetInstance().orthographicPts[i] + InfoManager.GetInstance().orthographicPts[i].normalized * dilatedDimensions[i].x, .125f);
+    //     }
+    // }
 
     void OnEnable()
     {

@@ -55,8 +55,6 @@ public class MetaSlider : MonoBehaviour {
         stageInfo.world = completedWorldCount + Mathf.FloorToInt (totalCompletionPct) + 1;
         stageInfo.level = activeSliderIndex + 1;
 
-        // Debug.Log ("Updating meta slider");
-
     }
 
     public int FindSliderIndex (GiantSlider target) {
@@ -74,7 +72,7 @@ public class MetaSlider : MonoBehaviour {
             activeSliderIndex++;
 
             if (activeSliderIndex >= 4) {
-                // activeSliderIndex %= 4; // roll over when you hit 4
+                // roll over when you hit 4
                 activeSliderIndex = 0;
                 completedWorldCount++;
             }
@@ -88,8 +86,15 @@ public class MetaSlider : MonoBehaviour {
     void SetSliderActive (int index) {
         for (int i = 0; i < 4; i++) {
             sliders[i].GetComponent<GiantSlider> ().isActive = i == index ? true : false;
-            // sliders[i].gameObject.SetActive(sliders[i].isActive);
         }
+    }
+
+    public int GetSliderIndex() {
+        return activeSliderIndex;
+    }
+
+    public float GetCurrentSliderValue() {
+        return currentSliderValue;
     }
 
 }
