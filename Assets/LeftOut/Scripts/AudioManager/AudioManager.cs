@@ -5,6 +5,9 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour {
 
 	public static AudioManager instance;
+	public static AudioManager GetInstance() {
+		return instance;
+	}
 
 	public AudioMixerGroup mixerGroup;
 
@@ -35,27 +38,38 @@ public class AudioManager : MonoBehaviour {
 		}
 
 		s.source.volume = s.volume * (1f + UnityEngine.Random.Range (-s.volumeVariance / 2f, s.volumeVariance / 2f));
-		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range (-s.pitchVariance / 2f, s.pitchVariance / 2f));
+		s.source.pitch  = s.pitch  * (1f + UnityEngine.Random.Range (-s.pitchVariance  / 2f, s.pitchVariance / 2f));
 
 		s.source.Play ();
 
-		// Debug.Log("Playing: " + sound);
+		Debug.Log("Playing " + name);
+	}
+
+	public void PlayHall(int hallIndex) {
+
+
+		int world = MetaSlider.GetInstance().stageInfo.world;
+		int level  = MetaSlider.GetInstance().stageInfo.level;
+
+		Play("Hallway " + world + "-" + level);
+
+		Debug.Log("Playing hall " + world + "-" + level);
+
 	}
 	
+	// bool hasStarted;
 
-	bool hasStarted;
+	// public void HandleSliderEntered () {
+	// 	if (!hasStarted) {
+	// 		AudioManager.instance.Play ("LabyrinthStart");
+	// 		hasStarted = true;
 
-	public void HandleSliderEntered () {
-		if (!hasStarted) {
-			AudioManager.instance.Play ("LabyrinthStart");
-			hasStarted = true;
+	// 		Invoke ("SwitchToDrone", 15);
+	// 	}
+	// }
 
-			Invoke ("SwitchToDrone", 15);
-		}
-	}
-
-	void SwitchToDrone() {
-		Play("Drone");
-	}
+	// void SwitchToDrone() {
+	// 	Play("Drone");
+	// }
 
 }

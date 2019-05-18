@@ -15,11 +15,13 @@ public class GiantSlider : MonoBehaviour {
     public bool devMode = true;
     public bool isActive;
 
-    public delegate void ValueChange ();
-    public static event ValueChange OnValueChanged;
+    public delegate void InstantSliderEvent ();
+    public static event  InstantSliderEvent OnSliderCompleted;
+    public static event  InstantSliderEvent OnSliderStarted;
 
-    public delegate void BackslideEvent (float p);
-    public static event BackslideEvent OnBackslide;
+    public delegate void ContinuousSliderEvent (float p);
+    public static event  InstantSliderEvent OnValueChanged;
+    public static event  ContinuousSliderEvent OnBackslide;
 
     public bool canBackslide = false;
 
@@ -27,7 +29,6 @@ public class GiantSlider : MonoBehaviour {
         start = transform.Find ("start");
         end = transform.Find ("end");
         knob = transform.Find ("knob");
-        // box = GetComponent<BoxCollider> ();
 
         hallController = GetComponent<HallController> ();
 
@@ -75,6 +76,7 @@ public class GiantSlider : MonoBehaviour {
     }
 
     void ResetToStart () {
+        Debug.Log("Resetting slider to start");
         knob.transform.position = start.transform.position;
     }
 
@@ -131,9 +133,12 @@ public class GiantSlider : MonoBehaviour {
 
     // Start corner
     public void HandleStartEntered () {
+        if (OnSliderStarted != null) {
+            OnSliderStarted();
+        }
 
         ResetIfNotActive ();
-        AudioManager.instance.HandleSliderEntered ();
+
     }
 
     public void HandleStartExited () {
@@ -142,44 +147,32 @@ public class GiantSlider : MonoBehaviour {
 
     // Slider
     public void HandleSliderEntered (Transform target) {
-
         hallController.SetDilationType ();
         SetKnobTarget (target);
-        isActive = true;
-
+        // isActive = true;
     }
 
     public void HandleSliderExited () {
         // TryReleaseTarget ();
         ReleaseTarget ();
         RoundValue ();
-
     }
 
     // End Corner
     public void HandleExitEntered () {
-        if (isActive) {
-            AudioManager.instance.Play ("HallCompleted");
+        if (isActive) {   
+            // AudioManager.instance.Play ("HallCompleted");
             MetaSlider.GetInstance ().HandleSliderCompleted (this);
         }
 
-        isActive = false;
         ResetIfNotActive ();
+
+        if (OnSliderCompleted != null) {
+            OnSliderCompleted();
+        }
     }
 
-    public void HandleExitExited () {
+    public void HandleExitExited() {
 
     }
-
-    // -----------------------------------------------------------------------------
-
-    void OnDrawGizmos () {
-        Gizmos.color = isActive ? Color.green : Color.red;
-        // Gizmos.DrawWireSphere(transform.position, .25f);
-
-        // if(isActive) {
-        //     Gizmos.DrawWireCube(transform.position, transform.localScale * 2);
-        // }
-    }
-
 }

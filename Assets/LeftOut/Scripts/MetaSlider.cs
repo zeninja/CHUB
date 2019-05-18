@@ -8,22 +8,7 @@ public class MetaSlider : MonoBehaviour {
         return instance;
     }
 
-    void Awake () {
-        if (instance == null) {
-            instance = this;
-        } else {
-            if (instance != this) {
-                Destroy (gameObject);
-            }
-        }
-
-    }
-
-    void Start () {
-        GiantSlider.OnValueChanged += UpdateMetaSlider;
-    }
-
-    int activeSliderIndex = 0;
+    public int activeSliderIndex = 0;
     float elapsedCompletionPct = 0;
     public float totalCompletionPct;
     public float currentSliderValue;
@@ -40,6 +25,23 @@ public class MetaSlider : MonoBehaviour {
 
     public GiantSlider[] sliders = new GiantSlider[4];
 
+    void Awake () {
+        if (instance == null) {
+            instance = this;
+        } else {
+            if (instance != this) {
+                Destroy (gameObject);
+            }
+        }
+    }
+
+    void Start () {
+                
+        SetSliderActive(activeSliderIndex);
+
+        GiantSlider.OnValueChanged += UpdateMetaSlider;
+    }
+
     public float GetSliderValue (int index) {
         return sliders[index].percent;
     }
@@ -53,7 +55,7 @@ public class MetaSlider : MonoBehaviour {
         stageInfo.world = completedWorldCount + Mathf.FloorToInt (totalCompletionPct) + 1;
         stageInfo.level = activeSliderIndex + 1;
 
-        Debug.Log ("Updating meta slider");
+        // Debug.Log ("Updating meta slider");
 
     }
 
@@ -86,6 +88,7 @@ public class MetaSlider : MonoBehaviour {
     void SetSliderActive (int index) {
         for (int i = 0; i < 4; i++) {
             sliders[i].GetComponent<GiantSlider> ().isActive = i == index ? true : false;
+            // sliders[i].gameObject.SetActive(sliders[i].isActive);
         }
     }
 
