@@ -15,8 +15,7 @@ public class MarblePositioner : MonoBehaviour
     void Update()
     {
         Vector3 tempPos = transform.position;
-
-        tempPos.y = marble.GetObjectInput("y").floatValue - 2;
+        tempPos.y = marble.GetObjectInput("y").floatValue;
         transform.position = tempPos;
     }
 }
