@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46886095
+  _savedGUID: 46882158
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -493,7 +493,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 673572691
+    lastHash: 673455209
 --- !u!1 &139651393
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46886126
+  _savedGUID: 46882189
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -708,7 +708,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 673573436
+    lastHash: 673455303
 --- !u!1 &320261465
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: -1971466593, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46886837
+  _savedGUID: 46882249
   modifier:
     snippet: {fileID: 11400000, guid: d6b537115ee2908469b6ef7de20a50ef, type: 2}
     inputs:
@@ -1429,7 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 884cd4489718de1499670dd66ed36caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 87d9502dddf7a394fba04efa4518b7ca, type: 2}
+  mixer: {fileID: 24100000, guid: ac75eab3a87954a99960e8f86b53f006, type: 2}
   audioMods:
   - modType: 1
     targetStage:
@@ -1985,7 +1985,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Hallway 1-3
-    clip: {fileID: 8300000, guid: 45a50a9ba45c641a8bd9d62ce361195b, type: 3}
+    clip: {fileID: 8300000, guid: c8a0565aed9524072939b9143b0d17b0, type: 3}
     volume: 1
     volumeVariance: 1
     pitch: 1
@@ -2502,7 +2502,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46886996
+  _savedGUID: 46883088
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 1ec48586ae14341d486f5aa80f323e37, type: 2}
@@ -2706,7 +2706,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1216904559
+    lastHash: -1217001806
 --- !u!1 &919628019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,7 +3159,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46887029
+  _savedGUID: 46883150
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -3298,7 +3298,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 673602269
+    lastHash: 673484992
 --- !u!1 &931708093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,7 +3770,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46887769
+  _savedGUID: 46883239
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 399aefe07d5c94615890040605b4b0ad, type: 2}
@@ -3974,7 +3974,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 1216634226
+    lastHash: 1216511304
 --- !u!4 &1020293210
 Transform:
   m_ObjectHideFlags: 0
@@ -4211,7 +4211,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46887860
+  _savedGUID: 46883960
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -5020,7 +5020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1505212860
 Transform:
   m_ObjectHideFlags: 0
@@ -5049,7 +5049,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46887955
+  _savedGUID: 46884082
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -5061,12 +5061,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505212859}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3efed8187c5ff44909cda93669f96580, type: 3}
+  m_Script: {fileID: 11500000, guid: 336a39f457fc29d4ea5ec9bbcef6f037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetHall: 0
+  targetStage:
+    world: 0
+    level: 0
+  outerSphere: {fileID: 0}
+  range:
+    start: 0
+    end: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1505212863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5079,7 +5091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 246cc59c7a84ea44f87f6b70acfe30c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 320261466}
   offset: {x: 0, y: 0, z: 0}
   keepGrounded: 0
   groundHeight: 0
@@ -6066,14 +6078,178 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715064659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aca1db88acf8fc94bb9a6a357b1383fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   voidBox: {fileID: 919628020}
   innrBox: {fileID: 770802420}
-  dilationType: 0
+  dilationSettings:
+  - stageInfo:
+      world: 1
+      level: 1
+    dilationType: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5007924
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    range:
+      start: 1.5
+      end: 5
+    canBackslide: 1
+  - stageInfo:
+      world: 1
+      level: 2
+    dilationType: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5007924
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    range:
+      start: 0.35
+      end: 1
+    canBackslide: 1
+  - stageInfo:
+      world: 1
+      level: 3
+    dilationType: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5007924
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    range:
+      start: 1.5
+      end: 5
+    canBackslide: 0
+  - stageInfo:
+      world: 1
+      level: 4
+    dilationType: 2
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5007924
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    range:
+      start: 0.35
+      end: 1
+    canBackslide: 0
 --- !u!1 &1914559306
 GameObject:
   m_ObjectHideFlags: 0
@@ -6791,7 +6967,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46908977
+  _savedGUID: 46884979
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -6871,7 +7047,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46909008
+  _savedGUID: 46885010
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 1ec48586ae14341d486f5aa80f323e37, type: 2}
@@ -7075,7 +7251,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1195583129
+    lastHash: -1216942449
 --- !u!114 &2066965608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7303,7 +7479,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46909037
+  _savedGUID: 46885039
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: b845704d1b0ab5843ab37d5d2cffda82, type: 2}
@@ -7507,7 +7683,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 1896003106
+    lastHash: 1874647225
 --- !u!4 &2097326686
 Transform:
   m_ObjectHideFlags: 0
@@ -7588,10 +7764,15 @@ MonoBehaviour:
   _savedActiveObjects:
   - {fileID: 1629485867}
   - {fileID: 2118071917}
+  - {fileID: 37233190}
+  - {fileID: 1020293209}
+  - {fileID: 2097326685}
   - {fileID: 919628020}
   - {fileID: 1970934716}
   - {fileID: 770802420}
   - {fileID: 1240785514}
+  - {fileID: 361904490}
+  - {fileID: 1505212861}
   - {fileID: 1153592236}
   _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_Labyrinth_REDUX_63376741.generated.shader
   _lastShader: {fileID: 4800000, guid: a9aea233e4f3249a796d9b4fd9a78eb7, type: 3}

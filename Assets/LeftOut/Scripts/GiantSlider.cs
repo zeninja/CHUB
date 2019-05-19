@@ -157,20 +157,29 @@ public class GiantSlider : MonoBehaviour {
         // TryReleaseTarget ();
         ReleaseTarget ();
         RoundValue ();
-    }
-
-    // End Corner
-    public void HandleExitEntered () {
-        if (isActive) {   
-            // AudioManager.instance.Play ("HallCompleted");
-            MetaSlider.GetInstance ().HandleSliderCompleted (this);
-        }
-
-        ResetIfNotActive ();
 
         if (OnSliderCompleted != null) {
             OnSliderCompleted();
         }
+
+        if (isActive) {   
+            // AudioManager.instance.Play ("HallCompleted");
+            MetaSlider.GetInstance ().HandleSliderCompleted (this);
+        }
+    }
+
+    // End Corner
+    public void HandleExitEntered () {
+        // if (isActive) {   
+        //     // AudioManager.instance.Play ("HallCompleted");
+        //     MetaSlider.GetInstance ().HandleSliderCompleted (this);
+        // }
+
+        // ResetIfNotActive ();
+
+        // if (OnSliderCompleted != null) {
+        //     OnSliderCompleted();
+        // }
     }
 
     public void HandleExitExited() {

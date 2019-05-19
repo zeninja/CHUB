@@ -25,6 +25,9 @@ public class MetaSlider : MonoBehaviour {
 
     public GiantSlider[] sliders = new GiantSlider[4];
 
+    public delegate void SliderActivatedEvent ();
+    public static event SliderActivatedEvent OnSliderSetActive;
+
     void Awake () {
         if (instance == null) {
             instance = this;
@@ -36,8 +39,8 @@ public class MetaSlider : MonoBehaviour {
     }
 
     void Start () {
-                
-        SetSliderActive(activeSliderIndex);
+
+        SetSliderActive (activeSliderIndex);
 
         GiantSlider.OnValueChanged += UpdateMetaSlider;
     }
@@ -87,13 +90,17 @@ public class MetaSlider : MonoBehaviour {
         for (int i = 0; i < 4; i++) {
             sliders[i].GetComponent<GiantSlider> ().isActive = i == index ? true : false;
         }
+
+        if (OnSliderSetActive != null) {
+            OnSliderSetActive ();
+        }
     }
 
-    public int GetSliderIndex() {
+    public int GetSliderIndex () {
         return activeSliderIndex;
     }
 
-    public float GetCurrentSliderValue() {
+    public float GetCurrentSliderValue () {
         return currentSliderValue;
     }
 
