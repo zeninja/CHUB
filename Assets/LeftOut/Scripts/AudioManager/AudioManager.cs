@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public AudioMixerGroup mixerGroup;
+	public AudioMixer mixer;
 
 	public Sound[] sounds;
 
@@ -45,8 +46,7 @@ public class AudioManager : MonoBehaviour {
 		Debug.Log("Playing " + name);
 	}
 
-	public void PlayHall(int hallIndex) {
-
+	public void PlayCurrentHall() {
 
 		int world = MetaSlider.GetInstance().stageInfo.world;
 		int level  = MetaSlider.GetInstance().stageInfo.level;

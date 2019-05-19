@@ -20,64 +20,19 @@ public class CornerController : MonoBehaviour
         box = GetComponent<BoxCollider>();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             if (cornerType == CornerType.start)
             {
-                slider.HandleStartEntered();
-                StartCoroutine(Flash(1));
+                slider.StartCornerStay(other.transform);
             }
 
             if (cornerType == CornerType.end)
             {
-                slider.HandleExitEntered();
-                StartCoroutine(Flash(1));
+                slider.EndCornerStay();
             }
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (cornerType == CornerType.start)
-            {
-                slider.HandleStartExited();
-
-                StartCoroutine(Flash(2));
-            }
-            if (cornerType == CornerType.end)
-            {
-                slider.HandleExitExited();
-
-                StartCoroutine(Flash(2));
-            }
-        }
-    }
-
-    bool showSphere = false;
-
-    IEnumerator Flash(int times)
-    {
-        if (GetComponentInParent<GiantSlider>().isActive)
-        {
-            for (int i = 0; i < times; i++)
-            {
-                showSphere = true;
-                yield return new WaitForSeconds(.15f);
-                showSphere = false;
-            }
-        }
-    }
-
-
-    void OnDrawGizmos()
-    {
-        if (showSphere)
-        {
-            Gizmos.DrawWireSphere(transform.position, 1);
         }
     }
 }

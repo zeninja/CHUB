@@ -14,14 +14,15 @@ public class GiantSlider : MonoBehaviour {
 
     public bool devMode = true;
     public bool isActive;
+    bool wasActive;
 
     public delegate void InstantSliderEvent ();
-    public static event  InstantSliderEvent OnSliderCompleted;
-    public static event  InstantSliderEvent OnSliderStarted;
+    public static event InstantSliderEvent OnSliderCompleted;
+    public static event InstantSliderEvent OnSliderStarted;
+    public static event InstantSliderEvent OnValueChanged;
 
     public delegate void ContinuousSliderEvent (float p);
-    public static event  InstantSliderEvent OnValueChanged;
-    public static event  ContinuousSliderEvent OnBackslide;
+    public static event ContinuousSliderEvent OnBackslide;
 
     public bool canBackslide = false;
 
@@ -34,14 +35,14 @@ public class GiantSlider : MonoBehaviour {
         hallController = GetComponent<HallController> ();
 
         SetKnobInfo ();
-        ResetToStart ();
+        SetKnobToStart ();
     }
 
     void SetKnobInfo () {
         float sliderLength = InfoManager.GetInstance ().realWorld.hallLength;
 
-        start.transform.localPosition = new Vector3 (0, 0, -sliderLength / 2);
-        end.transform.localPosition = new Vector3 (0, 0, sliderLength / 2);
+        // start.transform.localPosition = new Vector3 (0, 0, -sliderLength / 2);
+        // end.transform.localPosition = new Vector3 (0, 0, sliderLength / 2);
         knob.GetComponent<KnobController> ().bounds = sliderLength / 2;
         // box.size = InfoManager.GetInstance().realWorld.hallDimensions;
     }
@@ -49,38 +50,20 @@ public class GiantSlider : MonoBehaviour {
     void LateUpdate () {
         if (!devMode && !isActive) { return; }
         GetPercentByKnob ();
+        wasActive = true;
     }
+
+    HallController hallController;
 
     public void SetKnobTarget (Transform target) {
         knob.GetComponent<KnobController> ().target = target;
     }
 
-    HallController hallController;
-
-    void OnTriggerEnter (Collider other) {
-        // Debug.Log ("Slider entered");
-        if (other.CompareTag ("Player")) {
-            HandleSliderEntered (other.transform);
-        }
-    }
-
-    void OnTriggerExit (Collider other) {
-        if (other.CompareTag ("Player")) {
-            HandleSliderExited ();
-        }
-    }
-
-    public void ResetIfNotActive () {
-        if (!isActive) {
-            ResetToStart ();
-        }
-    }
-
-    void ResetToStart () {
-        Debug.Log("Resetting slider to start");
+    void SetKnobToStart () {
         knob.transform.position = start.transform.position;
     }
 
+    // NOT THE CLEANEST BUT IT WORKS // 
     float maxPercent;
     float lastPercent;
 
@@ -132,57 +115,97 @@ public class GiantSlider : MonoBehaviour {
 
     // ------------------------------------------
 
-    // Start corner
-    public void HandleStartEntered () {
-        if (OnSliderStarted != null) {
-            OnSliderStarted();
+    public void StartCornerStay (Transform player) {
+        if (isActive) {
+            SetKnobTarget (player);
+
+            if (!wasActive) {
+                Debug.Log("was !!! activeeeeeee");
+                if (OnSliderStarted != null) {
+                    OnSliderStarted ();
+                }
+            }
+
         }
-
-        ResetIfNotActive ();
-
     }
 
-    public void HandleStartExited () {
+    public void EndCornerStay () {
+        if (isActive) {
+            if (percent >.98f) {
+                Debug.Log ("Going to next slider");
+                // Go to next slider
+                ReleaseTarget ();
 
+                if (OnSliderCompleted != null) {
+
+                    OnSliderCompleted ();
+                }
+
+                MetaSlider.GetInstance ().HandleSliderCompleted (this);
+            }
+        }
     }
+
+    // public void ResetIfNotActive () {
+    //     if (!isActive) {
+    //         ResetToStart ();
+    //     }
+    // }
+
+    // Start corner
+    // public void HandleStartEntered () {
+    //     if (OnSliderStarted != null) {
+    //         OnSliderStarted ();
+    //     }
+
+    //     // ResetIfNotActive ();
+    // }
+
+    // public void HandleStartExited () {
+
+    // }
 
     // Slider
-    public void HandleSliderEntered (Transform target) {
-        hallController.SetDilationType ();
-        SetKnobTarget (target);
-        // isActive = true;
-    }
+    // public void HandleSliderEntered (Transform target) {
+    //     hallController.SetDilationType ();
+    //     SetKnobTarget (target);
+    //     // isActive = true;
+    // }
 
-    public void HandleSliderExited () {
-        // TryReleaseTarget ();
-        ReleaseTarget ();
-        RoundValue ();
+    // public void HandleSliderExited () {
+    //     // ReleaseTarget ();
+    //     // RoundValue ();
 
-        if (OnSliderCompleted != null) {
-            OnSliderCompleted();
-        }
+    //     // if (isActive) {
+    //     //     // AudioManager.instance.Play ("HallCompleted");
+    //     //     MetaSlider.GetInstance ().HandleSliderCompleted (this);
 
-        if (isActive) {   
-            // AudioManager.instance.Play ("HallCompleted");
-            MetaSlider.GetInstance ().HandleSliderCompleted (this);
-        }
-    }
+    //     //     // if (OnSliderCompleted != null) {
+    //     //     //     OnSliderCompleted ();
+    //     //     // }
+    //     // }
+
+    //     // Debug.Break();
+
+    //     RoundValue();
+    //     Debug.Log(" ---- Slider exited ---- ");
+    // }
 
     // End Corner
-    public void HandleExitEntered () {
-        // if (isActive) {   
-        //     // AudioManager.instance.Play ("HallCompleted");
-        //     MetaSlider.GetInstance ().HandleSliderCompleted (this);
-        // }
+    // public void HandleExitEntered () {
+    //     // if (isActive) {   
+    //     //     // AudioManager.instance.Play ("HallCompleted");
+    //     //     MetaSlider.GetInstance ().HandleSliderCompleted (this);
+    //     // }
 
-        // ResetIfNotActive ();
+    //     // ResetIfNotActive ();
 
-        // if (OnSliderCompleted != null) {
-        //     OnSliderCompleted();
-        // }
-    }
+    //     // if (OnSliderCompleted != null) {
+    //     //     OnSliderCompleted();
+    //     // }
+    // }
 
-    public void HandleExitExited() {
+    // public void HandleExitExited () {
 
-    }
+    // }
 }
