@@ -20,64 +20,81 @@ public class CornerController : MonoBehaviour
         box = GetComponent<BoxCollider>();
     }
 
-    void OnTriggerEnter(Collider other)
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         if (cornerType == CornerType.start)
+    //         {
+    //             slider.HandleStartEntered();
+    //             StartCoroutine(Flash(1));
+    //         }
+
+    //         if (cornerType == CornerType.end)
+    //         {
+    //             slider.HandleExitEntered();
+    //             // StartCoroutine(Flash(1));
+    //         }
+    //     }
+    // }
+
+    // void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player"))
+    //     {
+    //         if (cornerType == CornerType.start)
+    //         {
+    //             slider.HandleStartExited();
+
+    //             // StartCoroutine(Flash(2));
+    //         }
+    //         if (cornerType == CornerType.end)
+    //         {
+    //             slider.HandleExitExited();
+
+    //             // StartCoroutine(Flash(2));
+    //         }
+    //     }
+    // }
+
+    void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             if (cornerType == CornerType.start)
             {
-                slider.HandleStartEntered();
-                StartCoroutine(Flash(1));
+                slider.StartCornerStay(other.transform);
             }
 
             if (cornerType == CornerType.end)
             {
-                slider.HandleExitEntered();
-                StartCoroutine(Flash(1));
+                // Debug.Log("END CORNER STAY");
+                slider.EndCornerStay();
             }
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (cornerType == CornerType.start)
-            {
-                slider.HandleStartExited();
+    // bool showSphere = false;
 
-                StartCoroutine(Flash(2));
-            }
-            if (cornerType == CornerType.end)
-            {
-                slider.HandleExitExited();
-
-                StartCoroutine(Flash(2));
-            }
-        }
-    }
-
-    bool showSphere = false;
-
-    IEnumerator Flash(int times)
-    {
-        if (GetComponentInParent<GiantSlider>().isActive)
-        {
-            for (int i = 0; i < times; i++)
-            {
-                showSphere = true;
-                yield return new WaitForSeconds(.15f);
-                showSphere = false;
-            }
-        }
-    }
+    // IEnumerator Flash(int times)
+    // {
+    //     if (GetComponentInParent<GiantSlider>().isActive)
+    //     {
+    //         for (int i = 0; i < times; i++)
+    //         {
+    //             showSphere = true;
+    //             yield return new WaitForSeconds(.15f);
+    //             showSphere = false;
+    //         }
+    //     }
+    // }
 
 
-    void OnDrawGizmos()
-    {
-        if (showSphere)
-        {
-            Gizmos.DrawWireSphere(transform.position, 1);
-        }
-    }
+    // void OnDrawGizmos()
+    // {
+    //     if (showSphere)
+    //     {
+    //         Gizmos.DrawWireSphere(transform.position, 1);
+    //     }
+    // }
 }

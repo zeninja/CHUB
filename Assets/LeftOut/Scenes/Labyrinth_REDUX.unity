@@ -738,7 +738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320261465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 2.29, z: -1}
+  m_LocalPosition: {x: -1, y: 0, z: -1}
   m_LocalScale: {x: 0.01, y: 1, z: 0.01}
   m_Children: []
   m_Father: {fileID: 2113935406}
@@ -781,7 +781,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320261465}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5020,7 +5020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1505212860
 Transform:
   m_ObjectHideFlags: 0
@@ -6078,7 +6078,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715064659}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aca1db88acf8fc94bb9a6a357b1383fa, type: 3}
   m_Name: 
@@ -7707,6 +7707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2113935406}
+  - component: {fileID: 2113935407}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Untagged
@@ -7722,7 +7723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113935405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: -1, y: 0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1176357646}
@@ -7730,6 +7731,19 @@ Transform:
   m_Father: {fileID: 1922070512}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2113935407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113935405}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c0a5303664aa74caacbdc930a00093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2115567721
 GameObject:
   m_ObjectHideFlags: 0
@@ -7764,15 +7778,10 @@ MonoBehaviour:
   _savedActiveObjects:
   - {fileID: 1629485867}
   - {fileID: 2118071917}
-  - {fileID: 37233190}
-  - {fileID: 1020293209}
-  - {fileID: 2097326685}
   - {fileID: 919628020}
   - {fileID: 1970934716}
   - {fileID: 770802420}
   - {fileID: 1240785514}
-  - {fileID: 361904490}
-  - {fileID: 1505212861}
   - {fileID: 1153592236}
   _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_Labyrinth_REDUX_63376741.generated.shader
   _lastShader: {fileID: 4800000, guid: a9aea233e4f3249a796d9b4fd9a78eb7, type: 3}
@@ -8050,5 +8059,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7354371974278775845, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}

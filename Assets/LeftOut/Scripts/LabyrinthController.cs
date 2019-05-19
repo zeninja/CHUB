@@ -70,8 +70,7 @@ public class LabyrinthController : MonoBehaviour {
 
     public float GetCurvedValue(DilationInfo info, float t) {
         float diff = info.range.end - info.range.start;
-        float final = info.range.start + info.curve.Evaluate(t) * diff;
-        Debug.Log("Processed value of " + final);
+        float final = info.range.start + info.curve.Evaluate(Mathf.Clamp01(t)) * diff;
 
         return final;
     }

@@ -7,7 +7,7 @@ public class SFXController : MonoBehaviour
 {
     public AudioMixer mixer;
 
-    public enum ModType { Normalize, ParamEQ, Chorus, Reverb, Distortion, }
+    public enum ModType { ParamEQ, Chorus, Reverb, Distortion, }
 
     [System.Serializable]
     public class AudioMod
@@ -24,7 +24,7 @@ public class SFXController : MonoBehaviour
     void Start()
     {
         GiantSlider.OnValueChanged  += CheckValueChanged;
-        GiantSlider.OnSliderStarted += StartSliderAudio;
+        // GiantSlider.OnSliderStarted += StartSliderAudio;
     }
 
     void CheckValueChanged()
@@ -41,13 +41,13 @@ public class SFXController : MonoBehaviour
         }
     }
 
-    void StartSliderAudio()
-    {
+    // void StartSliderAudio()
+    // {
 
-        int hallIndex = MetaSlider.GetInstance().activeSliderIndex;
-        AudioManager.GetInstance().PlayHall(hallIndex);
+    //     int hallIndex = MetaSlider.GetInstance().activeSliderIndex;
+    //     // AudioManager.GetInstance().PlayHall(hallIndex);
 
-    }
+    // }
 
     void SetTargetValue(AudioMod mod, float completion)
     {
