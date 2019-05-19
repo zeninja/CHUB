@@ -26,7 +26,7 @@ public class MetaSlider : MonoBehaviour {
     public GiantSlider[] sliders = new GiantSlider[4];
 
     public delegate void SliderActivatedEvent ();
-    public static event SliderActivatedEvent OnSliderSetActive;
+    public static event SliderActivatedEvent OnActiveSliderChanged;
 
     void Awake () {
         if (instance == null) {
@@ -91,8 +91,8 @@ public class MetaSlider : MonoBehaviour {
             sliders[i].GetComponent<GiantSlider> ().isActive = i == index ? true : false;
         }
 
-        if (OnSliderSetActive != null) {
-            OnSliderSetActive ();
+        if (OnActiveSliderChanged != null) {
+            OnActiveSliderChanged ();
         }
     }
 

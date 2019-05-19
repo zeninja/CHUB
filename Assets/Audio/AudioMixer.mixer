@@ -17,17 +17,25 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 72f67f117e7913840a0923e2f2d1d83c
-    name: MyExposedParam 3
+    name: WetMix2
+  - guid: ae346cc3cec8018429a0501b34a277bf
+    name: Delay
+  - guid: 3ebb371b428761745a8f52fa438ce3c2
+    name: Feedback
   - guid: 5b69dada0abf1a9438f6fbb5065f3b5b
-    name: MyExposedParam 2
+    name: WetMix1
+  - guid: e906f2cc1bd274e40bb57e4d1f0a1c47
+    name: Depth
   - guid: 06cab40fe2a51df4184f81564bad902c
-    name: MyExposedParam 4
+    name: WetMix3
   - guid: 1ce4b6b60570da64a83e4245775df559
-    name: MyExposedParam 1
-  - guid: 0a19eb965cfb3554a81dacae5ee6ee74
-    name: MyExposedParam 5
+    name: Distortion
   - guid: 3c26d821a5e6702448dbc1f9de10a803
-    name: MyExposedParam
+    name: ParamEQ
+  - guid: 401c256f73820e245b21e6d4fa5d359c
+    name: FrequencyGain
+  - guid: 0a19eb965cfb3554a81dacae5ee6ee74
+    name: Reverb
   m_AudioMixerGroupViews:
   - guids:
     - 04cab5eaafd73449995f0f1703991130
@@ -49,9 +57,9 @@ AudioMixerGroupController:
   m_GroupID: 04cab5eaafd73449995f0f1703991130
   m_Children:
   - {fileID: 243707743870895228}
-  - {fileID: 243467902398944798}
   - {fileID: 243192609817346406}
   - {fileID: 243118469009752614}
+  - {fileID: 243467902398944798}
   m_Volume: 28b4022c686a6426fb5571c152890195
   m_Pitch: a38e53183ac3a4234b5ff48ff218ba97
   m_Effects:
