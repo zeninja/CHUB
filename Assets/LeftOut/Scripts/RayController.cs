@@ -28,7 +28,7 @@ public class RayController : MonoBehaviour
 
         if(MetaSlider.GetInstance().stageInfo.world == targetWorld) {
 
-            float t = MetaSlider.GetInstance().totalCompletionPct;
+            float t = MetaSlider.GetInstance().worldLevelCompletionPct;
             float scale = GetScale(range, t);
             outerSphere.GetObjectInput("radius").SetFloat(scale);
         }
