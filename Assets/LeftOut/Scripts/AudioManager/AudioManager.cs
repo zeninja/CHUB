@@ -27,7 +27,8 @@ public class AudioManager : MonoBehaviour {
 			s.source.clip = s.clip;
 			s.source.loop = s.loop;
 
-			s.source.outputAudioMixerGroup = mixerGroup;
+			// s.source.outputAudioMixerGroup = mixerGroup;
+			s.source.outputAudioMixerGroup = s.mixerGroup;
 		}
 	}
 
@@ -49,12 +50,11 @@ public class AudioManager : MonoBehaviour {
 	public void PlayCurrentHall() {
 
 		int world = MetaSlider.GetInstance().stageInfo.world;
-		int level  = MetaSlider.GetInstance().stageInfo.level;
+		int level = MetaSlider.GetInstance().stageInfo.level;
+
+		Debug.Log("triggering hall music " + world + "-" + level);
 
 		Play("Hallway " + world + "-" + level);
-
-		Debug.Log("Playing hall " + world + "-" + level);
-
 	}
 	
 	// bool hasStarted;

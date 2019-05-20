@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MetaSlider : MonoBehaviour {
+public class MetaSlider : MonoBehaviour
+{
     private static MetaSlider instance;
-    public static MetaSlider GetInstance () {
+    public static MetaSlider GetInstance()
+    {
         return instance;
     }
 
@@ -16,7 +18,8 @@ public class MetaSlider : MonoBehaviour {
     int completedWorldCount;
 
     [System.Serializable]
-    public class StageInfo {
+    public class StageInfo
+    {
         public int world, level;
     }
 
@@ -25,82 +28,111 @@ public class MetaSlider : MonoBehaviour {
 
     public GiantSlider[] sliders = new GiantSlider[4];
 
-    public delegate void SliderActivatedEvent ();
+    public delegate void SliderActivatedEvent();
     public static event SliderActivatedEvent OnActiveSliderChanged;
 
-    void Awake () {
-        if (instance == null) {
+    void Awake()
+    {
+        if (instance == null)
+        {
             instance = this;
-        } else {
-            if (instance != this) {
-                Destroy (gameObject);
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
             }
         }
     }
 
-    void Start () {
+    void Start()
+    {
 
-        SetSliderActive (activeSliderIndex);
+        SetSliderActive(activeSliderIndex);
 
         GiantSlider.OnValueChanged += UpdateMetaSlider;
     }
 
-    public float GetSliderValue (int index) {
+    public float GetSliderValue(int index)
+    {
         return sliders[index].percent;
     }
 
-    void UpdateMetaSlider () {
+    void UpdateMetaSlider()
+    {
         // Find slider value and progress
-        currentSliderValue = GetSliderValue (activeSliderIndex);
+        currentSliderValue = GetSliderValue(activeSliderIndex);
         totalCompletionPct = elapsedCompletionPct + currentSliderValue / 4;
 
         // Set stage info
-        stageInfo.world = completedWorldCount + Mathf.FloorToInt (totalCompletionPct) + 1;
-        stageInfo.level = activeSliderIndex + 1;
+        SetStageInfo();
 
     }
 
-    public int FindSliderIndex (GiantSlider target) {
-        for (int i = 0; i < 4; i++) {
-            if (sliders[i] == target) {
+    public int FindSliderIndex(GiantSlider target)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (sliders[i] == target)
+            {
                 return i;
             }
         }
-        Debug.LogError ("Slider index not found.");
+        Debug.LogError("Slider index not found.");
         return -1;
     }
 
-    public void HandleSliderCompleted (GiantSlider completedSlider) {
-        if (activeSliderIndex == FindSliderIndex (completedSlider)) {
+    public void HandleSliderCompleted(GiantSlider completedSlider)
+    {
+        // Debug.Log("Slider completed with index: " + FindSliderIndex(completedSlider));
+
+        if (activeSliderIndex == FindSliderIndex(completedSlider))
+        {
+            // Debug.Log("active slider index matched. slider index increased");
+
             activeSliderIndex++;
 
-            if (activeSliderIndex >= 4) {
+            if (activeSliderIndex >= 4)
+            {
                 // roll over when you hit 4
                 activeSliderIndex = 0;
                 completedWorldCount++;
             }
 
-            SetSliderActive (activeSliderIndex);
+            SetStageInfo();
+            SetSliderActive(activeSliderIndex);
 
-            elapsedCompletionPct = activeSliderIndex * .25f;
+            elapsedCompletionPct = activeSliderIndex * .25f; // round the completed value to nearest quarter
         }
     }
 
-    void SetSliderActive (int index) {
-        for (int i = 0; i < 4; i++) {
-            sliders[i].GetComponent<GiantSlider> ().isActive = i == index ? true : false;
+    void SetStageInfo()
+    {
+        stageInfo.world = completedWorldCount + Mathf.FloorToInt(totalCompletionPct) + 1;
+        stageInfo.level = activeSliderIndex + 1;
+    }
+
+    void SetSliderActive(int index)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            sliders[i].GetComponent<GiantSlider>().isActive = i == index ? true : false;
         }
 
-        if (OnActiveSliderChanged != null) {
-            OnActiveSliderChanged ();
+        if (OnActiveSliderChanged != null)
+        {
+            OnActiveSliderChanged();
         }
     }
 
-    public int GetSliderIndex () {
+    public int GetSliderIndex()
+    {
         return activeSliderIndex;
     }
 
-    public float GetCurrentSliderValue () {
+    public float GetCurrentSliderValue()
+    {
         return currentSliderValue;
     }
 

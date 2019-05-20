@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46884047
+  _savedGUID: 46882187
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -1941,7 +1941,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145879804
+    lastHash: -2145938725
 --- !u!4 &770802421
 Transform:
   m_ObjectHideFlags: 0
@@ -2022,7 +2022,8 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243707743870895228, guid: ac75eab3a87954a99960e8f86b53f006,
+      type: 2}
     source: {fileID: 0}
   - name: Hallway 1-2
     clip: {fileID: 8300000, guid: 50df66dc4d82944f0b90a97de993997e, type: 3}
@@ -2031,7 +2032,8 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243192609817346406, guid: ac75eab3a87954a99960e8f86b53f006,
+      type: 2}
     source: {fileID: 0}
   - name: Hallway 1-3
     clip: {fileID: 8300000, guid: c8a0565aed9524072939b9143b0d17b0, type: 3}
@@ -2040,16 +2042,18 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243118469009752614, guid: ac75eab3a87954a99960e8f86b53f006,
+      type: 2}
     source: {fileID: 0}
   - name: Hallway 1-4
-    clip: {fileID: 8300000, guid: 684fda6e434a248e4b2580dec5f89057, type: 3}
+    clip: {fileID: 8300000, guid: 9e493cd8d47204fbba74be2291a7b690, type: 3}
     volume: 1
     volumeVariance: 1
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 243467902398944798, guid: ac75eab3a87954a99960e8f86b53f006,
+      type: 2}
     source: {fileID: 0}
 --- !u!82 &777158335
 AudioSource:
@@ -2060,7 +2064,8 @@ AudioSource:
   m_GameObject: {fileID: 777158332}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: ac75eab3a87954a99960e8f86b53f006,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -2849,7 +2854,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46884171
+  _savedGUID: 46882966
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -3118,7 +3123,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145878756
+    lastHash: -2145931100
 --- !u!4 &919628021
 Transform:
   m_ObjectHideFlags: 0
@@ -4215,7 +4220,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46885006
+  _savedGUID: 46883150
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -4518,7 +4523,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46885105
+  _savedGUID: 46883927
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -4787,7 +4792,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145849178
+    lastHash: -2145901432
 --- !u!1 &1329228118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5819,11 +5824,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46885940
+  _savedGUID: 46884144
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -579688533
+    lastHash: -579726008
 --- !u!1 &1656285617
 GameObject:
   m_ObjectHideFlags: 0
@@ -6304,7 +6309,7 @@ MonoBehaviour:
   marble: {fileID: 1970934716}
   dilationSettings:
   - stageInfo:
-      world: 1
+      world: 2
       level: 1
     dilationType: 1
     curve:
@@ -6342,10 +6347,10 @@ MonoBehaviour:
       m_RotationOrder: 0
     range:
       start: 1.5
-      end: 4
-    canBackslide: 1
+      end: 3
+    canBackslide: 0
   - stageInfo:
-      world: 1
+      world: 2
       level: 2
     dilationType: 1
     curve:
@@ -6383,10 +6388,10 @@ MonoBehaviour:
       m_RotationOrder: 0
     range:
       start: 1.5
-      end: 20
-    canBackslide: 1
+      end: 10
+    canBackslide: 0
   - stageInfo:
-      world: 1
+      world: 2
       level: 3
     dilationType: 2
     curve:
@@ -6418,7 +6423,7 @@ MonoBehaviour:
       end: 5
     canBackslide: 0
   - stageInfo:
-      world: 1
+      world: 2
       level: 4
     dilationType: 2
     curve:
@@ -6447,7 +6452,7 @@ MonoBehaviour:
       m_RotationOrder: 0
     range:
       start: 5
-      end: 0.15
+      end: 0.35
     canBackslide: 0
 --- !u!1 &1914559306
 GameObject:
@@ -6786,7 +6791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922070511}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2115567723}
@@ -6825,7 +6830,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46886062
+  _savedGUID: 46884917
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -7094,7 +7099,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2145820165
+    lastHash: -2145871672
 --- !u!4 &1970934717
 Transform:
   m_ObjectHideFlags: 0
@@ -7922,7 +7927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113935405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1176357646}
@@ -7982,7 +7987,7 @@ MonoBehaviour:
   - {fileID: 770802420}
   - {fileID: 1240785514}
   - {fileID: 1153592236}
-  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_Labyrinth_REDUX_63376741.generated.shader
+  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated/_Labyrinth_REDUX_63376741.generated.shader
   _lastShader: {fileID: 4800000, guid: a9aea233e4f3249a796d9b4fd9a78eb7, type: 3}
   Steps: 160
   AmbientColor: {r: 1, g: 1, b: 1, a: 1}
@@ -8072,11 +8077,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46886866
+  _savedGUID: 46885070
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -1714895404
+    lastHash: -1714932858
 --- !u!108 &2118071918
 Light:
   m_ObjectHideFlags: 0

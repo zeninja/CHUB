@@ -73,7 +73,7 @@ public class AudioMod : MonoBehaviour {
                 break;
         }
 
-        Debug.Log ("Set " + modType.ToString () + " to " + currentValue);
+        // Debug.Log ("Set " + modType.ToString () + " to " + currentValue);
     }
 
 }

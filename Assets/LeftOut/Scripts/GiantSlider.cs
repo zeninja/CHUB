@@ -50,7 +50,6 @@ public class GiantSlider : MonoBehaviour {
     void LateUpdate () {
         if (!devMode && !isActive) { return; }
         GetPercentByKnob ();
-        wasActive = true;
     }
 
     HallController hallController;
@@ -120,18 +119,21 @@ public class GiantSlider : MonoBehaviour {
             SetKnobTarget (player);
 
             if (!wasActive) {
-                Debug.Log("was !!! activeeeeeee");
                 if (OnSliderStarted != null) {
+                    Debug.Log("Starting slider");
                     OnSliderStarted ();
                 }
+                wasActive = true;
             }
 
         }
     }
 
     public void EndCornerStay () {
+        // Debug.Log("END CORNER STAYING");
+
         if (isActive) {
-            if (percent >.98f) {
+            if (percent > .9f) {
                 Debug.Log ("Going to next slider");
                 // Go to next slider
                 ReleaseTarget ();
