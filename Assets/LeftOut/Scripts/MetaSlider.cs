@@ -105,7 +105,7 @@ public class MetaSlider : MonoBehaviour
             SetStageInfo();
             SetSliderActive(activeSliderIndex);
 
-            Debug.Log(stageInfo.world + "-" + stageInfo.level);
+            // Debug.Log(stageInfo.world + "-" + stageInfo.level);
 
             elapsedCompletionPct = activeSliderIndex * .25f; // round the completed value to nearest quarter
         }
@@ -140,10 +140,10 @@ public class MetaSlider : MonoBehaviour
         return currentSliderValue;
     }
 
-    // public bool StageInfoMatches(StageInfo info) {
-    //     Debug.Log("Received " + info.world + "-" + info.level);
+    public bool StageInfoMatches(StageInfo info) {
+        // Debug.Log("Received " + info.world + "-" + info.level);
 
-    //     return info.world == stageInfo.world && info.level == stageInfo.level;
-    // }
+        return info.world == stageInfo.world && info.level == stageInfo.level;
+    }
 
 }

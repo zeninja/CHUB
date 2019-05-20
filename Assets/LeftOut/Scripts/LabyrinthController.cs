@@ -15,11 +15,16 @@ public class LabyrinthController : MonoBehaviour
     [System.Serializable]
     public class DilationInfo
     {
+        public string name;
         public MetaSlider.StageInfo stageInfo;
         public DilationType dilationType;
         public AnimationCurve curve;
         public Extensions.Property range;
         public bool canBackslide;
+
+        // DilationInfo() {
+        //     name = stageInfo.world + "-" + stageInfo.level;
+        // }
     }
 
     [SerializeField]
@@ -34,12 +39,9 @@ public class LabyrinthController : MonoBehaviour
         MetaSlider.OnActiveSliderChanged += SetCurrentSlider;
     }
 
-    public float smoothingSpeed = 10f;
-
     void ProcessDilation()
     {
-        if (currentInfo.stageInfo.world == MetaSlider.GetInstance().stageInfo.world &&
-            currentInfo.stageInfo.level == MetaSlider.GetInstance().stageInfo.level)
+        if ( MetaSlider.GetInstance().StageInfoMatches(currentInfo.stageInfo) )
         {
 
             DilationType dilationType = currentInfo.dilationType;
@@ -55,11 +57,6 @@ public class LabyrinthController : MonoBehaviour
 
                     float finalLength = GetCurvedValue(currentInfo, p);
 
-                    // float targetLength = GetCurvedValue(currentInfo, p);
-
-                    // float outerBoxVal = voidBox.GetObjectInput(dilationDir).floatValue;
-                    // float innrBoxVal = voidBox.GetObjectInput(dilationDir).floatValue;
-
                     voidBox.GetObjectInput(dilationDir).SetFloat(finalLength);
                     innrBox.GetObjectInput(dilationDir).SetFloat(finalLength - 1);
 
@@ -68,19 +65,9 @@ public class LabyrinthController : MonoBehaviour
                 case DilationType.height:
 
 
-                    // float targetHeight = GetCurvedValue(currentInfo, p);
-
-                    // float marbleVal = marble.GetObjectInput("y").floatValue;
-                    // float outerBox = marble.GetObjectInput("y").floatValue;
-                    // float innerBox = marble.GetObjectInput("y").floatValue;
-
-                    // marble .GetObjectInput("y").SetFloat(Mathf.Lerp(marbleVal, targetHeight, Time.deltaTime * smoothingSpeed));
-                    // voidBox.GetObjectInput("y").SetFloat(Mathf.Lerp(outerBox, targetHeight + 1, Time.deltaTime * smoothingSpeed));
-                    // innrBox.GetObjectInput("y").SetFloat(Mathf.Lerp(innerBox, targetHeight, Time.deltaTime * smoothingSpeed));
-
 
                     float finalHeight = GetCurvedValue(currentInfo, p);
-                    marble.GetObjectInput("y").SetFloat(finalHeight);
+                    marble .GetObjectInput("y").SetFloat(finalHeight);
                     voidBox.GetObjectInput("y").SetFloat(finalHeight + 1);
                     innrBox.GetObjectInput("y").SetFloat(finalHeight);
 
@@ -97,6 +84,7 @@ public class LabyrinthController : MonoBehaviour
     {
         if (currentInfo.canBackslide)
         {
+            Debug.Log("BACKSLIDING");
             ProcessDilation();
         }
     }
