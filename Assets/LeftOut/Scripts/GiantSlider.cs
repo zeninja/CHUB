@@ -17,7 +17,7 @@ public class GiantSlider : MonoBehaviour {
     bool wasActive;
 
     public delegate void InstantSliderEvent ();
-    public static event InstantSliderEvent OnSliderCompleted;
+    // public static event InstantSliderEvent OnSliderCompleted;
     public static event InstantSliderEvent OnSliderStarted;
     public static event InstantSliderEvent OnValueChanged;
 
@@ -120,12 +120,13 @@ public class GiantSlider : MonoBehaviour {
 
             if (!wasActive) {
                 if (OnSliderStarted != null) {
-                    Debug.Log("Starting slider");
+                    // Debug.Log("Starting slider. Current info: " + MetaSlider.GetInstance().stageInfo.world + "-" + MetaSlider.GetInstance().stageInfo.level);
                     OnSliderStarted ();
                 }
                 wasActive = true;
             }
 
+        } else {
         }
     }
 
@@ -133,16 +134,18 @@ public class GiantSlider : MonoBehaviour {
         // Debug.Log("END CORNER STAYING");
 
         if (isActive) {
-            if (percent > .9f) {
-                Debug.Log ("Going to next slider");
+            if (percent > .95f) {
+                // Debug.Log ("Going to next slider");
                 // Go to next slider
                 ReleaseTarget ();
 
-                if (OnSliderCompleted != null) {
+                // if (OnSliderCompleted != null) {
+                //     Debug.Log("Slider completed");
+                //     OnSliderCompleted ();
+                // }
+                RoundValue();
 
-                    OnSliderCompleted ();
-                }
-
+                wasActive = false;
                 MetaSlider.GetInstance ().HandleSliderCompleted (this);
             }
         }

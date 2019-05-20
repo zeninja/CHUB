@@ -35,7 +35,8 @@ public class AudioManager : MonoBehaviour {
 	public void Play (string sound) {
 		Sound s = Array.Find (sounds, item => item.name == sound);
 		if (s == null) {
-			Debug.LogWarning ("Sound: " + name + " not found!");
+			Debug.LogWarning ("Sound: " + sound + " not found!");
+			
 			return;
 		}
 
@@ -44,18 +45,16 @@ public class AudioManager : MonoBehaviour {
 
 		s.source.Play ();
 
-		Debug.Log("Playing " + name);
+		// Debug.Log("Playing " + s.name);
 	}
 
-	public void PlayCurrentHall() {
+	// public void PlayCurrentHall() {
 
-		int world = MetaSlider.GetInstance().stageInfo.world;
-		int level = MetaSlider.GetInstance().stageInfo.level;
+	// 	int world = MetaSlider.GetInstance().stageInfo.world;
+	// 	int level = MetaSlider.GetInstance().stageInfo.level;
 
-		Debug.Log("triggering hall music " + world + "-" + level);
-
-		Play("Hallway " + world + "-" + level);
-	}
+	// 	Play("Hallway " + world + "-" + level);
+	// }
 	
 	// bool hasStarted;
 

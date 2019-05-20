@@ -98,10 +98,14 @@ public class MetaSlider : MonoBehaviour
                 // roll over when you hit 4
                 activeSliderIndex = 0;
                 completedWorldCount++;
+
+                // Debug.Log("ROLLING OVER TO NEXT WORLD");
             }
 
             SetStageInfo();
             SetSliderActive(activeSliderIndex);
+
+            Debug.Log(stageInfo.world + "-" + stageInfo.level);
 
             elapsedCompletionPct = activeSliderIndex * .25f; // round the completed value to nearest quarter
         }
@@ -135,5 +139,11 @@ public class MetaSlider : MonoBehaviour
     {
         return currentSliderValue;
     }
+
+    // public bool StageInfoMatches(StageInfo info) {
+    //     Debug.Log("Received " + info.world + "-" + info.level);
+
+    //     return info.world == stageInfo.world && info.level == stageInfo.level;
+    // }
 
 }

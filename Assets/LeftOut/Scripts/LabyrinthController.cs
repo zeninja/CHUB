@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using RaymarchingToolkit;
 using UnityEngine;
 
-public class LabyrinthController : MonoBehaviour {
+public class LabyrinthController : MonoBehaviour
+{
 
     public RaymarchObject voidBox;
     public RaymarchObject innrBox;
@@ -12,7 +13,8 @@ public class LabyrinthController : MonoBehaviour {
     public enum DilationType { none, length, height }
 
     [System.Serializable]
-    public class DilationInfo {
+    public class DilationInfo
+    {
         public MetaSlider.StageInfo stageInfo;
         public DilationType dilationType;
         public AnimationCurve curve;
@@ -25,60 +27,90 @@ public class LabyrinthController : MonoBehaviour {
 
     DilationInfo currentInfo;
 
-    void Start () {
+    void Start()
+    {
         GiantSlider.OnValueChanged += ProcessDilation;
         GiantSlider.OnBackslide += CheckBackslide;
         MetaSlider.OnActiveSliderChanged += SetCurrentSlider;
     }
 
-    void ProcessDilation () {
-        DilationType dilationType = currentInfo.dilationType;
-        float p = MetaSlider.GetInstance ().GetCurrentSliderValue ();
+    public float smoothingSpeed = 10f;
 
-        switch (dilationType) {
+    void ProcessDilation()
+    {
+        if (currentInfo.stageInfo.world == MetaSlider.GetInstance().stageInfo.world &&
+            currentInfo.stageInfo.level == MetaSlider.GetInstance().stageInfo.level)
+        {
 
-            case DilationType.length:
+            DilationType dilationType = currentInfo.dilationType;
+            float p = MetaSlider.GetInstance().GetCurrentSliderValue();
 
-                bool levelIsEven = currentInfo.stageInfo.level % 2 == 0;
-                string dilationDir = levelIsEven ? "x" : "z";
+            switch (dilationType)
+            {
 
-                float finalLength = GetCurvedValue (currentInfo, p);
-                voidBox.GetObjectInput (dilationDir).SetFloat (finalLength);
-                innrBox.GetObjectInput (dilationDir).SetFloat (finalLength - 1);
+                case DilationType.length:
 
-                break;
+                    bool levelIsEven = currentInfo.stageInfo.level % 2 == 0;
+                    string dilationDir = levelIsEven ? "x" : "z";
 
-            case DilationType.height:
+                    float finalLength = GetCurvedValue(currentInfo, p);
 
-                float finalHeight = GetCurvedValue (currentInfo, p);
-                marble.GetObjectInput ("y").SetFloat (finalHeight);
-                voidBox.GetObjectInput ("y").SetFloat (finalHeight + 1);
-                innrBox.GetObjectInput ("y").SetFloat (finalHeight);
+                    // float targetLength = GetCurvedValue(currentInfo, p);
 
-                break;
+                    // float outerBoxVal = voidBox.GetObjectInput(dilationDir).floatValue;
+                    // float innrBoxVal = voidBox.GetObjectInput(dilationDir).floatValue;
 
-            case DilationType.none:
+                    voidBox.GetObjectInput(dilationDir).SetFloat(finalLength);
+                    innrBox.GetObjectInput(dilationDir).SetFloat(finalLength - 1);
 
-                break;
+                    break;
+
+                case DilationType.height:
+
+
+                    // float targetHeight = GetCurvedValue(currentInfo, p);
+
+                    // float marbleVal = marble.GetObjectInput("y").floatValue;
+                    // float outerBox = marble.GetObjectInput("y").floatValue;
+                    // float innerBox = marble.GetObjectInput("y").floatValue;
+
+                    // marble .GetObjectInput("y").SetFloat(Mathf.Lerp(marbleVal, targetHeight, Time.deltaTime * smoothingSpeed));
+                    // voidBox.GetObjectInput("y").SetFloat(Mathf.Lerp(outerBox, targetHeight + 1, Time.deltaTime * smoothingSpeed));
+                    // innrBox.GetObjectInput("y").SetFloat(Mathf.Lerp(innerBox, targetHeight, Time.deltaTime * smoothingSpeed));
+
+
+                    float finalHeight = GetCurvedValue(currentInfo, p);
+                    marble.GetObjectInput("y").SetFloat(finalHeight);
+                    voidBox.GetObjectInput("y").SetFloat(finalHeight + 1);
+                    innrBox.GetObjectInput("y").SetFloat(finalHeight);
+
+                    break;
+
+                case DilationType.none:
+
+                    break;
+            }
         }
     }
 
-    void CheckBackslide (float amt) {
-        if (currentInfo.canBackslide) {
-            ProcessDilation ();
+    void CheckBackslide(float amt)
+    {
+        if (currentInfo.canBackslide)
+        {
+            ProcessDilation();
         }
     }
 
-    public float GetCurvedValue (DilationInfo info, float t) {
+    public float GetCurvedValue(DilationInfo info, float t)
+    {
         float diff = info.range.end - info.range.start;
-        float final = info.range.start + info.curve.Evaluate (Mathf.Clamp01 (t)) * diff;
+        float final = info.range.start + info.curve.Evaluate(Mathf.Clamp01(t)) * diff;
 
         return final;
     }
 
-    void SetCurrentSlider () {
-        if (MetaSlider.GetInstance ().stageInfo.world == 1) {
-            currentInfo = dilationSettings[MetaSlider.GetInstance ().GetSliderIndex ()];
-        }
+    void SetCurrentSlider()
+    {
+        currentInfo = dilationSettings[MetaSlider.GetInstance().GetSliderIndex()];
     }
 }
