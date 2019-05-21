@@ -42,7 +42,7 @@ public class ObjectController : MonoBehaviour {
     void Update () {
 
         if (MetaSlider.GetInstance ().InSameWorld (targetWorld)) {
-            percent = MetaSlider.GetInstance ().worldLevelCompletionPct;
+            percent = MetaSlider.GetInstance ().worldCompletionPct;
         }
 
         if (autoOscillate) {

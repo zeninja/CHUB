@@ -31,7 +31,7 @@ public class CornerController : MonoBehaviour
 
             if (cornerType == CornerType.end)
             {
-                slider.EndCornerStay();
+                // slider.EndCornerStay();
             }
         }
     }

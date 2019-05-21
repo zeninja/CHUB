@@ -21,10 +21,6 @@ public class LabyrinthController : MonoBehaviour
         public AnimationCurve curve;
         public Extensions.Property range;
         public bool canBackslide;
-
-        // DilationInfo() {
-        //     name = stageInfo.world + "-" + stageInfo.level;
-        // }
     }
 
     [SerializeField]

@@ -12,7 +12,7 @@ public class MetaSlider : MonoBehaviour
 
     public int activeSliderIndex = 0;
     float elapsedCompletionPct = 0;
-    public float worldLevelCompletionPct;
+    public float worldCompletionPct;
     public float currentSliderValue;
 
     int completedWorldCount;
@@ -64,7 +64,7 @@ public class MetaSlider : MonoBehaviour
     {
         // Find slider value and progress
         currentSliderValue = GetSliderValue(activeSliderIndex);
-        worldLevelCompletionPct = elapsedCompletionPct + currentSliderValue / 4;
+        worldCompletionPct = elapsedCompletionPct + currentSliderValue / 4;
 
         // // Set stage info
         // SetStageInfo();
@@ -114,7 +114,7 @@ public class MetaSlider : MonoBehaviour
 
     void SetStageInfo()
     {
-        stageInfo.world = completedWorldCount + Mathf.FloorToInt(worldLevelCompletionPct) + 1;
+        stageInfo.world = completedWorldCount + Mathf.FloorToInt(worldCompletionPct) + 1;
         stageInfo.level = activeSliderIndex + 1;
     }
 

@@ -39,7 +39,7 @@ public class ModifierController : MonoBehaviour {
     void Update () {
 
         if (MetaSlider.GetInstance ().stageInfo.world == targetWorld) {
-            percent = MetaSlider.GetInstance ().worldLevelCompletionPct;
+            percent = MetaSlider.GetInstance ().worldCompletionPct;
         }
 
         if (autoOscillate) {

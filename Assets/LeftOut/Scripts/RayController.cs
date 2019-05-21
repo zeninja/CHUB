@@ -20,15 +20,9 @@ public class RayController : MonoBehaviour
 
     void ProcessRayObject()
     {
-        // if (MetaSlider.GetInstance ().stageInfo != targetStage) { return; }
 
-        // if (targetStage.world == MetaSlider.GetInstance().stageInfo.world &&
-        //     targetStage.level == MetaSlider.GetInstance().stageInfo.level)
-        // {
-
-        if(MetaSlider.GetInstance().stageInfo.world == targetWorld) {
-
-            float t = MetaSlider.GetInstance().worldLevelCompletionPct;
+        if(MetaSlider.GetInstance().InSameWorld(targetWorld)) {
+            float t = MetaSlider.GetInstance().worldCompletionPct;
             float scale = GetScale(range, t);
             outerSphere.GetObjectInput("radius").SetFloat(scale);
         }

@@ -1,64 +1,70 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GiantSlider : MonoBehaviour {
+public class GiantSlider : MonoBehaviour
+{
 
     public SliderState state = SliderState.prep;
     public enum SliderState { prep, active, completed }
 
     // BoxCollider box;
 
-    [Range (0, 1)] public float percent;
+    [Range(0, 1)] public float percent;
     Transform start, end, knob;
 
     public bool devMode = true;
     public bool isActive;
     bool wasActive;
 
-    public delegate void InstantSliderEvent ();
+    public delegate void InstantSliderEvent();
     // public static event InstantSliderEvent OnSliderCompleted;
     public static event InstantSliderEvent OnSliderStarted;
     public static event InstantSliderEvent OnValueChanged;
 
-    public delegate void ContinuousSliderEvent (float p);
+    public delegate void ContinuousSliderEvent(float p);
     public static event ContinuousSliderEvent OnBackslide;
 
     public bool canBackslide = false;
 
-    void Start () {
-        start = transform.Find ("start");
-        end = transform.Find ("end");
-        knob = transform.Find ("knob");
+    void Start()
+    {
+        start = transform.Find("start");
+        end = transform.Find("end");
+        knob = transform.Find("knob");
         // box = GetComponent<BoxCollider>();
 
-        hallController = GetComponent<HallController> ();
+        hallController = GetComponent<HallController>();
 
-        SetKnobInfo ();
-        SetKnobToStart ();
+        SetKnobInfo();
+        SetKnobToStart();
     }
 
-    void SetKnobInfo () {
-        float sliderLength = InfoManager.GetInstance ().realWorld.hallLength;
+    void SetKnobInfo()
+    {
+        float sliderLength = InfoManager.GetInstance().realWorld.hallLength;
 
         // start.transform.localPosition = new Vector3 (0, 0, -sliderLength / 2);
         // end.transform.localPosition = new Vector3 (0, 0, sliderLength / 2);
-        knob.GetComponent<KnobController> ().bounds = sliderLength / 2;
+        knob.GetComponent<KnobController>().bounds = sliderLength / 2;
         // box.size = InfoManager.GetInstance().realWorld.hallDimensions;
     }
 
-    void LateUpdate () {
+    void LateUpdate()
+    {
         if (!devMode && !isActive) { return; }
-        GetPercentByKnob ();
+        GetPercentByKnob();
     }
 
     HallController hallController;
 
-    public void SetKnobTarget (Transform target) {
-        knob.GetComponent<KnobController> ().target = target;
+    public void SetKnobTarget(Transform target)
+    {
+        knob.GetComponent<KnobController>().target = target;
     }
 
-    void SetKnobToStart () {
+    void SetKnobToStart()
+    {
         knob.transform.position = start.transform.position;
     }
 
@@ -66,67 +72,86 @@ public class GiantSlider : MonoBehaviour {
     float maxPercent;
     float lastPercent;
 
-    void GetPercentByKnob () {
-        percent = Extensions.mapRange (start.localPosition.z, end.localPosition.z, 0, 1, knob.localPosition.z);
+    void GetPercentByKnob()
+    {
+        percent = Extensions.mapRange(start.localPosition.z, end.localPosition.z, 0, 1, knob.localPosition.z);
 
         // nothing has changed
         if (lastPercent == percent) { return; }
 
-        if (percent > lastPercent) {
+        if (percent > lastPercent)
+        {
             // forward progress is always allowed
             maxPercent = percent;
-            if (OnValueChanged != null) {
-                OnValueChanged ();
+            if (OnValueChanged != null)
+            {
+                OnValueChanged();
             }
-        } else // trying to back up
-            if (percent < lastPercent) {
-
-                if (canBackslide) {
-
-                    // backing up allowed
-                    if (OnValueChanged != null) {
-                        OnValueChanged ();
-                    }
-                } else {
-
-                    // no backing up allowed
-                    if (OnBackslide != null) {
-                        OnBackslide (maxPercent - percent);
-                    }
+        }
+        else // trying to back up
+        if (percent < lastPercent)
+        {
+            if (canBackslide)
+            {
+                // backing up allowed
+                if (OnValueChanged != null)
+                {
+                    OnValueChanged();
                 }
             }
+            else
+            {
+                // no backing up allowed
+                if (OnBackslide != null)
+                {
+                    // this value is so that we hit "maximum backslide" earlier than 1 full rotation
+                    float backSlideLimit = .25f;
+                    OnBackslide(Mathf.Clamp01((maxPercent - percent) / backSlideLimit));
+                }
+            }
+        }
 
         lastPercent = percent;
     }
 
-    public void RoundValue () {
-        if (percent > .8f) {
+    public void RoundValue()
+    {
+        if (percent > .8f)
+        {
             knob.transform.position = end.transform.position;
         }
-        if (percent < .1f) {
+        if (percent < .1f)
+        {
             knob.transform.position = start.transform.position;
         }
     }
 
-    void ReleaseTarget () {
-        knob.GetComponent<KnobController> ().target = null;
+    void ReleaseTarget()
+    {
+        knob.GetComponent<KnobController>().target = null;
     }
 
     // ------------------------------------------
 
-    public void StartCornerStay (Transform player) {
-        if (isActive) {
-            SetKnobTarget (player);
+    public void StartCornerStay(Transform player)
+    {
+        if (isActive)
+        {
+            SetKnobTarget(player);
 
-            if (!wasActive) {
-                if (OnSliderStarted != null) {
+            if (!wasActive)
+            {
+                if (OnSliderStarted != null)
+                {
                     // Debug.Log("Starting slider. Current info: " + MetaSlider.GetInstance().stageInfo.world + "-" + MetaSlider.GetInstance().stageInfo.level);
-                    OnSliderStarted ();
+                    OnSliderStarted();
                 }
                 wasActive = true;
             }
 
-        } else {
+        }
+        else
+        {
         }
     }
 
@@ -134,22 +159,16 @@ public class GiantSlider : MonoBehaviour {
         // Debug.Log("END CORNER STAYING");
 
         if (isActive) {
-            if (percent > .85f) {
-                // Debug.Log ("Going to next slider");
-                // Go to next slider
-                ReleaseTarget ();
+    //     //         //     Debug.Log("Slider completed");
+    //     //         //     OnSliderCompleted ();
+    //     //         // }
+    //     //         // RoundValue();
 
-                // if (OnSliderCompleted != null) {
-                //     Debug.Log("Slider completed");
-                //     OnSliderCompleted ();
-                // }
-                RoundValue();
-
-                wasActive = false;
-                MetaSlider.GetInstance ().HandleSliderCompleted (this);
-            }
-        }
-    }
+    //     //         wasActive = false;
+    //     //         MetaSlider.GetInstance().HandleSliderCompleted(this);
+    //     //     }
+    //     // }
+    // }
 
     // public void ResetIfNotActive () {
     //     if (!isActive) {
