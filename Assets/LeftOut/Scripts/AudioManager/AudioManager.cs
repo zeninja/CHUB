@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour {
 	public AudioMixerGroup mixerGroup;
 	public AudioMixer mixer;
 
-	public Sound[] sounds;
+	Sound[] sounds;
 
 	void Awake () {
 		if (instance != null) {
@@ -70,5 +70,9 @@ public class AudioManager : MonoBehaviour {
 	// void SwitchToDrone() {
 	// 	Play("Drone");
 	// }
+
+	public void PlayAtNextCorner() {
+		// audioSource
+	}
 
 }

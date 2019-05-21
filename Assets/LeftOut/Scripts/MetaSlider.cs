@@ -31,6 +31,7 @@ public class MetaSlider : MonoBehaviour
     public delegate void SliderActivatedEvent();
     public static event SliderActivatedEvent OnActiveSliderChanged;
 
+
     void Awake()
     {
         if (instance == null)
@@ -65,20 +66,10 @@ public class MetaSlider : MonoBehaviour
         currentSliderValue = GetSliderValue(activeSliderIndex);
         worldLevelCompletionPct = elapsedCompletionPct + currentSliderValue / 4;
 
-        // if(manualOverride) {
-        //     currentSliderValue = manualPercent;
-        //     worldLevelCompletionPct = elapsedCompletionPct + currentSliderValue / 4;
-
-        // }
-
-        // Set stage info
-        SetStageInfo();
+        // // Set stage info
+        // SetStageInfo();
 
     }
-
-    [Range(0,1)]
-    public float manualPercent;
-    public bool manualOverride = true;
 
     public int FindSliderIndex(GiantSlider target)
     {
@@ -154,6 +145,15 @@ public class MetaSlider : MonoBehaviour
         // Debug.Log("Received " + info.world + "-" + info.level);
 
         return info.world == stageInfo.world && info.level == stageInfo.level;
+    }
+
+    public bool InSameWorld(int world) {
+        return world == stageInfo.world;
+    }
+
+    void OnGUI() {
+        GUI.color = Color.black;
+        GUI.Label(new Rect(0, 0, 100, 100), stageInfo.world + "-" + stageInfo.level);
     }
 
 }

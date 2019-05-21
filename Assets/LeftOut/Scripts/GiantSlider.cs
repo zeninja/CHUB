@@ -100,7 +100,7 @@ public class GiantSlider : MonoBehaviour {
     }
 
     public void RoundValue () {
-        if (percent >.9f) {
+        if (percent > .8f) {
             knob.transform.position = end.transform.position;
         }
         if (percent < .1f) {
@@ -134,7 +134,7 @@ public class GiantSlider : MonoBehaviour {
         // Debug.Log("END CORNER STAYING");
 
         if (isActive) {
-            if (percent > .95f) {
+            if (percent > .85f) {
                 // Debug.Log ("Going to next slider");
                 // Go to next slider
                 ReleaseTarget ();

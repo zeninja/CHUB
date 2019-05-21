@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour {
 
-    public enum SnippetType { V1, V2, V3 };
+    public enum SnippetType { V1, V2, V3 }
     public SnippetType snippetType = SnippetType.V3;
 
-    public enum SliderIndex { zero, one, two, three, none };
-    public SliderIndex sliderIndex = SliderIndex.none;
+    public int targetWorld;
+
+    // public enum SliderIndex { zero, one, two, three, none };
+    // public SliderIndex sliderIndex = SliderIndex.none;
 
     public string target;
 
@@ -32,20 +34,20 @@ public class ObjectController : MonoBehaviour {
     void Start () {
         obj = GetComponent<RaymarchObject> ();
 
-        randomStart = Random.Range(0, 1);
+        randomStart = Random.Range (0, 1);
     }
 
     float randomStart;
 
     void Update () {
 
-        if (autoOscillate) {
-            // percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
-            percent = Mathf.PerlinNoise(Time.time, randomStart);
+        if (MetaSlider.GetInstance ().InSameWorld (targetWorld)) {
+            percent = MetaSlider.GetInstance ().worldLevelCompletionPct;
         }
 
-        if(sliderIndex != SliderIndex.none) {
-            percent = MetaSlider.GetInstance().GetSliderValue((int)sliderIndex);
+        if (autoOscillate) {
+            // percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
+            percent += Mathf.PerlinNoise (Time.time, randomStart);
         }
 
         float x = GetFloatValue (xCurve, xRange);
