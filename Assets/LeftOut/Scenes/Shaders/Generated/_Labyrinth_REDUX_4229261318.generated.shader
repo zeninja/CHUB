@@ -1306,6 +1306,9 @@ uniform float x_47900791_ce8993a9_z;
 uniform float x_47922952_ce8993a9_x;
 uniform float x_47922952_ce8993a9_y;
 uniform float x_47922952_ce8993a9_z;
+uniform float x_47923041_ce8993a9_x;
+uniform float x_47923041_ce8993a9_y;
+uniform float x_47923041_ce8993a9_z;
 uniform float x_47900667_ce8993a9_x;
 uniform float x_47900667_ce8993a9_y;
 uniform float x_47900667_ce8993a9_z;
@@ -1393,6 +1396,9 @@ uniform float _47900785MinScale;
 // uniforms for MARBLE
 uniform float4x4 _47922952Matrix;
 uniform float _47922952MinScale;
+// uniforms for Box
+uniform float4x4 _47923041Matrix;
+uniform float _47923041MinScale;
 // uniforms for InnerWall
 uniform float4x4 _47900667Matrix;
 uniform float _47900667MinScale;
@@ -1423,6 +1429,7 @@ uniform float4 x_47899853_da843a44_color;
 uniform float4 x_47921809_da843a44_color;
 uniform float4 x_47900785_da843a44_color;
 uniform float4 x_47922952_da843a44_color;
+uniform float4 x_47923041_da843a44_color;
 uniform float4 x_47900667_da843a44_color;
 uniform float4 x_47921929_da843a44_color;
 float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4 _INP_color) {
@@ -1431,48 +1438,52 @@ float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4
 }
 float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out float objectID)
 {
-    objectID = ceil(nf) / (float)11;
+    objectID = ceil(nf) / (float)12;
     [branch] if (nf <= 1) {
-    //    objectID = 0.09090909;
+    //    objectID = 0.08333334;
         return material_SimpleColor(normal, objPos(_47900791Matrix, p), rayDir, x_47900791_da843a44_color);
     }
     else if(nf <= 2) {
-    //    objectID = 0.1818182;
+    //    objectID = 0.1666667;
         return material_SimpleColor(normal, objPos(_47899797Matrix, p), rayDir, x_47899797_da843a44_color);
     }
     else if(nf <= 3) {
-    //    objectID = 0.2727273;
+    //    objectID = 0.25;
         return material_SimpleColor(normal, objPos(_47922925Matrix, p), rayDir, x_47922925_da843a44_color);
     }
     else if(nf <= 4) {
-    //    objectID = 0.3636364;
+    //    objectID = 0.3333333;
         return material_SimpleColor(normal, objPos(_47900911Matrix, p), rayDir, x_47900911_da843a44_color);
     }
     else if(nf <= 5) {
-    //    objectID = 0.4545455;
+    //    objectID = 0.4166667;
         return material_SimpleColor(normal, objPos(_47923049Matrix, p), rayDir, x_47923049_da843a44_color);
     }
     else if(nf <= 6) {
-    //    objectID = 0.5454546;
+    //    objectID = 0.5;
         return material_SimpleColor(normal, objPos(_47899853Matrix, p), rayDir, x_47899853_da843a44_color);
     }
     else if(nf <= 7) {
-    //    objectID = 0.6363636;
+    //    objectID = 0.5833333;
         return material_SimpleColor(normal, objPos(_47921809Matrix, p), rayDir, x_47921809_da843a44_color);
     }
     else if(nf <= 8) {
-    //    objectID = 0.7272727;
+    //    objectID = 0.6666667;
         return material_SimpleColor(normal, objPos(_47900785Matrix, p), rayDir, x_47900785_da843a44_color);
     }
     else if(nf <= 9) {
-    //    objectID = 0.8181818;
+    //    objectID = 0.75;
         return material_SimpleColor(normal, objPos(_47922952Matrix, p), rayDir, x_47922952_da843a44_color);
     }
     else if(nf <= 10) {
-    //    objectID = 0.9090909;
-        return material_SimpleColor(normal, objPos(_47900667Matrix, p), rayDir, x_47900667_da843a44_color);
+    //    objectID = 0.8333333;
+        return material_SimpleColor(normal, objPos(_47923041Matrix, p), rayDir, x_47923041_da843a44_color);
     }
     else if(nf <= 11) {
+    //    objectID = 0.9166667;
+        return material_SimpleColor(normal, objPos(_47900667Matrix, p), rayDir, x_47900667_da843a44_color);
+    }
+    else if(nf <= 12) {
     //    objectID = 1;
         return material_SimpleColor(normal, objPos(_47921929Matrix, p), rayDir, x_47921929_da843a44_color);
     }
@@ -1496,9 +1507,10 @@ float2 map(float3 p) {
     float _47921809Distance = object_Sphere(objPos(_47921809Matrix, p), x_47921809_6492bb9b_radius) * _47921809MinScale;
     float _47900785Distance = object_Desert(objPos(_47900785Matrix, p), x_47900785_1ec48586_freq, x_47900785_1ec48586_extranoise) * _47900785MinScale;
     float _47922952Distance = object_Box(objPos(_47922952Matrix, p), x_47922952_ce8993a9_x, x_47922952_ce8993a9_y, x_47922952_ce8993a9_z) * _47922952MinScale;
+    float _47923041Distance = object_Box(objPos(_47923041Matrix, p), x_47923041_ce8993a9_x, x_47923041_ce8993a9_y, x_47923041_ce8993a9_z) * _47923041MinScale;
     float _47900667Distance = object_Box(objPos(_47900667Matrix, p), x_47900667_ce8993a9_x, x_47900667_ce8993a9_y, x_47900667_ce8993a9_z) * _47900667MinScale;
     float _47921929Distance = object_Box(objPos(_47921929Matrix, p), x_47921929_ce8993a9_x, x_47921929_ce8993a9_y, x_47921929_ce8993a9_z) * _47921929MinScale;
-    result = opU(opU(blend_Subtract(float2(_47900791Distance, /*material ID*/0.5), opU(opU(blend_Intersection(float2(_47899797Distance, /*material ID*/1.5), blend_Subtract(float2(_47922925Distance, /*material ID*/2.5), blend_Smooth(float2(_47900911Distance, /*material ID*/3.5), float2(_47923049Distance, /*material ID*/4.5), x_47921995_44192f17_intensity))), blend_Intersection(float2(_47899853Distance, /*material ID*/5.5), blend_Subtract(float2(_47921809Distance, /*material ID*/6.5), float2(_47900785Distance, /*material ID*/7.5)))), float2(_47922952Distance, /*material ID*/8.5))), float2(_47900667Distance, /*material ID*/9.5)), float2(_47921929Distance, /*material ID*/10.5));
+    result = opU(opU(blend_Subtract(float2(_47900791Distance, /*material ID*/0.5), opU(opU(blend_Intersection(float2(_47899797Distance, /*material ID*/1.5), blend_Subtract(float2(_47922925Distance, /*material ID*/2.5), blend_Smooth(float2(_47900911Distance, /*material ID*/3.5), float2(_47923049Distance, /*material ID*/4.5), x_47921995_44192f17_intensity))), blend_Intersection(float2(_47899853Distance, /*material ID*/5.5), blend_Subtract(float2(_47921809Distance, /*material ID*/6.5), float2(_47900785Distance, /*material ID*/7.5)))), float2(_47922952Distance, /*material ID*/8.5))), blend_Subtract(float2(_47923041Distance, /*material ID*/9.5), float2(_47900667Distance, /*material ID*/10.5))), float2(_47921929Distance, /*material ID*/11.5));
     }
 	return result;
 }

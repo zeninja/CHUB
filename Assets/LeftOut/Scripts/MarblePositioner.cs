@@ -14,8 +14,8 @@ public class MarblePositioner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 tempPos = transform.position;
+        Vector3 tempPos = transform.localPosition;
         tempPos.y = marble.GetObjectInput("y").floatValue;
-        transform.position = tempPos;
+        transform.localPosition = tempPos;
     }
 }

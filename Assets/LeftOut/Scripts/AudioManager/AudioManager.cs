@@ -71,7 +71,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         PlayNextHall();  // FIRST hall
-
+        MetaSlider.OnActiveSliderChanged += PlayNextHall;
     }
 
 
