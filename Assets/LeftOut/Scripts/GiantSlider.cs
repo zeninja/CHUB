@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -155,20 +155,29 @@ public class GiantSlider : MonoBehaviour
         }
     }
 
-    public void EndCornerStay () {
+    public void EndCornerStay()
+    {
         // Debug.Log("END CORNER STAYING");
 
-        if (isActive) {
-    //     //         //     Debug.Log("Slider completed");
-    //     //         //     OnSliderCompleted ();
-    //     //         // }
-    //     //         // RoundValue();
+        if (isActive)
+        {
+            if (percent > .85f)
+            {
+                // Debug.Log ("Going to next slider");
+                // Go to next slider
+                ReleaseTarget();
 
-    //     //         wasActive = false;
-    //     //         MetaSlider.GetInstance().HandleSliderCompleted(this);
-    //     //     }
-    //     // }
-    // }
+                // if (OnSliderCompleted != null) {
+                //     Debug.Log("Slider completed");
+                //     OnSliderCompleted ();
+                // }
+                // RoundValue();
+
+                wasActive = false;
+                MetaSlider.GetInstance().HandleSliderCompleted(this);
+            }
+        }
+    }
 
     // public void ResetIfNotActive () {
     //     if (!isActive) {

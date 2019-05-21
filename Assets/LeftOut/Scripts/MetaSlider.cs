@@ -63,7 +63,7 @@ public class MetaSlider : MonoBehaviour
     void UpdateMetaSlider()
     {
         // Find slider value and progress
-        currentSliderValue = GetSliderValue(activeSliderIndex);
+        currentSliderValue = Mathf.Clamp01(GetSliderValue(activeSliderIndex));
         worldCompletionPct = elapsedCompletionPct + currentSliderValue / 4;
 
         // // Set stage info
@@ -91,7 +91,7 @@ public class MetaSlider : MonoBehaviour
         if (activeSliderIndex == FindSliderIndex(completedSlider))
         {
             // Debug.Log("active slider index matched. slider index increased");
-
+            // currentSliderValue = 0;
             activeSliderIndex++;
 
             if (activeSliderIndex >= 4)
@@ -100,7 +100,7 @@ public class MetaSlider : MonoBehaviour
                 activeSliderIndex = 0;
                 completedWorldCount++;
 
-                // Debug.Log("ROLLING OVER TO NEXT WORLD");
+                Debug.Log("ROLLING OVER TO NEXT WORLD");
             }
 
             SetStageInfo();
@@ -141,17 +141,20 @@ public class MetaSlider : MonoBehaviour
         return currentSliderValue;
     }
 
-    public bool StageInfoMatches(StageInfo info) {
+    public bool StageInfoMatches(StageInfo info)
+    {
         // Debug.Log("Received " + info.world + "-" + info.level);
 
         return info.world == stageInfo.world && info.level == stageInfo.level;
     }
 
-    public bool InSameWorld(int world) {
+    public bool InSameWorld(int world)
+    {
         return world == stageInfo.world;
     }
 
-    void OnGUI() {
+    void OnGUI()
+    {
         GUI.color = Color.black;
         GUI.Label(new Rect(0, 0, 100, 100), stageInfo.world + "-" + stageInfo.level);
     }
