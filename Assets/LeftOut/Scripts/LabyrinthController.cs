@@ -26,21 +26,23 @@ public class LabyrinthController : MonoBehaviour
     [SerializeField]
     public DilationInfo[] dilationSettings;
 
-    DilationInfo currentInfo;
+    // DilationInfo currentInfo;
 
     void Start()
     {
         GiantSlider.OnValueChanged += ProcessDilation;
-        GiantSlider.OnBackslide += CheckBackslide;
+        // GiantSlider.OnBackslide += CheckBackslide;
         MetaSlider.OnActiveSliderChanged += SetCurrentSlider;
     }
 
     void ProcessDilation()
     {
-        if ( MetaSlider.GetInstance().StageInfoMatches(currentInfo.stageInfo) )
-        {
+        // if ( MetaSlider.GetInstance().StageInfoMatches(currentInfo.stageInfo) )
+        // {
 
-            DilationType dilationType = currentInfo.dilationType;
+        foreach(DilationInfo d in activeInfo) {
+
+            DilationType dilationType = d.dilationType;
             float p = MetaSlider.GetInstance().GetCurrentSliderValue();
 
             switch (dilationType)
@@ -48,10 +50,10 @@ public class LabyrinthController : MonoBehaviour
 
                 case DilationType.length:
 
-                    bool levelIsEven = currentInfo.stageInfo.level % 2 == 0;
+                    bool levelIsEven = d.stageInfo.level % 2 == 0;
                     string dilationDir = levelIsEven ? "x" : "z";
 
-                    float finalLength = GetCurvedValue(currentInfo, p);
+                    float finalLength = GetCurvedValue(d, p);
 
                     voidBox.GetObjectInput(dilationDir).SetFloat(finalLength);
                     innrBox.GetObjectInput(dilationDir).SetFloat(finalLength - 1);
@@ -62,7 +64,7 @@ public class LabyrinthController : MonoBehaviour
 
 
 
-                    float finalHeight = GetCurvedValue(currentInfo, p);
+                    float finalHeight = GetCurvedValue(d, p);
                     marble .GetObjectInput("y").SetFloat(finalHeight);
                     voidBox.GetObjectInput("y").SetFloat(finalHeight + 1);
                     innrBox.GetObjectInput("y").SetFloat(finalHeight);
@@ -76,14 +78,14 @@ public class LabyrinthController : MonoBehaviour
         }
     }
 
-    void CheckBackslide(float amt)
-    {
-        if (currentInfo.canBackslide)
-        {
-            Debug.Log("BACKSLIDING");
-            ProcessDilation();
-        }
-    }
+    // void CheckBackslide(float amt)
+    // {
+    //     if (currentInfo.canBackslide)
+    //     {
+    //         Debug.Log("BACKSLIDING");
+    //         ProcessDilation();
+    //     }
+    // }
 
     public float GetCurvedValue(DilationInfo info, float t)
     {
@@ -93,8 +95,19 @@ public class LabyrinthController : MonoBehaviour
         return final;
     }
 
+    List<DilationInfo> activeInfo = new List<DilationInfo>();
+
     void SetCurrentSlider()
     {
-        currentInfo = dilationSettings[MetaSlider.GetInstance().GetSliderIndex()];
+        activeInfo.Clear();
+
+        foreach(DilationInfo d in dilationSettings) {
+            if (MetaSlider.GetInstance().StageInfoMatches(d.stageInfo)) {
+                activeInfo.Add(d);
+                Debug.Log("Added info " + d.stageInfo.world + "-" + d.stageInfo.level);
+            }
+        }
+
+        // currentInfo = dilationSettings[MetaSlider.GetInstance().GetSliderIndex()];
     }
 }
