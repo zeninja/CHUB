@@ -104,7 +104,7 @@ public class LabyrinthController : MonoBehaviour
         foreach(DilationInfo d in dilationSettings) {
             if (MetaSlider.GetInstance().StageInfoMatches(d.stageInfo)) {
                 activeInfo.Add(d);
-                Debug.Log("Added info " + d.stageInfo.world + "-" + d.stageInfo.level);
+                // Debug.Log("Added info " + d.stageInfo.world + "-" + d.stageInfo.level);
             }
         }
 
