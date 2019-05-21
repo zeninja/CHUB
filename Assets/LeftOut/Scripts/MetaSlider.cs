@@ -31,7 +31,6 @@ public class MetaSlider : MonoBehaviour
     public delegate void SliderActivatedEvent();
     public static event SliderActivatedEvent OnActiveSliderChanged;
 
-
     void Awake()
     {
         if (instance == null)
