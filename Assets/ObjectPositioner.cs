@@ -11,9 +11,10 @@ public class ObjectPositioner : MonoBehaviour {
     public AnimationCurve curve;
 
 
+
+
     void Update () {
         float p = 0;
-
         if (MetaSlider.GetInstance ().stageInfo.world ==  world) {
             p = MetaSlider.GetInstance ().worldCompletionPct;
         }
