@@ -15,7 +15,7 @@ public class ObjectPositioner : MonoBehaviour {
         float p = 0;
 
         if (MetaSlider.GetInstance ().stageInfo.world ==  world) {
-            p = MetaSlider.GetInstance ().currentSliderValue;
+            p = MetaSlider.GetInstance ().worldCompletionPct;
         }
 
         float yVal = curve.Evaluate (p);
