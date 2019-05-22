@@ -58,7 +58,7 @@ public class GiantSlider : MonoBehaviour {
         // if (!devMode && !isActive) { return; }
         // if (!isActive) { return; }
 
-        if (state == SliderState.active) {
+        if (state == SliderState.active || state == SliderState.ending) {
             GetPercentByKnob ();
         }
     }
