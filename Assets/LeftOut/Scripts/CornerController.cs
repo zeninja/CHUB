@@ -25,7 +25,7 @@ public class CornerController : MonoBehaviour {
             }
 
             if (cornerType == CornerType.end) {
-                slider.HandleExitEntered();
+                // slider.HandleExitEntered();
                 // slider.EndCornerStay ();
             }
         }

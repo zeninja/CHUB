@@ -33,21 +33,19 @@ public class LabyrinthController : MonoBehaviour
         GiantSlider.OnValueChanged += ProcessDilation;
         // GiantSlider.OnBackslide += CheckBackslide;
         MetaSlider.OnActiveSliderChanged += SetCurrentSlider;
+
+
     }
 
-    void ProcessDilation()
+    public void ProcessDilation()
     {
-        // if ( MetaSlider.GetInstance().StageInfoMatches(currentInfo.stageInfo) )
-        // {
-
-        foreach(DilationInfo d in activeInfo) {
-
+        foreach (DilationInfo d in activeInfo)
+        {
             DilationType dilationType = d.dilationType;
             float p = MetaSlider.GetInstance().GetCurrentSliderValue();
 
             switch (dilationType)
             {
-
                 case DilationType.length:
 
                     bool levelIsEven = d.stageInfo.level % 2 == 0;
@@ -56,16 +54,14 @@ public class LabyrinthController : MonoBehaviour
                     float finalLength = GetCurvedValue(d, p);
 
                     voidBox.GetObjectInput(dilationDir).SetFloat(finalLength);
-                    innrBox.GetObjectInput(dilationDir).SetFloat(finalLength - 1);
+                    innrBox.GetObjectInput(dilationDir).SetFloat(finalLength - 0.52085f);
 
                     break;
 
                 case DilationType.height:
 
-
-
                     float finalHeight = GetCurvedValue(d, p);
-                    marble .GetObjectInput("y").SetFloat(finalHeight);
+                    marble.GetObjectInput("y").SetFloat(finalHeight);
                     voidBox.GetObjectInput("y").SetFloat(finalHeight + 1);
                     innrBox.GetObjectInput("y").SetFloat(finalHeight);
 
@@ -101,8 +97,10 @@ public class LabyrinthController : MonoBehaviour
     {
         activeInfo.Clear();
 
-        foreach(DilationInfo d in dilationSettings) {
-            if (MetaSlider.GetInstance().StageInfoMatches(d.stageInfo)) {
+        foreach (DilationInfo d in dilationSettings)
+        {
+            if (MetaSlider.GetInstance().StageInfoMatches(d.stageInfo))
+            {
                 activeInfo.Add(d);
                 // Debug.Log("Added info " + d.stageInfo.world + "-" + d.stageInfo.level);
             }
@@ -110,4 +108,34 @@ public class LabyrinthController : MonoBehaviour
 
         // currentInfo = dilationSettings[MetaSlider.GetInstance().GetSliderIndex()];
     }
+
+    float startX = 1.1875f;
+    float startZ = 1.1875f;
+
+    float inner = 0.66665f;
+
+    public void ResetBox()
+    {
+        voidBox.GetObjectInput("x").SetFloat(startX);
+        voidBox.GetObjectInput("z").SetFloat(startZ);
+
+        innrBox.GetObjectInput("x").SetFloat(inner);
+        innrBox.GetObjectInput("z").SetFloat(inner);
+    }
+
+
+
+    // GiantSlider prevSlider;
+
+    // IEnumerator SmoothEnd(float p)
+    // {
+    //     while (p < 1)
+    //     {
+    //         p += Time.deltaTime;
+
+
+    //         yield return new WaitForFixedUpdate();
+    //     }
+
+    // }
 }

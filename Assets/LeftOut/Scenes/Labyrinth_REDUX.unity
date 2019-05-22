@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -246,6 +246,11 @@ PrefabInstance:
       propertyPath: devMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: lab
+      value: 
+      objectReference: {fileID: 1715064661}
     - target: {fileID: 3093274415704312302, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: _savedGUID
@@ -569,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46732335
+  _savedGUID: 47653688
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -708,6 +713,11 @@ PrefabInstance:
       propertyPath: devMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: lab
+      value: 
+      objectReference: {fileID: 1715064661}
     - target: {fileID: 3093274415704312302, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: _savedGUID
@@ -896,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46733077
+  _savedGUID: 47653779
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -1165,7 +1175,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2115798522
+    lastHash: -1318426667
 --- !u!4 &770802421
 Transform:
   m_ObjectHideFlags: 0
@@ -1659,6 +1669,11 @@ PrefabInstance:
       propertyPath: devMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: lab
+      value: 
+      objectReference: {fileID: 1715064661}
     - target: {fileID: 3093274415704312302, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: _savedGUID
@@ -1747,7 +1762,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46733170
+  _savedGUID: 47653872
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -2016,7 +2031,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2115799476
+    lastHash: -1318425713
 --- !u!4 &919628021
 Transform:
   m_ObjectHideFlags: 0
@@ -2681,7 +2696,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46733300
+  _savedGUID: 47654674
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -2730,7 +2745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176357645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 1, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 2113935406}
@@ -2952,7 +2967,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46734067
+  _savedGUID: 47654769
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -3221,7 +3236,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2115828282
+    lastHash: -1318396907
 --- !u!1 &1329228118
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,11 +4248,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46734199
+  _savedGUID: 47654922
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -612972604
+    lastHash: 247756432
 --- !u!1 &1651946806 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
@@ -4652,7 +4667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1671695058
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4711,7 +4726,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671695057}
   m_LocalRotation: {x: 0.4877573, y: -0, z: -0, w: 0.8729793}
-  m_LocalPosition: {x: -0.06021976, y: 14.4, z: -10.2}
+  m_LocalPosition: {x: -0.06021976, y: 7.26, z: -3.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664125329}
@@ -4806,8 +4821,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     range:
-      start: 1.5
-      end: 2
+      start: 1.1875
+      end: 3
     canBackslide: 0
   - name: 2-2
     stageInfo:
@@ -4848,8 +4863,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     range:
-      start: 1.5
-      end: 3
+      start: 1.1875
+      end: 5
     canBackslide: 0
   - name: 2-3
     stageInfo:
@@ -4890,7 +4905,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     range:
-      start: 1.5
+      start: 1.1875
       end: 10
     canBackslide: 0
   - name: 2-4
@@ -4932,13 +4947,13 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     range:
-      start: 1.5
+      start: 1.1875
       end: 100
     canBackslide: 0
-  - name: 2-4
+  - name: 3-1
     stageInfo:
-      world: 2
-      level: 4
+      world: 3
+      level: 1
     dilationType: 2
     curve:
       serializedVersion: 2
@@ -5099,6 +5114,48 @@ MonoBehaviour:
     range:
       start: 3
       end: 10
+    canBackslide: 0
+  - name: 1
+    stageInfo:
+      world: 1
+      level: 1
+    dilationType: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5008192
+        value: 0.9997943
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    range:
+      start: 1.1875
+      end: 100
     canBackslide: 0
 --- !u!1 &1747067947
 GameObject:
@@ -5510,7 +5567,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46735003
+  _savedGUID: 47655705
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -5779,7 +5836,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2115857883
+    lastHash: -1318367306
 --- !u!4 &1970934717
 Transform:
   m_ObjectHideFlags: 0
@@ -5886,7 +5943,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46735061
+  _savedGUID: 47655763
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -6155,7 +6212,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 2115858067
+    lastHash: -1318367122
 --- !u!114 &2073266802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6280,7 +6337,7 @@ MonoBehaviour:
   - {fileID: 1240785514}
   - {fileID: 1153592236}
   - {fileID: 358883103}
-  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_Labyrinth_REDUX_4229261318.generated.shader
+  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated/_Labyrinth_REDUX_4229261318.generated.shader
   _lastShader: {fileID: 4800000, guid: 0cef69e1f3c184a4d85c5fe8bd3fc189, type: 3}
   Steps: 160
   AmbientColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6370,11 +6427,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46735123
+  _savedGUID: 47655825
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -1748178805
+    lastHash: -887450504
 --- !u!108 &2118071918
 Light:
   m_ObjectHideFlags: 0
@@ -6557,6 +6614,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3286553741694136973, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
+        type: 3}
+      propertyPath: lab
+      value: 
+      objectReference: {fileID: 1715064661}
     - target: {fileID: 1900687048, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
       propertyPath: showState
       value: 1
@@ -6584,6 +6646,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767244312158768166, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
+        type: 3}
+      propertyPath: material.inputs.Array.data[0].color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767244312158768166, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
+        type: 3}
+      propertyPath: material.inputs.Array.data[0].color.r
+      value: 0.759434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767244312158768166, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
+        type: 3}
+      propertyPath: material.inputs.Array.data[0].color.g
+      value: 0.96690303
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767244312158768166, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
+        type: 3}
+      propertyPath: material.inputs.Array.data[0].color.b
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6767244310926464956, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
         type: 3}
@@ -6639,26 +6721,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767244312158768166, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
-        type: 3}
-      propertyPath: material.inputs.Array.data[0].color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767244312158768166, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
-        type: 3}
-      propertyPath: material.inputs.Array.data[0].color.r
-      value: 0.759434
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767244312158768166, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
-        type: 3}
-      propertyPath: material.inputs.Array.data[0].color.g
-      value: 0.96690303
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767244312158768166, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
-        type: 3}
-      propertyPath: material.inputs.Array.data[0].color.b
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6767244310926464957, guid: ae8c3fa0ef709e54fbe00b8a0564679f,
         type: 3}
