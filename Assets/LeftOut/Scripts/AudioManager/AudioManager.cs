@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        PlayNextHall();  // FIRST hall
+        // PlayNextHall();  // FIRST hall
         MetaSlider.OnActiveSliderChanged += PlayNextHall;
     }
 
@@ -103,6 +103,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayNextHall()
     {
+        // Debug.Log("PLAYING HALL");
         StartCoroutine(FadeLastSource());
 
         int world = MetaSlider.GetInstance().stageInfo.world;
@@ -111,10 +112,12 @@ public class AudioManager : MonoBehaviour
         Play("LEFT OUT_hallway" + world + "." + level);
     }
 
-    AudioSource lastSource;
+    public AudioSource lastSource;
 
     IEnumerator<WaitForFixedUpdate> FadeLastSource()
     {
+        // Debug.Log("FADING SOURCE");
+
         float t = 0;
         float d = 3;
 

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+// [ExecuteInEditMode]
 public class KnobController : MonoBehaviour
 {
-    public float bounds = 20;
+    // public float bounds = 20;
 
     void LateUpdate()
     {
@@ -25,6 +25,13 @@ public class KnobController : MonoBehaviour
     }
 
     void ConstrainMovement() {
-        transform.localPosition = new Vector3(0, 0, Mathf.Clamp(transform.localPosition.z, -bounds, bounds));
+        transform.localPosition = new Vector3(0, 0, Mathf.Clamp(transform.localPosition.z, start, end));
+    }
+
+    float start, end;
+
+    public void SetBounds(float s, float e) {
+        start = s;
+        end = e;
     }
 }
