@@ -2,51 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPositioner : MonoBehaviour
-{
-    // public int targetWorld;
+public class ObjectPositioner : MonoBehaviour {
 
-    // public int targetLevel;
+    public int world;
 
-    public MetaSlider.StageInfo targetStage;
-
-    public Vector3 showPos;
-    public Vector3 hidePos;
-
+    // Vector3 showPos;
+    // Vector3 hidePos;
     public AnimationCurve curve;
 
-    void Update()
-    {
 
-        if (MetaSlider.GetInstance().StageInfoMatches(targetStage))
-        {
-            float p = MetaSlider.GetInstance().currentSliderValue;
-            transform.localPosition = Vector3.Lerp(hidePos, showPos, curve.Evaluate(p));
+    void Update () {
+        float p = 0;
+
+        if (MetaSlider.GetInstance ().stageInfo.world ==  world) {
+            p = MetaSlider.GetInstance ().currentSliderValue;
         }
 
+        float yVal = curve.Evaluate (p);
 
-        // if (MetaSlider.GetInstance().InSameWorld(targetWorld))
-        // {
-
-        //     // Vector3 diff = showPos - hidePos;
-
-        //     // if (targetLevel == 0)
-        //     // {
-        //     //     float p = MetaSlider.GetInstance().worldCompletionPct;
-        //     //     transform.localPosition = Vector3.Lerp(hidePos, showPos, curve.Evaluate(p));
-        //     // }
-        //     // else
-        //     // {
-
-
-        //     if (MetaSlider.GetInstance().)
-        //     {
-        //         float p = MetaSlider.GetInstance().currentSliderValue;
-        //         transform.localPosition = Vector3.Lerp(hidePos, showPos, curve.Evaluate(p));
-        //     }
-
-
-        //     // }
-        // }
+        Vector3 pos = transform.localPosition;
+        pos.y = yVal;
+        transform.localPosition = pos;
     }
 }
