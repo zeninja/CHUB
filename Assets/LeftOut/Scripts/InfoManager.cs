@@ -58,6 +58,8 @@ public class InfoManager : MonoBehaviour
 
     }
 
+    public float wallHeight;
+
     public List<Vector3> orthographicPts = new List<Vector3>();
     public List<Vector3> cornerPts = new List<Vector3>();
 
