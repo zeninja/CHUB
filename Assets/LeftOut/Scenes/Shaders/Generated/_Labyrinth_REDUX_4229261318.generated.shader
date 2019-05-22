@@ -1327,7 +1327,6 @@ float object_Box(float3 p , float _INP_x, float _INP_y, float _INP_z) {
     
 }
 uniform float x_46944497_6492bb9b_radius;
-uniform float x_46947475_6492bb9b_radius;
 uniform float x_46944532_6492bb9b_radius;
 uniform float x_46945704_6492bb9b_radius;
 float object_Sphere(float3 p , float _INP_radius) {
@@ -1375,9 +1374,6 @@ uniform float _46945518MinScale;
 // uniforms for OuterSphere
 uniform float4x4 _46944497Matrix;
 uniform float _46944497MinScale;
-// uniforms for InnerSphere
-uniform float4x4 _46947475Matrix;
-uniform float _46947475MinScale;
 // uniforms for Cylinder (1)
 uniform float4x4 _46945617Matrix;
 uniform float _46945617MinScale;
@@ -1405,14 +1401,14 @@ uniform float _46944743MinScale;
 // uniforms for FLOOR
 uniform float4x4 _46946454Matrix;
 uniform float _46946454MinScale;
+float2 blend_Subtract(float2 a, float2 b /*, [object params] */) {
+    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Blends/Subtract.asset
+    return float2(max(-a.x, b.x), b.y);
+}
 float2 blend_Intersection(float2 a, float2 b /*, [object params] */) {
     // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Blends/Intersection.asset
     return max(a, b);
     
-}
-float2 blend_Subtract(float2 a, float2 b /*, [object params] */) {
-    // Generated from Assets/Raymarching Toolkit/Assets/Snippets/Blends/Subtract.asset
-    return float2(max(-a.x, b.x), b.y);
 }
 uniform float x_46946541_44192f17_intensity;
 float2 blend_Smooth(float2 a, float2 b , float _INP_intensity) {
@@ -1422,7 +1418,6 @@ float2 blend_Smooth(float2 a, float2 b , float _INP_intensity) {
 }
 uniform float4 x_46945518_da843a44_color;
 uniform float4 x_46944497_da843a44_color;
-uniform float4 x_46947475_da843a44_color;
 uniform float4 x_46945617_da843a44_color;
 uniform float4 x_46947597_da843a44_color;
 uniform float4 x_46944532_da843a44_color;
@@ -1438,52 +1433,48 @@ float3 material_SimpleColor(inout float3 normal, float3 p, float3 rayDir, float4
 }
 float3 MaterialFunc(float nf, inout float3 normal, float3 p, float3 rayDir, out float objectID)
 {
-    objectID = ceil(nf) / (float)12;
+    objectID = ceil(nf) / (float)11;
     [branch] if (nf <= 1) {
-    //    objectID = 0.08333334;
+    //    objectID = 0.09090909;
         return material_SimpleColor(normal, objPos(_46945518Matrix, p), rayDir, x_46945518_da843a44_color);
     }
     else if(nf <= 2) {
-    //    objectID = 0.1666667;
+    //    objectID = 0.1818182;
         return material_SimpleColor(normal, objPos(_46944497Matrix, p), rayDir, x_46944497_da843a44_color);
     }
     else if(nf <= 3) {
-    //    objectID = 0.25;
-        return material_SimpleColor(normal, objPos(_46947475Matrix, p), rayDir, x_46947475_da843a44_color);
-    }
-    else if(nf <= 4) {
-    //    objectID = 0.3333333;
+    //    objectID = 0.2727273;
         return material_SimpleColor(normal, objPos(_46945617Matrix, p), rayDir, x_46945617_da843a44_color);
     }
-    else if(nf <= 5) {
-    //    objectID = 0.4166667;
+    else if(nf <= 4) {
+    //    objectID = 0.3636364;
         return material_SimpleColor(normal, objPos(_46947597Matrix, p), rayDir, x_46947597_da843a44_color);
     }
-    else if(nf <= 6) {
-    //    objectID = 0.5;
+    else if(nf <= 5) {
+    //    objectID = 0.4545455;
         return material_SimpleColor(normal, objPos(_46944532Matrix, p), rayDir, x_46944532_da843a44_color);
     }
-    else if(nf <= 7) {
-    //    objectID = 0.5833333;
+    else if(nf <= 6) {
+    //    objectID = 0.5454546;
         return material_SimpleColor(normal, objPos(_46945704Matrix, p), rayDir, x_46945704_da843a44_color);
     }
-    else if(nf <= 8) {
-    //    objectID = 0.6666667;
+    else if(nf <= 7) {
+    //    objectID = 0.6363636;
         return material_SimpleColor(normal, objPos(_46945491Matrix, p), rayDir, x_46945491_da843a44_color);
     }
-    else if(nf <= 9) {
-    //    objectID = 0.75;
+    else if(nf <= 8) {
+    //    objectID = 0.7272727;
         return material_SimpleColor(normal, objPos(_46947502Matrix, p), rayDir, x_46947502_da843a44_color);
     }
-    else if(nf <= 10) {
-    //    objectID = 0.8333333;
+    else if(nf <= 9) {
+    //    objectID = 0.8181818;
         return material_SimpleColor(normal, objPos(_46947570Matrix, p), rayDir, x_46947570_da843a44_color);
     }
-    else if(nf <= 11) {
-    //    objectID = 0.9166667;
+    else if(nf <= 10) {
+    //    objectID = 0.9090909;
         return material_SimpleColor(normal, objPos(_46944743Matrix, p), rayDir, x_46944743_da843a44_color);
     }
-    else if(nf <= 12) {
+    else if(nf <= 11) {
     //    objectID = 1;
         return material_SimpleColor(normal, objPos(_46946454Matrix, p), rayDir, x_46946454_da843a44_color);
     }
@@ -1499,7 +1490,6 @@ float2 map(float3 p) {
 {
     float _46945518Distance = object_Box(objPos(_46945518Matrix, p), x_46945518_ce8993a9_x, x_46945518_ce8993a9_y, x_46945518_ce8993a9_z) * _46945518MinScale;
     float _46944497Distance = object_Sphere(objPos(_46944497Matrix, p), x_46944497_6492bb9b_radius) * _46944497MinScale;
-    float _46947475Distance = object_Sphere(objPos(_46947475Matrix, p), x_46947475_6492bb9b_radius) * _46947475MinScale;
     float3 p_46944654 = objPos(_46944654InverseMatrix, modifier_Repeat(objPos(_46944654Matrix, p), x_46944654_d6b53711_x, x_46944654_d6b53711_y, x_46944654_d6b53711_z, x_46944654_d6b53711_separation, x_46944654_d6b53711_noisedisplacement, x_46944654_d6b53711_noisetex));
     float _46945617Distance = object_Cylinder(objPos(_46945617Matrix, p_46944654), x_46945617_399aefe0_radius, x_46945617_399aefe0_height) * _46945617MinScale;
     float _46947597Distance = object_Cone(objPos(_46947597Matrix, p_46944654), x_46947597_b845704d_height, x_46947597_b845704d_radius) * _46947597MinScale;
@@ -1510,7 +1500,7 @@ float2 map(float3 p) {
     float _46947570Distance = object_Box(objPos(_46947570Matrix, p), x_46947570_ce8993a9_x, x_46947570_ce8993a9_y, x_46947570_ce8993a9_z) * _46947570MinScale;
     float _46944743Distance = object_Box(objPos(_46944743Matrix, p), x_46944743_ce8993a9_x, x_46944743_ce8993a9_y, x_46944743_ce8993a9_z) * _46944743MinScale;
     float _46946454Distance = object_Box(objPos(_46946454Matrix, p), x_46946454_ce8993a9_x, x_46946454_ce8993a9_y, x_46946454_ce8993a9_z) * _46946454MinScale;
-    result = opU(opU(opU(float2(_46945518Distance, /*material ID*/0.5), opU(opU(blend_Intersection(float2(_46944497Distance, /*material ID*/1.5), blend_Subtract(float2(_46947475Distance, /*material ID*/2.5), blend_Smooth(float2(_46945617Distance, /*material ID*/3.5), float2(_46947597Distance, /*material ID*/4.5), x_46946541_44192f17_intensity))), blend_Intersection(float2(_46944532Distance, /*material ID*/5.5), blend_Subtract(float2(_46945704Distance, /*material ID*/6.5), float2(_46945491Distance, /*material ID*/7.5)))), float2(_46947502Distance, /*material ID*/8.5))), blend_Subtract(float2(_46947570Distance, /*material ID*/9.5), float2(_46944743Distance, /*material ID*/10.5))), float2(_46946454Distance, /*material ID*/11.5));
+    result = opU(opU(blend_Subtract(float2(_46945518Distance, /*material ID*/0.5), opU(opU(blend_Intersection(float2(_46944497Distance, /*material ID*/1.5), blend_Smooth(float2(_46945617Distance, /*material ID*/2.5), float2(_46947597Distance, /*material ID*/3.5), x_46946541_44192f17_intensity)), blend_Intersection(float2(_46944532Distance, /*material ID*/4.5), blend_Subtract(float2(_46945704Distance, /*material ID*/5.5), float2(_46945491Distance, /*material ID*/6.5)))), float2(_46947502Distance, /*material ID*/7.5))), blend_Subtract(float2(_46947570Distance, /*material ID*/8.5), float2(_46944743Distance, /*material ID*/9.5))), float2(_46946454Distance, /*material ID*/10.5));
     }
 	return result;
 }
