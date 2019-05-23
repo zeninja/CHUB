@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour {
 
     public AudioMixer mixer;
 
+    public AudioFader audioFader;
+
     public SoundSet[] hallSounds;
     public Sound[] otherSounds;
 
@@ -58,7 +60,7 @@ public class AudioManager : MonoBehaviour {
 
     void Start () {
         // PlayNextHall();  // FIRST hall
-        MetaSlider.OnActiveSliderChanged += FadeOutAudio;
+        // MetaSlider.OnActiveSliderChanged += FadeOutAudio;
         MetaSlider.OnActiveSliderChanged += PlayNextHall;
     }
 
@@ -79,7 +81,11 @@ public class AudioManager : MonoBehaviour {
         s.source.Play ();
         // Debug.Log("PLAAAYYYYY AUDIO " + s.source.clip);
 
-        lastSource = s.source;
+        // lastSource = s.source;
+
+
+        audioFader.SetLastSource(s.source);
+
 
         // Debug.Log("Playing " + s.name);
     }
@@ -93,34 +99,14 @@ public class AudioManager : MonoBehaviour {
         Play ("LEFT OUT_hallway" + world + "." + level);
     }
 
-    public AudioSource lastSource;
+    // public AudioSource lastSource;
 
-    void FadeOutAudio() {
-                // Debug.Log("FadeOutAudio ");
-        if (lastSource != null) {
-            StartCoroutine (FadeLastSource ());
-        }
-    }
-
-    IEnumerator<WaitForFixedUpdate> FadeLastSource () {
-        Debug.Log("FADING PREVIOUS SOURCE");
-
-        float t = 0;
-        float d = 1;
-
-        if (lastSource != null) {
-            while (t < d) {
-                t += Time.fixedDeltaTime;
-                float p = t / d;
-                lastSource.volume = 1 - EZEasings.SmoothStop3 (p);
-                yield return new WaitForFixedUpdate ();
-            }
-        } 
-        else {
-            yield return null;
-        }
-
-    }
+    // void FadeOutAudio() {
+    //     Debug.Log("FadeOutAudio ");
+    //     if (lastSource != null) {
+    //         StartCoroutine (FadeLastSource ());
+    //     }
+    // }
 
     public void FadeAllAudio() {
         StartCoroutine(FadeMaster());
