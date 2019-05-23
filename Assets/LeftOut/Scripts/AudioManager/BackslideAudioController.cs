@@ -14,11 +14,11 @@ public class BackslideAudioController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        // GiantSlider.OnBackslide += ProcessBackslideAudio;
+        GiantSlider.OnBackslide += ProcessBackslideAudio;
     }
 
     void ProcessBackslideAudio(float amt) {
         Debug.Log("backsliding " + amt);
-        audioSource.volume = EZEasings.SmoothStart2(amt);
+        audioSource.volume = EZEasings.SmoothStop3(amt);
     }
 }

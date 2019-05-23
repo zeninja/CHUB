@@ -40,21 +40,22 @@ public class ModifierController : MonoBehaviour {
 
         if (MetaSlider.GetInstance ().stageInfo.world == targetWorld) {
             percent = MetaSlider.GetInstance ().worldCompletionPct;
+
+            float x = GetFloatValue (xCurve, xRange);
+            float y = GetFloatValue (yCurve, yRange);
+            float z = GetFloatValue (zCurve, zRange);
+
+            Vector3 noise = new Vector3 (x, y, z);
+
+            SetObjectInput (noise);
         }
 
-        if (autoOscillate) {
-            // percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
-            percent += Mathf.PerlinNoise (Time.time, randomStart);
+        // if (autoOscillate) {
+        //     // percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
+        //     percent += Mathf.PerlinNoise (Time.time, randomStart);
 
-        }
+        // }
 
-        float x = GetFloatValue (xCurve, xRange);
-        float y = GetFloatValue (yCurve, yRange);
-        float z = GetFloatValue (zCurve, zRange);
-
-        Vector3 noise = new Vector3 (x, y, z);
-
-        SetObjectInput (noise);
     }
 
     float GetX () {

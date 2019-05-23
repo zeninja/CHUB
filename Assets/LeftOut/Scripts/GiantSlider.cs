@@ -287,6 +287,8 @@ public class GiantSlider : MonoBehaviour
         {
             case SliderState.prep:
                 percent = 0;
+                ReleaseTarget();
+                SetKnobToStart();
                 break;
 
             // case SliderState.ending:
@@ -302,6 +304,7 @@ public class GiantSlider : MonoBehaviour
 
                 MetaSlider.GetInstance().HandleSliderCompleted(this);
                 SetState(SliderState.prep);
+                
                 break;
         }
     }

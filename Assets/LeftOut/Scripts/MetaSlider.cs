@@ -88,7 +88,7 @@ public class MetaSlider : MonoBehaviour
 
         if (activeSliderIndex == FindSliderIndex(completedSlider))
         {
-            Debug.Log("Slider completed with index: " + FindSliderIndex(completedSlider));
+            // Debug.Log("Slider completed with index: " + FindSliderIndex(completedSlider));
 
             // Debug.Log("active slider index matched. slider index increased");
             // currentSliderValue = 0;
@@ -100,7 +100,7 @@ public class MetaSlider : MonoBehaviour
                 activeSliderIndex = 0;
                 completedWorldCount++;
 
-                Debug.Log("ROLLING OVER TO NEXT WORLD");
+                // Debug.Log("ROLLING OVER TO NEXT WORLD");
             }
 
             SetStageInfo();

@@ -75,6 +75,11 @@ public class InfoManager : MonoBehaviour
         UpdatePoints();
         // SetHallDimensions();
         // SetVoidHallDimensions();
+
+
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
 
     bool firstTime = true;

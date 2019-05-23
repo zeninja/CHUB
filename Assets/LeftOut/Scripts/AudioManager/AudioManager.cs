@@ -1,14 +1,12 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using System.Collections.Generic;
 
-public class AudioManager : MonoBehaviour
-{
+public class AudioManager : MonoBehaviour {
 
     public static AudioManager instance;
-    public static AudioManager GetInstance()
-    {
+    public static AudioManager GetInstance () {
         return instance;
     }
 
@@ -17,41 +15,31 @@ public class AudioManager : MonoBehaviour
     public SoundSet[] hallSounds;
     public Sound[] otherSounds;
 
-
     [System.Serializable]
-    public class SoundSet
-    {
+    public class SoundSet {
         public string name;
         public int targetWorld;
         public Sound[] sounds;
         public AudioMixerGroup mixerGroup;
     }
 
-
-    void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
+    void Awake () {
+        if (instance != null) {
+            Destroy (gameObject);
+        } else {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
 
-        InitSounds();
+        InitSounds ();
     }
 
-    void InitSounds()
-    {
-        List<Sound> fullSoundList = new List<Sound>();
+    void InitSounds () {
+        List<Sound> fullSoundList = new List<Sound> ();
 
-        foreach (SoundSet ss in hallSounds)
-        {
-            foreach (Sound s in ss.sounds)
-            {
-                s.source = gameObject.AddComponent<AudioSource>();
+        foreach (SoundSet ss in hallSounds) {
+            foreach (Sound s in ss.sounds) {
+                s.source = gameObject.AddComponent<AudioSource> ();
                 s.source.clip = s.clip;
                 s.source.loop = s.loop;
 
@@ -59,83 +47,71 @@ public class AudioManager : MonoBehaviour
 
                 s.source.outputAudioMixerGroup = ss.mixerGroup;
 
-                fullSoundList.Add(s);
+                fullSoundList.Add (s);
             }
         }
 
-
-        allSounds = fullSoundList.ToArray();
+        allSounds = fullSoundList.ToArray ();
 
     }
 
-    void Start()
-    {
+    void Start () {
         // PlayNextHall();  // FIRST hall
         MetaSlider.OnActiveSliderChanged += PlayNextHall;
     }
 
-
-
     Sound[] allSounds;
 
-    public void Play(string sound)
-    {
-        Sound s = Array.Find(allSounds, item => item.name == sound);
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + sound + " not found!");
+    public void Play (string sound) {
+        Sound s = Array.Find (allSounds, item => item.name == sound);
+        if (s == null) {
+            Debug.LogWarning ("Sound: " + sound + " not found!");
 
             return;
         }
 
-        s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-        s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+        s.source.volume = s.volume * (1f + UnityEngine.Random.Range (-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        s.source.pitch  = s.pitch  * (1f + UnityEngine.Random.Range (-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
-        s.source.Play();
+        s.source.Play ();
 
         lastSource = s.source;
 
         // Debug.Log("Playing " + s.name);
     }
 
-
-
-
-    public void PlayNextHall()
-    {
+    public void PlayNextHall () {
         // Debug.Log("PLAYING HALL");
-        StartCoroutine(FadeLastSource());
+        // if (lastSource != null) {
+            StartCoroutine (FadeLastSource ());
+        // }
 
-        int world = MetaSlider.GetInstance().stageInfo.world;
-        int level = MetaSlider.GetInstance().stageInfo.level;
+        int world = MetaSlider.GetInstance ().stageInfo.world;
+        int level = MetaSlider.GetInstance ().stageInfo.level;
 
-        Play("LEFT OUT_hallway" + world + "." + level);
+        Play ("LEFT OUT_hallway" + world + "." + level);
     }
 
     public AudioSource lastSource;
 
-    IEnumerator<WaitForFixedUpdate> FadeLastSource()
-    {
+    IEnumerator<WaitForFixedUpdate> FadeLastSource () {
         // Debug.Log("FADING SOURCE");
 
         float t = 0;
         float d = 3;
 
-        if (lastSource != null)
-        {
-            while (t < d)
-            {
+        if (lastSource != null) {
+            while (t < d) {
                 t += Time.fixedDeltaTime;
                 float p = t / d;
-                lastSource.volume = 1 - EZEasings.SmoothStop3(p);
-                yield return new WaitForFixedUpdate();
+                lastSource.volume = 1 - EZEasings.SmoothStop3 (p);
+                yield return new WaitForFixedUpdate ();
             }
         } else {
-			yield return null;
-		}
+            yield return null;
+        }
 
     }
-
 
     // void GetSounds()
     // {
@@ -146,7 +122,6 @@ public class AudioManager : MonoBehaviour
 
     //     List<Sound> soundList = new List<Sound>();
 
-
     //     foreach (AudioClip c in hallSounds)
     //     {
     //         Sound newSound = new Sound();
@@ -155,7 +130,6 @@ public class AudioManager : MonoBehaviour
     //         soundList.Add(newSound);
     //     }
 
-
     //     foreach (AudioClip c in crnrSounds)
     //     {
     //         Sound newSound = new Sound();
@@ -163,7 +137,6 @@ public class AudioManager : MonoBehaviour
 
     //         soundList.Add(newSound);
     //     }
-
 
     //     foreach (AudioClip c in miscSounds)
     //     {
@@ -175,31 +148,6 @@ public class AudioManager : MonoBehaviour
 
     //     sounds = soundList.ToArray();
     // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // public void PlayCurrentHall() {
 
