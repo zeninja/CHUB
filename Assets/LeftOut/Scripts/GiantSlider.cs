@@ -83,7 +83,7 @@ public class GiantSlider : MonoBehaviour
     }
 
     float maxPercent;
-    float lastPercent;
+    public float lastPercent;
 
     void GetPercentByKnob()
     {
@@ -110,24 +110,24 @@ public class GiantSlider : MonoBehaviour
             // no backing up allowed
             if (OnBackslide != null)
             {
-                OnBackslide(Mathf.Clamp01((maxPercent - percent)));
+                OnBackslide(Mathf.Clamp01(maxPercent - percent));
             }
         }
 
         lastPercent = percent;
     }
 
-    public void RoundValue()
-    {
-        if (percent > .9f)
-        {
-            knob.transform.position = end.transform.position;
-        }
-        if (percent < .1f)
-        {
-            knob.transform.position = start.transform.position;
-        }
-    }
+    // public void RoundValue()
+    // {
+    //     if (percent > .9f)
+    //     {
+    //         knob.transform.position = end.transform.position;
+    //     }
+    //     if (percent < .1f)
+    //     {
+    //         knob.transform.position = start.transform.position;
+    //     }
+    // }
 
     bool IsActive()
     {
@@ -304,7 +304,12 @@ public class GiantSlider : MonoBehaviour
 
                 MetaSlider.GetInstance().HandleSliderCompleted(this);
                 SetState(SliderState.prep);
-                
+                ReleaseTarget();
+
+                maxPercent = 0;
+                percent = 0;
+                lastPercent = 0;
+
                 break;
         }
     }

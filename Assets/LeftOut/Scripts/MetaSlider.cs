@@ -100,6 +100,9 @@ public class MetaSlider : MonoBehaviour
                 activeSliderIndex = 0;
                 completedWorldCount++;
 
+                elapsedCompletionPct = 0;
+                worldCompletionPct = 0;
+
                 // Debug.Log("ROLLING OVER TO NEXT WORLD");
             }
 

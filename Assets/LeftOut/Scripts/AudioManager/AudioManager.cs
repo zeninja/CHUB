@@ -44,6 +44,7 @@ public class AudioManager : MonoBehaviour {
                 s.source.loop = s.loop;
 
                 s.name = s.clip.name;
+                s.source.playOnAwake = false;
 
                 s.source.outputAudioMixerGroup = ss.mixerGroup;
 
@@ -57,6 +58,7 @@ public class AudioManager : MonoBehaviour {
 
     void Start () {
         // PlayNextHall();  // FIRST hall
+        MetaSlider.OnActiveSliderChanged += FadeOutAudio;
         MetaSlider.OnActiveSliderChanged += PlayNextHall;
     }
 
@@ -70,10 +72,12 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
-        s.source.volume = s.volume * (1f + UnityEngine.Random.Range (-s.volumeVariance / 2f, s.volumeVariance / 2f));
-        s.source.pitch  = s.pitch  * (1f + UnityEngine.Random.Range (-s.pitchVariance / 2f, s.pitchVariance / 2f));
+        // s.source.volume = s.volume * (1f + UnityEngine.Random.Range (-s.volumeVariance / 2f, s.volumeVariance / 2f));
+        // s.source.pitch  = s.pitch  * (1f + UnityEngine.Random.Range (-s.pitchVariance / 2f, s.pitchVariance / 2f));
+        // s.source.playOnAwake = false;
 
         s.source.Play ();
+        // Debug.Log("PLAAAYYYYY AUDIO " + s.source.clip);
 
         lastSource = s.source;
 
@@ -81,10 +85,7 @@ public class AudioManager : MonoBehaviour {
     }
 
     public void PlayNextHall () {
-        // Debug.Log("PLAYING HALL");
-        // if (lastSource != null) {
-            StartCoroutine (FadeLastSource ());
-        // }
+        // Debug.Log("Playing hall");
 
         int world = MetaSlider.GetInstance ().stageInfo.world;
         int level = MetaSlider.GetInstance ().stageInfo.level;
@@ -94,8 +95,15 @@ public class AudioManager : MonoBehaviour {
 
     public AudioSource lastSource;
 
+    void FadeOutAudio() {
+                // Debug.Log("FadeOutAudio ");
+        if (lastSource != null) {
+            StartCoroutine (FadeLastSource ());
+        }
+    }
+
     IEnumerator<WaitForFixedUpdate> FadeLastSource () {
-        // Debug.Log("FADING SOURCE");
+        Debug.Log("FADING SOURCE");
 
         float t = 0;
         float d = 3;
@@ -107,7 +115,8 @@ public class AudioManager : MonoBehaviour {
                 lastSource.volume = 1 - EZEasings.SmoothStop3 (p);
                 yield return new WaitForFixedUpdate ();
             }
-        } else {
+        } 
+        else {
             yield return null;
         }
 
