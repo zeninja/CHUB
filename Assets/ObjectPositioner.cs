@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPositioner : MonoBehaviour {
+public class ObjectPositioner : MonoBehaviour
+{
 
     public int world;
 
@@ -13,19 +14,25 @@ public class ObjectPositioner : MonoBehaviour {
 
     // public Vector3 hidePos = new Vector3(0, 100, 0);
 
-    void Update () {
+    void Update()
+    {
         float p = 0;
         float yVal = 0;
 
-        if (MetaSlider.GetInstance ().stageInfo.world ==  world) {
-            p = MetaSlider.GetInstance ().worldCompletionPct;
-            yVal = curve.Evaluate (p);
+        if (MetaSlider.GetInstance().stageInfo.world == world)
+        {
+            p = MetaSlider.GetInstance().worldCompletionPct;
+
         }
-        else {
-            if(MetaSlider.GetInstance().stageInfo.world > world) {
-                yVal = 100;
+        else
+        {
+            if (MetaSlider.GetInstance().stageInfo.world > world)
+            {
+                p = 1;
             }
         }
+
+        yVal = curve.Evaluate(p);
 
 
         Vector3 pos = transform.localPosition;

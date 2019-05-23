@@ -103,7 +103,7 @@ public class AudioManager : MonoBehaviour {
     }
 
     IEnumerator<WaitForFixedUpdate> FadeLastSource () {
-        // Debug.Log("FADING SOURCE");
+        Debug.Log("FADING PREVIOUS SOURCE");
 
         float t = 0;
         float d = 1;
