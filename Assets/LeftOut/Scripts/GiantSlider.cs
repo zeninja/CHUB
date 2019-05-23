@@ -203,9 +203,13 @@ public class GiantSlider : MonoBehaviour
         {
             case SliderState.active:
                 // SetState(SliderState.ending);
-                SetState(SliderState.completed);
-                // percent = 1;
-                lab.ResetBox();
+                if (percent > .8f)
+                {
+                    SetState(SliderState.completed);
+                    // percent = 1;
+                    lab.ResetBox();
+                }
+
 
                 // lab.ProcessDilation();
                 break;

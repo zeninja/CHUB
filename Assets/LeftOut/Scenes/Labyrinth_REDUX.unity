@@ -353,14 +353,14 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51624666
+  _savedGUID: 46732331
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
     inputs:
     - name: radius
       valueType: 0
-      floatValue: 8.96
+      floatValue: 25
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -492,7 +492,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2083985225
+    lastHash: 640198268
 --- !u!114 &37233191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37233187}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 246cc59c7a84ea44f87f6b70acfe30c5, type: 3}
   m_Name: 
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 52271539
+  _savedGUID: 46732364
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -723,7 +723,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1306470967
+    lastHash: 640198364
 --- !u!1 &209279992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51623668
+  _savedGUID: 46733137
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -1139,7 +1139,7 @@ MonoBehaviour:
   m_Script: {fileID: -1971466593, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51623641
+  _savedGUID: 46733168
   modifier:
     snippet: {fileID: 11400000, guid: d6b537115ee2908469b6ef7de20a50ef, type: 2}
     inputs:
@@ -1246,7 +1246,7 @@ MonoBehaviour:
       texture: {fileID: 0}
       texture3D: {fileID: 0}
       targetTransform: {fileID: 0}
-      toggleValue: 0
+      toggleValue: 1
       axisValue: 0
       curve:
         curve:
@@ -1641,13 +1641,13 @@ MonoBehaviour:
     m_RotationOrder: 4
   xRange:
     start: 2
-    end: 4
+    end: 8
   yRange:
     start: 2
     end: 7
   zRange:
     start: 2
-    end: 5
+    end: 10
 --- !u!1001 &400685959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51623705
+  _savedGUID: 46733203
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -2106,7 +2106,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -608441004
+    lastHash: 2115800243
 --- !u!1 &424749351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,14 +2269,14 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51623790
+  _savedGUID: 46733267
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
     inputs:
     - name: x
       valueType: 0
-      floatValue: 0.66665
+      floatValue: 0.7
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -2406,7 +2406,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: z
       valueType: 0
-      floatValue: 0.66665
+      floatValue: 0.7
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -2538,7 +2538,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -608440730
+    lastHash: 2115800433
 --- !u!4 &770802421
 Transform:
   m_ObjectHideFlags: 0
@@ -2900,8 +2900,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 1fddb7fbc9a39b24ba830e21251754ea, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2946,7 +2946,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3163,7 +3163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868963712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.61, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1322591563}
@@ -3181,7 +3181,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51624757
+  _savedGUID: 46734040
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 1ec48586ae14341d486f5aa80f323e37, type: 2}
@@ -3254,7 +3254,7 @@ MonoBehaviour:
     - name: extranoise
       valueType: 4
       floatValue: 0
-      vector4Value: {x: 1, y: 0.05, z: 0, w: 0}
+      vector4Value: {x: 1, y: 0.01, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
         gradient:
@@ -3385,7 +3385,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 320496626
+    lastHash: -1250231385
 --- !u!1 &919628019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3416,14 +3416,14 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51624538
+  _savedGUID: 46734044
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
     inputs:
     - name: x
       valueType: 0
-      floatValue: 1.1875
+      floatValue: 1.25
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -3553,7 +3553,7 @@ MonoBehaviour:
           m_RotationOrder: 4
     - name: z
       valueType: 0
-      floatValue: 1.1875
+      floatValue: 1.25
       vector4Value: {x: 0, y: 0, z: 0, w: 0}
       color: {r: 1, g: 1, b: 1, a: 1}
       gradient:
@@ -3685,7 +3685,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -608413039
+    lastHash: 2115828237
 --- !u!4 &919628021
 Transform:
   m_ObjectHideFlags: 0
@@ -4165,7 +4165,7 @@ MonoBehaviour:
     hallWidth: 2
     hallHeight: 2
     baseHallDimensions: {x: 0, y: 0, z: 0}
-  wallHeight: 0.65
+  wallHeight: 0.6
   orthographicPts: []
   cornerPts: []
   gizmoInfo:
@@ -4267,7 +4267,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51623759
+  _savedGUID: 46734164
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 399aefe07d5c94615890040605b4b0ad, type: 2}
@@ -4471,7 +4471,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1540989611
+    lastHash: 1183280484
 --- !u!4 &1020293210
 Transform:
   m_ObjectHideFlags: 0
@@ -4613,7 +4613,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 52271537
+  _savedGUID: 46734224
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -4752,7 +4752,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1306470969
+    lastHash: 640256861
 --- !u!1 &1153592235
 GameObject:
   m_ObjectHideFlags: 0
@@ -4782,7 +4782,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51624691
+  _savedGUID: 46734228
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -4852,7 +4852,7 @@ VideoPlayer:
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
@@ -4862,8 +4862,8 @@ VideoPlayer:
   m_DirectAudioVolumes:
   - 1
   m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
+  m_EnabledAudioTracks: 00
+  m_DirectAudioMutes: 01
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 0
   m_SkipOnDrop: 1
@@ -4898,7 +4898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176357645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 1, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 2113935406}
@@ -4926,7 +4926,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -5062,49 +5062,40 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.05
-      inSlope: 0.0070251855
-      outSlope: 0.0070251855
-      tangentMode: 0
-      weightedMode: 2
-      inWeight: 0.33333334
-      outWeight: 0.3914909
-    - serializedVersion: 3
-      time: 0.2501461
-      value: 0.10173294
-      inSlope: 0.51247156
-      outSlope: 0.51247156
+      value: 0
+      inSlope: -0
+      outSlope: -0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.2798041
-      outWeight: 0.43535447
+      inWeight: 0
+      outWeight: 1
     - serializedVersion: 3
-      time: 0.50016725
-      value: 0.3540301
-      inSlope: -0.009973321
-      outSlope: -0.009973321
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.24919297
-      outWeight: 0.43624914
-    - serializedVersion: 3
-      time: 0.750444
-      value: 1
+      time: 0.4989954
+      value: 0.3015611
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 1
-      inWeight: 0.46356338
+      weightedMode: 3
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7458254
+      value: 0.7458254
+      inSlope: 0.090340495
+      outSlope: 0.090340495
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.4360954
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -5118,7 +5109,7 @@ MonoBehaviour:
     start: 1
     end: 1
   yRange:
-    start: 0
+    start: 0.01
     end: 5
   zRange:
     start: 0
@@ -5228,7 +5219,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51624813
+  _savedGUID: 46735003
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -5497,7 +5488,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -608410223
+    lastHash: 2115857903
 --- !u!1 &1322591562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5543,7 +5534,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51623604
+  _savedGUID: 46735030
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -5959,7 +5950,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 52271326
+  _savedGUID: 46735090
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 44192f1753ca5aa45a792ab7d2eb47f2, type: 2}
@@ -6244,8 +6235,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b7169e74ca5783e47b06816b1882b524, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -6290,7 +6281,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6362,7 +6353,7 @@ Transform:
   - {fileID: 37233188}
   - {fileID: 361904491}
   m_Father: {fileID: 1747067948}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1505212861
 MonoBehaviour:
@@ -6376,7 +6367,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51623765
+  _savedGUID: 46735156
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -6399,20 +6390,20 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: -4.6448183
-      inSlope: 2
-      outSlope: 2
+      value: -100
+      inSlope: 14486.554
+      outSlope: 14486.554
       tangentMode: 0
-      weightedMode: 0
+      weightedMode: 3
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.029765248
     - serializedVersion: 3
       time: 0.25
-      value: 1.3
+      value: 1.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
+      weightedMode: 3
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
@@ -6892,11 +6883,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 52271413
+  _savedGUID: 46735222
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: 1735251888
+    lastHash: -612942076
 --- !u!1 &1651946806 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
@@ -7311,7 +7302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1671695058
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7603,29 +7594,29 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0014038086
+        time: 0
         value: 0
-        inSlope: 0.023424147
-        outSlope: 0.023424147
+        inSlope: 2
+        outSlope: 2
         tangentMode: 0
-        weightedMode: 2
+        weightedMode: 3
         inWeight: 0
-        outWeight: 0.99512535
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 25.212425
-        outSlope: 25.212425
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
-        weightedMode: 1
-        inWeight: 0.028712869
+        weightedMode: 3
+        inWeight: 0.33333334
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
     range:
       start: 0.65
-      end: 0.1
+      end: 0.2
     canBackslide: 0
   - name: 5-1
     stageInfo:
@@ -7657,7 +7648,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     range:
-      start: 0.1
+      start: 0.2
       end: 0.65
     canBackslide: 0
   - name: 5-2
@@ -7786,9 +7777,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1970934717}
   - {fileID: 1505212860}
   - {fileID: 1980336973}
+  - {fileID: 1970934717}
   m_Father: {fileID: 1153592237}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8170,7 +8161,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 52271574
+  _savedGUID: 46736026
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -8439,7 +8430,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 169102390
+    lastHash: 2115887759
 --- !u!4 &1970934717
 Transform:
   m_ObjectHideFlags: 0
@@ -8452,7 +8443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1747067948}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1970934718
 MonoBehaviour:
@@ -8504,13 +8495,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980336972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.08, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 164809271}
   - {fileID: 1322591563}
   m_Father: {fileID: 1747067948}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1980336974
 MonoBehaviour:
@@ -8524,7 +8515,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 52271349
+  _savedGUID: 46736059
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -8541,22 +8532,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4554ecd1793c43a38e8435886faa21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: 4
+  world: 1
   curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0.0008870959
-      value: -5
+      value: -2
       inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
+      outSlope: 161.4165
+      tangentMode: 1
+      weightedMode: 3
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.085515745
     - serializedVersion: 3
       time: 0.25
-      value: -1
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8565,7 +8556,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.75
-      value: 0.25
+      value: 1
       inSlope: -0.009787951
       outSlope: -0.009787951
       tangentMode: 0
@@ -8660,7 +8651,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 52272285
+  _savedGUID: 46736113
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -8929,7 +8920,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 169129330
+    lastHash: 2115888686
 --- !u!114 &2073266802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8942,7 +8933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4554ecd1793c43a38e8435886faa21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: 1
+  world: 5
   curve:
     serializedVersion: 2
     m_Curve:
@@ -8996,7 +8987,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 51623798
+  _savedGUID: 46736119
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: b845704d1b0ab5843ab37d5d2cffda82, type: 2}
@@ -9200,7 +9191,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -882910153
+    lastHash: 1841419265
 --- !u!4 &2097326686
 Transform:
   m_ObjectHideFlags: 0
@@ -9296,13 +9287,13 @@ MonoBehaviour:
   - {fileID: 1629485867}
   - {fileID: 2118071917}
   - {fileID: 919628020}
-  - {fileID: 1970934716}
   - {fileID: 37233190}
   - {fileID: 1020293209}
   - {fileID: 2097326685}
   - {fileID: 164809272}
   - {fileID: 1142000749}
   - {fileID: 868963716}
+  - {fileID: 1970934716}
   - {fileID: 2073266801}
   - {fileID: 424075182}
   - {fileID: 770802420}
@@ -9404,11 +9395,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 52272347
+  _savedGUID: 46736181
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: 600045046
+    lastHash: -1748148830
 --- !u!108 &2118071918
 Light:
   m_ObjectHideFlags: 0
@@ -9596,14 +9587,14 @@ PrefabInstance:
       propertyPath: lab
       value: 
       objectReference: {fileID: 1715064661}
+    - target: {fileID: 1900687048, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
+      propertyPath: showState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3286553742817224925, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1900687048, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}
-      propertyPath: showState
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87b3a39b3ab35d4cb850a9579d8c4f8, type: 3}

@@ -103,10 +103,10 @@ public class AudioManager : MonoBehaviour {
     }
 
     IEnumerator<WaitForFixedUpdate> FadeLastSource () {
-        Debug.Log("FADING SOURCE");
+        // Debug.Log("FADING SOURCE");
 
         float t = 0;
-        float d = 3;
+        float d = 1;
 
         if (lastSource != null) {
             while (t < d) {
@@ -120,6 +120,23 @@ public class AudioManager : MonoBehaviour {
             yield return null;
         }
 
+    }
+
+    public void FadeAllAudio() {
+        StartCoroutine(FadeMaster());
+    }
+
+    IEnumerator<WaitForFixedUpdate> FadeMaster() {
+        float t = 0;
+        float d = 1;
+
+        while (t < d) {
+            t += Time.fixedDeltaTime;
+            float p = t / d;
+
+            mixer.SetFloat ("MasterVolume", 0 - EZEasings.SmoothStop3 (p) * 80);
+            yield return new WaitForFixedUpdate ();
+        }
     }
 
     // void GetSounds()

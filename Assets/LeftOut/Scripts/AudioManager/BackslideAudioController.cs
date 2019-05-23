@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackslideAudioController : MonoBehaviour {
+public class BackslideAudioController : MonoBehaviour
+{
 
     AudioSource audioSource;
     // public float maxVolume = 1;
@@ -11,23 +12,29 @@ public class BackslideAudioController : MonoBehaviour {
     bool fadeAudio;
 
     // Start is called before the first frame update
-    void Start () {
-        audioSource = GetComponent<AudioSource> ();
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
 
         GiantSlider.OnBackslide += ProcessBackslideAudio;
         GiantSlider.OnValueChanged += FadeAudio;
     }
 
-    void ProcessBackslideAudio (float amt) {
+    void ProcessBackslideAudio(float amt)
+    {
         fadeAudio = false;
 
         // Debug.Log("backsliding " + amt);
-        audioSource.volume = EZEasings.SmoothStart3 (amt);
+        if (MetaSlider.GetInstance().stageInfo.world > 1 &&  MetaSlider.GetInstance().stageInfo.world < 5)
+        {
+            audioSource.volume = EZEasings.SmoothStart3(amt);
+        }
     }
 
-    void FadeAudio () {
+    void FadeAudio()
+    {
         fadeAudio = true;
-        Debug.Log ("fading audio");
+        Debug.Log("fading audio");
         audioSource.volume = 0;
 
         // t = 0;
@@ -37,8 +44,10 @@ public class BackslideAudioController : MonoBehaviour {
 
     public float smoothing = 10;
 
-    void Update () {
-        if (fadeAudio) {
+    void Update()
+    {
+        if (fadeAudio)
+        {
 
             // audioSource.volume = Mathf.Lerp(audioSource.volume, 0, Time.deltaTime * smoothing);
 

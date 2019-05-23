@@ -34,7 +34,14 @@ public class LabyrinthController : MonoBehaviour
         // GiantSlider.OnBackslide += CheckBackslide;
         MetaSlider.OnActiveSliderChanged += SetCurrentSlider;
 
+        foreach(DilationInfo d in dilationSettings) {
+            if (d.stageInfo.world == 3 && d.stageInfo.level == 1) {
+                d.range.start = InfoManager.GetInstance().wallHeight;
+            }
+        }
 
+        startBox = voidBox.GetObjectInput("x").floatValue;
+        innerSize = innrBox.GetObjectInput("x").floatValue;
     }
 
     public void ProcessDilation()
@@ -109,18 +116,18 @@ public class LabyrinthController : MonoBehaviour
         // currentInfo = dilationSettings[MetaSlider.GetInstance().GetSliderIndex()];
     }
 
-    float startX = 1.1875f;
-    float startZ = 1.1875f;
+    float startBox = 1.18f;
+    float startZ = 1.18f;
 
-    float inner = 0.66665f;
+    float innerSize = 0.66665f;
 
     public void ResetBox()
     {
-        voidBox.GetObjectInput("x").SetFloat(startX);
-        voidBox.GetObjectInput("z").SetFloat(startZ);
+        voidBox.GetObjectInput("x").SetFloat(startBox);
+        voidBox.GetObjectInput("z").SetFloat(startBox);
 
-        innrBox.GetObjectInput("x").SetFloat(inner);
-        innrBox.GetObjectInput("z").SetFloat(inner);
+        innrBox.GetObjectInput("x").SetFloat(innerSize);
+        innrBox.GetObjectInput("z").SetFloat(innerSize);
     }
 
 

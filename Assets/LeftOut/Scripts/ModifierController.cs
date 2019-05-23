@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using RaymarchingToolkit;
 using UnityEngine;
 
-public class ModifierController : MonoBehaviour {
+public class ModifierController : MonoBehaviour
+{
 
     public int targetWorld = 0;
 
@@ -15,7 +16,7 @@ public class ModifierController : MonoBehaviour {
     public bool autoOscillate;
     public float autoAmplitude = 3;
 
-    [Range (0, 1)]
+    [Range(0, 1)]
     public float percent;
 
     public AnimationCurve xCurve;
@@ -28,54 +29,62 @@ public class ModifierController : MonoBehaviour {
 
     RaymarchModifier obj;
 
-    void Start () {
-        obj = GetComponent<RaymarchModifier> ();
+    void Start()
+    {
+        obj = GetComponent<RaymarchModifier>();
 
-        randomStart = Random.Range (0, 1);
+        randomStart = Random.Range(0, 1);
     }
 
     float randomStart;
 
-    void Update () {
+    void Update()
+    {
 
-        if (MetaSlider.GetInstance ().stageInfo.world == targetWorld) {
-            percent = MetaSlider.GetInstance ().worldCompletionPct;
+        if (MetaSlider.GetInstance().stageInfo.world == targetWorld)
+        {
+            percent = MetaSlider.GetInstance().worldCompletionPct;
 
-            float x = GetFloatValue (xCurve, xRange);
-            float y = GetFloatValue (yCurve, yRange);
-            float z = GetFloatValue (zCurve, zRange);
 
-            Vector3 noise = new Vector3 (x, y, z);
+            // if (autoOscillate)
+            // {
+            //     // percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
+            //     percent += Mathf.PerlinNoise(Time.time, randomStart);
+            // }
 
-            SetObjectInput (noise);
+            float x = GetFloatValue(xCurve, xRange);
+            float y = GetFloatValue(yCurve, yRange);
+            float z = GetFloatValue(zCurve, zRange);
+
+            Vector3 noise = new Vector3(x, y, z);
+
+            SetObjectInput(noise);
         }
 
-        // if (autoOscillate) {
-        //     // percent = (Mathf.Sin (autoAmplitude * Time.time) + 1) / 2;
-        //     percent += Mathf.PerlinNoise (Time.time, randomStart);
-
-        // }
 
     }
 
-    float GetX () {
-        return xRange.start + xCurve.Evaluate (percent) * (xRange.end - xRange.start);
+    // float GetX () {
+    //     return xRange.start + xCurve.Evaluate (percent) * (xRange.end - xRange.start);
+    // }
+
+    float GetFloatValue(AnimationCurve curve, Extensions.Property p)
+    {
+        return p.start + curve.Evaluate(percent) * (p.end - p.start);
     }
 
-    float GetFloatValue (AnimationCurve curve, Extensions.Property p) {
-        return p.start + curve.Evaluate (percent) * (p.end - p.start);
-    }
-
-    void SetObjectInput (Vector3 noise) {
-        switch (snippetType) {
+    void SetObjectInput(Vector3 noise)
+    {
+        switch (snippetType)
+        {
             case SnippetType.V1:
-                obj.GetInput (target).SetFloat (noise.x);
+                obj.GetInput(target).SetFloat(noise.x);
                 break;
             case SnippetType.V2:
-                obj.GetInput (target).SetVector3 ((Vector2) noise);
+                obj.GetInput(target).SetVector3((Vector2)noise);
                 break;
             case SnippetType.V3:
-                obj.GetInput (target).SetVector3 (noise);
+                obj.GetInput(target).SetVector3(noise);
                 break;
         }
     }

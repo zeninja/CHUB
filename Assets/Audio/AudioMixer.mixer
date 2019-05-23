@@ -16,24 +16,26 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: 72f67f117e7913840a0923e2f2d1d83c
-    name: WetMix2
-  - guid: ae346cc3cec8018429a0501b34a277bf
-    name: Delay
-  - guid: 3ebb371b428761745a8f52fa438ce3c2
-    name: Feedback
   - guid: 5b69dada0abf1a9438f6fbb5065f3b5b
     name: WetMix1
   - guid: e906f2cc1bd274e40bb57e4d1f0a1c47
     name: Depth
   - guid: 06cab40fe2a51df4184f81564bad902c
     name: WetMix3
+  - guid: 72f67f117e7913840a0923e2f2d1d83c
+    name: WetMix2
+  - guid: ae346cc3cec8018429a0501b34a277bf
+    name: Delay
+  - guid: 3ebb371b428761745a8f52fa438ce3c2
+    name: Feedback
   - guid: 1ce4b6b60570da64a83e4245775df559
     name: Distortion
-  - guid: 3c26d821a5e6702448dbc1f9de10a803
-    name: ParamEQ
+  - guid: 28b4022c686a6426fb5571c152890195
+    name: MasterVolume
   - guid: 401c256f73820e245b21e6d4fa5d359c
     name: FrequencyGain
+  - guid: 3c26d821a5e6702448dbc1f9de10a803
+    name: ParamEQ
   - guid: 0a19eb965cfb3554a81dacae5ee6ee74
     name: Reverb
   m_AudioMixerGroupViews:
@@ -105,6 +107,7 @@ AudioMixerSnapshotController:
     c967da9a089a5e042b54ccc3143ebdfa: 0.5
     9bff4e2b1c02a5c40a954c0d48d14873: 1
     f78730bb6bd93fd46a621ec69b7d58f2: 6.4
+    28b4022c686a6426fb5571c152890195: -0.02577656
     807abfad18578c0479711fbc44c0138a: 0.89
   m_TransitionOverrides: {}
 --- !u!243 &243118469009752614

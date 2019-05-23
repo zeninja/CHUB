@@ -12,15 +12,23 @@ public class Endgame : MonoBehaviour
 
     public VideoPlayer vp;
 
-    void OnTriggerStay(Collider other) {
-        if(other.CompareTag("Player")) {
-            showVideo = true;
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (MetaSlider.GetInstance().stageInfo.world >= 5)
+            {
+                showVideo = true;
+            }
         }
     }
 
-    void Update() {
-        if(showVideo) {
-            if(!isPlaying) {
+    void Update()
+    {
+        if (showVideo)
+        {
+            if (!isPlaying)
+            {
                 StartVideo();
             }
         }
@@ -29,20 +37,27 @@ public class Endgame : MonoBehaviour
     public AudioSource manAudio;
     public AudioSource womanAudio;
 
-    void StartVideo() {
+    void StartVideo()
+    {
+        AudioManager.GetInstance().FadeAllAudio();
+
+
+        vp.enabled = true;
         // Play video
         vp.Play();
 
         // Play audio
-        manAudio  .Play();
+        manAudio.Play();
         womanAudio.Play();
 
         isPlaying = true;
     }
 
-    void LateUpdate()
-    {
-        if(testing) { return; }
-        showVideo = false;
-    }
+    // void LateUpdate()
+    // {
+    //     // if (testing) { return; }
+    //     showVideo = false;
+    //     vp.Stop();
+    //     vp.enabled = false;
+    // }
 }
