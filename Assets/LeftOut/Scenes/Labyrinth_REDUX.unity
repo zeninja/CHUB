@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50574227
+  _savedGUID: 54215491
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -492,7 +492,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 1299463109
+    lastHash: 463108792
 --- !u!114 &37233191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50574351
+  _savedGUID: 54215578
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -846,7 +846,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 1299464157
+    lastHash: 463109698
 --- !u!1 &209279992
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +999,8 @@ AudioSource:
   m_GameObject: {fileID: 238980554}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243319882169516882, guid: ac75eab3a87954a99960e8f86b53f006,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 5f46c4951dd4e4eada10218379a4ec91, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1046,7 +1047,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1145,7 +1146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 295681447}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: InnerBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1336,7 +1337,8 @@ AudioSource:
   m_GameObject: {fileID: 333834021}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243319882169516882, guid: ac75eab3a87954a99960e8f86b53f006,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 4c61f2bad92b14541bfa661604434def, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1383,7 +1385,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1468,7 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50575217
+  _savedGUID: 54216388
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -1554,7 +1556,7 @@ MonoBehaviour:
   m_Script: {fileID: -1971466593, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50575252
+  _savedGUID: 54216419
   modifier:
     snippet: {fileID: 11400000, guid: d6b537115ee2908469b6ef7de20a50ef, type: 2}
     inputs:
@@ -2252,7 +2254,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50575308
+  _savedGUID: 54216475
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -2521,7 +2523,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1519900260
+    lastHash: 1938715705
 --- !u!1 &424749351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2684,7 +2686,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50576089
+  _savedGUID: 54216539
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -2953,7 +2955,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1519873103
+    lastHash: 1938716546
 --- !u!4 &770802421
 Transform:
   m_ObjectHideFlags: 0
@@ -3419,7 +3421,8 @@ AudioSource:
   m_GameObject: {fileID: 833347923}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243985785575428106, guid: ac75eab3a87954a99960e8f86b53f006,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1fddb7fbc9a39b24ba830e21251754ea, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3701,7 +3704,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50576300
+  _savedGUID: 54237493
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 1ec48586ae14341d486f5aa80f323e37, type: 2}
@@ -3905,7 +3908,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -590962801
+    lastHash: -1425466980
 --- !u!1 &919628019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3936,7 +3939,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50576333
+  _savedGUID: 54237497
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -4205,7 +4208,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1519870381
+    lastHash: 1940592602
 --- !u!4 &919628021
 Transform:
   m_ObjectHideFlags: 0
@@ -4787,7 +4790,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50577083
+  _savedGUID: 54237617
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 399aefe07d5c94615890040605b4b0ad, type: 2}
@@ -4991,7 +4994,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 1842575216
+    lastHash: 1008045250
 --- !u!4 &1020293210
 Transform:
   m_ObjectHideFlags: 0
@@ -5212,7 +5215,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50577143
+  _savedGUID: 54237683
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -5351,7 +5354,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 1299551579
+    lastHash: 465017309
 --- !u!1 &1153592235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5381,7 +5384,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50577199
+  _savedGUID: 54237687
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -5831,7 +5834,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50577331
+  _savedGUID: 54238462
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -6100,7 +6103,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1519840592
+    lastHash: 1940622295
 --- !u!1 &1322591562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6146,7 +6149,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50578069
+  _savedGUID: 54238489
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -6562,7 +6565,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50578129
+  _savedGUID: 54238549
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 44192f1753ca5aa45a792ab7d2eb47f2, type: 2}
@@ -6926,7 +6929,8 @@ AudioSource:
   m_GameObject: {fileID: 1478781121}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243985785575428106, guid: ac75eab3a87954a99960e8f86b53f006,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: b7169e74ca5783e47b06816b1882b524, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -7059,7 +7063,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50578195
+  _savedGUID: 54238642
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -7781,11 +7785,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50578968
+  _savedGUID: 54238741
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: 46345481
+    lastHash: -788190619
 --- !u!1 &1651946806 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
@@ -9217,7 +9221,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50579214
+  _savedGUID: 54239578
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -9486,7 +9490,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1519782030
+    lastHash: 1940653084
 --- !u!4 &1970934717
 Transform:
   m_ObjectHideFlags: 0
@@ -9571,7 +9575,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50579247
+  _savedGUID: 54239632
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -9708,7 +9712,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50579931
+  _savedGUID: 54239665
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -9977,7 +9981,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1519775244
+    lastHash: 1940654011
 --- !u!114 &2073266802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10044,7 +10048,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50579966
+  _savedGUID: 54239671
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: b845704d1b0ab5843ab37d5d2cffda82, type: 2}
@@ -10248,7 +10252,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1794244573
+    lastHash: 1666180155
 --- !u!4 &2097326686
 Transform:
   m_ObjectHideFlags: 0
@@ -10362,7 +10366,7 @@ MonoBehaviour:
   - {fileID: 1980336974}
   - {fileID: 1322591564}
   - {fileID: 358883103}
-  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_Labyrinth_REDUX_4229261318.generated.shader
+  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated/_Labyrinth_REDUX_4229261318.generated.shader
   _lastShader: {fileID: 4800000, guid: 0cef69e1f3c184a4d85c5fe8bd3fc189, type: 3}
   Steps: 160
   AmbientColor: {r: 1, g: 1, b: 1, a: 1}
@@ -10452,11 +10456,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 50580028
+  _savedGUID: 54240384
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -1088213868
+    lastHash: -1922744912
 --- !u!108 &2118071918
 Light:
   m_ObjectHideFlags: 0

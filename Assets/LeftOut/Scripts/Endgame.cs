@@ -61,6 +61,41 @@ public class Endgame : MonoBehaviour
         bgAudio2.Play();
 
         isPlaying = true;
+
+        StartCoroutine(EndVideo());
+    }
+
+      IEnumerator EndVideo()
+    {
+        while (vp.isPlaying)
+        {
+            yield return null;
+        }
+
+        StartCoroutine(FadeBGAudio());
+    }
+
+    IEnumerator FadeBGAudio()
+    {
+        // yield return new WaitForSeconds(5);
+
+        float t = 0;
+        float d = 3;
+
+        while (t < d)
+        {
+            t += Time.fixedDeltaTime;
+
+            float p = t / d;
+
+            bgAudio1.volume = 1 - EZEasings.SmoothStart2(p);
+            bgAudio2.volume = 1 - EZEasings.SmoothStart2(p);
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        bgAudio1.Stop();
+        bgAudio2.Stop();
     }
 
     // void LateUpdate()
