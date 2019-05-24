@@ -2818,7 +2818,87 @@ MonoBehaviour:
       source: {fileID: 0}
     mixerGroup: {fileID: 243707743870895228, guid: ac75eab3a87954a99960e8f86b53f006,
       type: 2}
-  otherSounds: []
+  otherSounds:
+  - name: 
+    clip: {fileID: 8300000, guid: 848330f1b9ba342fd9cb5f390b9f44c6, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: edb0b35700d0b4924a0730c65d1f2cfe, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: a869dbcbf04d4449382d5d22ee7a4699, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 74cc0863c2dc443c2908b729b1d42d57, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 8d7f148a42fef4314b3f5727c76a8c0d, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: c25838c7da3ce4920adedce84d54a3e2, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 83142b44bc0814261a15e9fad11ba16e, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 8e4a53d977f7546f6bfdb9a65a685850, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 4c61f2bad92b14541bfa661604434def, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 5f46c4951dd4e4eada10218379a4ec91, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &786809014
 GameObject:
   m_ObjectHideFlags: 0

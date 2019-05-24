@@ -67,8 +67,17 @@ public class AudioManager : MonoBehaviour {
 
         // PlayNextHall();  // FIRST hall
         // MetaSlider.OnActiveSliderChanged += FadeOutAudio;
-        MetaSlider.OnActiveSliderChanged += PlayNextHall;
 
+    }
+
+    void OnEnable () {
+        MetaSlider.OnActiveSliderChanged += PlayNextHall;
+        MetaSlider.OnActiveSliderChanged += PlayNextCorner;
+    }
+
+    void OnDisable () {
+        MetaSlider.OnActiveSliderChanged -= PlayNextHall;
+        MetaSlider.OnActiveSliderChanged -= PlayNextCorner;
     }
 
     Sound[] allSounds;
@@ -109,6 +118,10 @@ public class AudioManager : MonoBehaviour {
         int level = MetaSlider.GetInstance ().stageInfo.level;
 
         Play ("LEFT OUT_hallway" + world + "." + level);
+    }
+
+    public void PlayNextCorner() {
+        
     }
 
     // public AudioSource lastSource;
