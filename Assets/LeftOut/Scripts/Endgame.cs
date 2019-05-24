@@ -42,7 +42,7 @@ public class Endgame : MonoBehaviour
 
     void StartVideo()
     {
-        Debug.Log("STARTING VIDEO");
+        // Debug.Log("STARTING VIDEO");
         AudioManager.GetInstance().FadeAllAudio();
 
 
