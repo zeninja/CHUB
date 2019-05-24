@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour {
+public class AudioManager : MonoBehaviour
+{
 
     public static AudioManager instance;
-    public static AudioManager GetInstance () {
+    public static AudioManager GetInstance()
+    {
         return instance;
     }
 
@@ -18,17 +20,22 @@ public class AudioManager : MonoBehaviour {
     public Sound[] cornerSounds;
 
     [System.Serializable]
-    public class SoundSet {
+    public class SoundSet
+    {
         public string name;
         public int targetWorld;
         public Sound[] sounds;
         public AudioMixerGroup mixerGroup;
     }
 
-    void Awake () {
-        if (instance != null) {
-            Destroy (gameObject);
-        } else {
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
             instance = this;
             // DontDestroyOnLoad (gameObject);
         }
@@ -39,12 +46,15 @@ public class AudioManager : MonoBehaviour {
 
     // }
 
-    void InitSounds () {
-        List<Sound> fullSoundList = new List<Sound> ();
+    void InitSounds()
+    {
+        List<Sound> fullSoundList = new List<Sound>();
 
-        foreach (SoundSet ss in hallSounds) {
-            foreach (Sound s in ss.sounds) {
-                s.source = gameObject.AddComponent<AudioSource> ();
+        foreach (SoundSet ss in hallSounds)
+        {
+            foreach (Sound s in ss.sounds)
+            {
+                s.source = gameObject.AddComponent<AudioSource>();
                 s.source.clip = s.clip;
                 s.source.loop = s.loop;
 
@@ -53,104 +63,130 @@ public class AudioManager : MonoBehaviour {
 
                 s.source.outputAudioMixerGroup = ss.mixerGroup;
 
-                fullSoundList.Add (s);
+                fullSoundList.Add(s);
             }
         }
 
-        allSounds = fullSoundList.ToArray ();
+        allSounds = fullSoundList.ToArray();
 
     }
 
-    void Start () {
+    void Start()
+    {
 
-        InitSounds ();
+        InitSounds();
 
         // PlayNextHall();  // FIRST hall
         // MetaSlider.OnActiveSliderChanged += FadeOutAudio;
 
     }
 
-    void OnEnable () {
+    void OnEnable()
+    {
         MetaSlider.OnActiveSliderChanged += PlayNextHall;
         MetaSlider.OnActiveSliderChanged += PlayNextCorner;
     }
 
-    void OnDisable () {
+    void OnDisable()
+    {
         MetaSlider.OnActiveSliderChanged -= PlayNextHall;
         MetaSlider.OnActiveSliderChanged -= PlayNextCorner;
     }
 
     Sound[] allSounds;
 
-    public void Play (string sound) {
-        Sound s = Array.Find (allSounds, item => item.name == sound);
-        if (s == null) {
-            Debug.LogWarning ("Sound: " + sound + " not found!");
+    public void Play(string sound)
+    {
+        Sound s = Array.Find(allSounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + sound + " not found!");
             return;
         }
 
-        if (s.source == null) {
+        if (s.source == null)
+        {
             return;
         }
 
-        s.source.Play ();
+        s.source.Play();
 
-        audioFader.SetLastSource (s.source);
+        audioFader.SetLastSource(s.source);
     }
 
-    public void PlayNextHall () {
+    public void PlayNextHall()
+    {
 
-        int world = MetaSlider.GetInstance ().stageInfo.world;
-        int level = MetaSlider.GetInstance ().stageInfo.level;
+        int world = MetaSlider.GetInstance().stageInfo.world;
+        int level = MetaSlider.GetInstance().stageInfo.level;
 
-        Play ("LEFT OUT_hallway" + world + "." + level);
+        Play("LEFT OUT_hallway" + world + "." + level);
     }
 
-    public void PlayNextCorner() {
-        if(MetaSlider.GetInstance().stageInfo.world == 1 && MetaSlider.GetInstance().stageInfo.level == 1) { return; }
+    public void PlayNextCorner()
+    {
+        if (MetaSlider.GetInstance().stageInfo.world == 1 && MetaSlider.GetInstance().stageInfo.level == 1) { 
+            // Debug.Log("wolr 1-1 not playing");
+            return; }
+        if (MetaSlider.GetInstance().stageInfo.world > 1 && MetaSlider.GetInstance().stageInfo.level != 1) { 
+            // Debug.Log("not a start corner, nor plying");
+            return; }
 
-        PlayAudioAtPoint(MetaSlider.GetInstance().GetCornerPos() + Vector3.up * 2);
+        Vector3 nextCornerPt = MetaSlider.GetInstance().GetCornerPos() + Vector3.up * 2;
+        PlayAudioAtPoint(nextCornerPt);
+        // Debug.Log("playing corner audio at " + nextCornerPt);
     }
 
     public AudioSource cornerAudioSource;
 
-    void PlayAudioAtPoint(Vector3 pt) {
+    void PlayAudioAtPoint(Vector3 pt)
+    {
 
         cornerAudioSource.Stop();
         cornerAudioSource.transform.position = pt;
         cornerAudioSource.clip = cornerSounds[UnityEngine.Random.Range(0, cornerSounds.Length)].clip;
         cornerAudioSource.Play();
+
         StartCoroutine(FadeCornerAudio());
 
         // AudioSource.PlayClipAtPoint(cornerSounds[UnityEngine.Random.Range(0, cornerSounds.Length)].clip, pt);
     }
 
-    IEnumerator<WaitForFixedUpdate> FadeCornerAudio() {
+    IEnumerator<WaitForFixedUpdate> FadeCornerAudio()
+    {
         float t = 0;
-        float d = 3;
+        float d = 5;
 
-        while (t < d) {
+        while (t < d)
+        {
             t += Time.fixedDeltaTime;
             float p = t / d;
-            cornerAudioSource.volume = 1 - EZEasings.SmoothStart3 (p);
-            yield return new WaitForFixedUpdate ();
+            
+            float cornerVolume = 1 - EZEasings.SmoothStart5(p);
+            cornerAudioSource.volume = cornerVolume;
+            Debug.Log(cornerVolume);
+            
+            yield return new WaitForFixedUpdate();
         }
     }
 
-    public void FadeAllAudio () {
-        StartCoroutine (FadeMaster ());
+    public void FadeAllAudio()
+    {
+        StartCoroutine(FadeMaster());
     }
 
-    IEnumerator<WaitForFixedUpdate> FadeMaster () {
+    IEnumerator<WaitForFixedUpdate> FadeMaster()
+    {
         float t = 0;
         float d = 1;
 
-        while (t < d) {
+        while (t < d)
+        {
             t += Time.fixedDeltaTime;
             float p = t / d;
 
-            mixer.SetFloat ("MasterVolume", 0 - EZEasings.SmoothStop3 (p) * 80);
-            yield return new WaitForFixedUpdate ();
+            mixer.SetFloat("MasterVolume", 0 - EZEasings.SmoothStop3(p) * 80);
+            yield return new WaitForFixedUpdate();
         }
     }
 }
