@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
 
     public SoundSet[] hallSounds;
     public Sound[] cornerSounds;
+    public Sound[] newWorldSounds;
 
     [System.Serializable]
     public class SoundSet
@@ -125,12 +126,16 @@ public class AudioManager : MonoBehaviour
 
     public void PlayNextCorner()
     {
-        if (MetaSlider.GetInstance().stageInfo.world == 1 && MetaSlider.GetInstance().stageInfo.level == 1) { 
+        if (MetaSlider.GetInstance().stageInfo.world == 1 && MetaSlider.GetInstance().stageInfo.level == 1)
+        {
             // Debug.Log("wolr 1-1 not playing");
-            return; }
-        if (MetaSlider.GetInstance().stageInfo.world > 1 && MetaSlider.GetInstance().stageInfo.level != 1) { 
+            return;
+        }
+        if (MetaSlider.GetInstance().stageInfo.world > 1 && MetaSlider.GetInstance().stageInfo.level != 1)
+        {
             // Debug.Log("not a start corner, nor plying");
-            return; }
+            return;
+        }
 
         Vector3 nextCornerPt = MetaSlider.GetInstance().GetCornerPos() + Vector3.up * 2;
         PlayAudioAtPoint(nextCornerPt);
@@ -142,9 +147,20 @@ public class AudioManager : MonoBehaviour
     void PlayAudioAtPoint(Vector3 pt)
     {
 
+        AudioClip targetClip;
+        if (MetaSlider.GetInstance().stageInfo.world == 1)
+        {
+            targetClip = cornerSounds[UnityEngine.Random.Range(0, cornerSounds.Length)].clip;
+
+        }
+        else
+        {
+            targetClip = newWorldSounds[UnityEngine.Random.Range(0, newWorldSounds.Length)].clip;
+        }
+
         cornerAudioSource.Stop();
         cornerAudioSource.transform.position = pt;
-        cornerAudioSource.clip = cornerSounds[UnityEngine.Random.Range(0, cornerSounds.Length)].clip;
+        cornerAudioSource.clip = targetClip;
         cornerAudioSource.Play();
 
         StartCoroutine(FadeCornerAudio());
@@ -155,17 +171,18 @@ public class AudioManager : MonoBehaviour
     IEnumerator<WaitForFixedUpdate> FadeCornerAudio()
     {
         float t = 0;
-        float d = 5;
+        float d = cornerAudioSource.clip.length;
 
         while (t < d)
         {
             t += Time.fixedDeltaTime;
             float p = t / d;
-            
+
             float cornerVolume = 1 - EZEasings.SmoothStart5(p);
             cornerAudioSource.volume = cornerVolume;
-            Debug.Log(cornerVolume);
-            
+
+            // Debug.Log(cornerVolume);
+
             yield return new WaitForFixedUpdate();
         }
     }
@@ -185,7 +202,11 @@ public class AudioManager : MonoBehaviour
             t += Time.fixedDeltaTime;
             float p = t / d;
 
-            mixer.SetFloat("MasterVolume", 0 - EZEasings.SmoothStop3(p) * 80);
+            mixer.SetFloat("EQVolume", 0 - EZEasings.SmoothStop3(p) * 80);
+            mixer.SetFloat("ChorusVolume", 0 - EZEasings.SmoothStop3(p) * 80);
+            mixer.SetFloat("ReverbVolume", 0 - EZEasings.SmoothStop3(p) * 80);
+            mixer.SetFloat("DistortionVolume", 0 - EZEasings.SmoothStop3(p) * 80);
+
             yield return new WaitForFixedUpdate();
         }
     }

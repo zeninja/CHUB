@@ -16,7 +16,7 @@ public class Endgame : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (MetaSlider.GetInstance().stageInfo.world >= 5)
+            if (MetaSlider.GetInstance().stageInfo.world == 5 && MetaSlider.GetInstance().stageInfo.level == 4)
             {
                 showVideo = true;
             }
@@ -42,6 +42,7 @@ public class Endgame : MonoBehaviour
 
     void StartVideo()
     {
+        Debug.Log("STARTING VIDEO");
         AudioManager.GetInstance().FadeAllAudio();
 
 

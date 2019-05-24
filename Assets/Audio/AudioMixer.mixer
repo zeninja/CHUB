@@ -16,26 +16,34 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: 5b69dada0abf1a9438f6fbb5065f3b5b
-    name: WetMix1
+  - guid: 4ad23bd2c72df004085cbe9c563f95f2
+    name: ChorusVolume
   - guid: e906f2cc1bd274e40bb57e4d1f0a1c47
     name: Depth
   - guid: 06cab40fe2a51df4184f81564bad902c
     name: WetMix3
+  - guid: 5b69dada0abf1a9438f6fbb5065f3b5b
+    name: WetMix1
   - guid: 72f67f117e7913840a0923e2f2d1d83c
     name: WetMix2
   - guid: ae346cc3cec8018429a0501b34a277bf
     name: Delay
   - guid: 3ebb371b428761745a8f52fa438ce3c2
     name: Feedback
+  - guid: 06dbf12695b589c41a91b5a296db286c
+    name: DistortionVolume
   - guid: 1ce4b6b60570da64a83e4245775df559
     name: Distortion
   - guid: 28b4022c686a6426fb5571c152890195
     name: MasterVolume
+  - guid: a2a94ec13ff14f94ab7f19d1b6e330a6
+    name: EQVolume
   - guid: 401c256f73820e245b21e6d4fa5d359c
     name: FrequencyGain
   - guid: 3c26d821a5e6702448dbc1f9de10a803
     name: ParamEQ
+  - guid: 0bf3cf45fdb6f8c4d935cc1797f23f78
+    name: ReverbVolume
   - guid: 0a19eb965cfb3554a81dacae5ee6ee74
     name: Reverb
   m_AudioMixerGroupViews:

@@ -26,6 +26,8 @@ public class AudioFader : MonoBehaviour
     {
         if(MetaSlider.GetInstance().stageInfo.world == 1 && MetaSlider.GetInstance().stageInfo.level == 1) { return; }
 
+        if(MetaSlider.GetInstance().stageInfo.world == 5) { return; }
+
         if (lastSource != null)
         {
             StartCoroutine(FadeLastSource(lastSource));
@@ -34,7 +36,7 @@ public class AudioFader : MonoBehaviour
 
     IEnumerator FadeLastSource(AudioSource sourceToFade)
     {
-        // Debug.Log("FADING PREVIOUS SOURCE");
+        Debug.Log("FADING PREVIOUS SOURCE");
 
         float t = 0;
         float d = 1;

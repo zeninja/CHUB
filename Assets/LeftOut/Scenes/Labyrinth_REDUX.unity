@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802837, g: 0.22571404, b: 0.30692273, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46975375
+  _savedGUID: 52304990
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -492,7 +492,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 701255073
+    lastHash: -1284217927
 --- !u!114 &37233191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46975435
+  _savedGUID: 52305050
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -767,7 +767,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 701255910
+    lastHash: -1284196909
 --- !u!1 &209279992
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,7 +922,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5f46c4951dd4e4eada10218379a4ec91, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.534
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1224,7 +1224,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4c61f2bad92b14541bfa661604434def, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.806
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46976241
+  _savedGUID: 52305205
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: -1971466593, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46976272
+  _savedGUID: 52305887
   modifier:
     snippet: {fileID: 11400000, guid: d6b537115ee2908469b6ef7de20a50ef, type: 2}
     inputs:
@@ -2137,7 +2137,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46976307
+  _savedGUID: 52305922
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -2406,7 +2406,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118109411
+    lastHash: 191388829
 --- !u!1 &424749351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,7 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46976371
+  _savedGUID: 52306007
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -2838,7 +2838,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118109200
+    lastHash: 191409914
 --- !u!4 &770802421
 Transform:
   m_ObjectHideFlags: 0
@@ -3073,11 +3073,48 @@ MonoBehaviour:
       pitchVariance: 0
       loop: 0
       source: {fileID: 0}
-    mixerGroup: {fileID: 243707743870895228, guid: ac75eab3a87954a99960e8f86b53f006,
+    mixerGroup: {fileID: 243467902398944798, guid: ac75eab3a87954a99960e8f86b53f006,
+      type: 2}
+  - name: Hall 4
+    targetWorld: 4
+    sounds:
+    - name: 
+      clip: {fileID: 8300000, guid: 73313c79a0b8a8d4dbbca1caf1e1ce76, type: 3}
+      volume: 1
+      volumeVariance: 1
+      pitch: 1
+      pitchVariance: 0
+      loop: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 785d6c35558af264a9441abc2d119b53, type: 3}
+      volume: 1
+      volumeVariance: 1
+      pitch: 1
+      pitchVariance: 0
+      loop: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: 5bb74d319f0e82341ad820084442e2c2, type: 3}
+      volume: 1
+      volumeVariance: 1
+      pitch: 1
+      pitchVariance: 0
+      loop: 0
+      source: {fileID: 0}
+    - name: 
+      clip: {fileID: 8300000, guid: b23e0161309c7be46828bc5750441ffc, type: 3}
+      volume: 1
+      volumeVariance: 1
+      pitch: 1
+      pitchVariance: 0
+      loop: 0
+      source: {fileID: 0}
+    mixerGroup: {fileID: 243467902398944798, guid: ac75eab3a87954a99960e8f86b53f006,
       type: 2}
   cornerSounds:
   - name: Corner1
-    clip: {fileID: 8300000, guid: 3a648c2ad7ffcf04c8345aec0250bb35, type: 3}
+    clip: {fileID: 8300000, guid: 25bdb9b601fb8524c856cb1849b25718, type: 3}
     volume: 1
     volumeVariance: 1
     pitch: 1
@@ -3085,7 +3122,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Corner2
-    clip: {fileID: 8300000, guid: 4e042a5f60c82fa4b99375469691dc76, type: 3}
+    clip: {fileID: 8300000, guid: 971b8c85b3c9a66488900e077912d3b6, type: 3}
     volume: 1
     volumeVariance: 1
     pitch: 1
@@ -3093,7 +3130,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Corner3
-    clip: {fileID: 8300000, guid: b69350862dd8ce444a8a2af4729edcfa, type: 3}
+    clip: {fileID: 8300000, guid: b38200f8f84107447ab6e5461ed14695, type: 3}
     volume: 1
     volumeVariance: 1
     pitch: 1
@@ -3101,6 +3138,39 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Corner4
+    clip: {fileID: 8300000, guid: 099fa39d99b071f4eb22ffa7d05a3286, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  newWorldSounds:
+  - name: 
+    clip: {fileID: 8300000, guid: 3a648c2ad7ffcf04c8345aec0250bb35, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 4e042a5f60c82fa4b99375469691dc76, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: b69350862dd8ce444a8a2af4729edcfa, type: 3}
+    volume: 1
+    volumeVariance: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
     clip: {fileID: 8300000, guid: 337b3270b5fb05b46a8de7c55ec4c6d1, type: 3}
     volume: 1
     volumeVariance: 1
@@ -3516,7 +3586,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46977144
+  _savedGUID: 52306108
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 1ec48586ae14341d486f5aa80f323e37, type: 2}
@@ -3720,7 +3790,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -1189173745
+    lastHash: 1120318594
 --- !u!1 &919628019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,7 +3821,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46977169
+  _savedGUID: 52306133
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -4020,7 +4090,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2118081354
+    lastHash: 191410964
 --- !u!4 &919628021
 Transform:
   m_ObjectHideFlags: 0
@@ -4602,7 +4672,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46977268
+  _savedGUID: 52306883
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 399aefe07d5c94615890040605b4b0ad, type: 2}
@@ -4806,7 +4876,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 1244338140
+    lastHash: -741131180
 --- !u!4 &1020293210
 Transform:
   m_ObjectHideFlags: 0
@@ -4948,7 +5018,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46977328
+  _savedGUID: 52306943
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: 6492bb9b50670014da4e70150b54fbf2, type: 2}
@@ -5087,7 +5157,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 701314503
+    lastHash: -1284158497
 --- !u!1 &1153592235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,7 +5187,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46977332
+  _savedGUID: 52306968
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -5235,7 +5305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176357645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 1, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 2113935406}
@@ -5566,7 +5636,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46998288
+  _savedGUID: 52307092
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -5835,7 +5905,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2116203499
+    lastHash: 191439979
 --- !u!1 &1322591562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5881,7 +5951,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46998315
+  _savedGUID: 52307098
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 3971d138314b29146875740aeda85ac6, type: 2}
@@ -6297,7 +6367,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46998375
+  _savedGUID: 52307809
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 44192f1753ca5aa45a792ab7d2eb47f2, type: 2}
@@ -6715,7 +6785,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46998441
+  _savedGUID: 52307875
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -7358,11 +7428,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46998534
+  _savedGUID: 52307968
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -550050359
+    lastHash: 1757600103
 --- !u!1 &1651946806 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3286553741694136970, guid: e87b3a39b3ab35d4cb850a9579d8c4f8,
@@ -8636,7 +8706,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46999338
+  _savedGUID: 52308772
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -8905,7 +8975,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2116172902
+    lastHash: 191476435
 --- !u!4 &1970934717
 Transform:
   m_ObjectHideFlags: 0
@@ -8990,7 +9060,7 @@ MonoBehaviour:
   m_Script: {fileID: 833336753, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46999371
+  _savedGUID: 52308805
   Recursive: 0
   blend:
     snippet: {fileID: 11400000, guid: 2546ed1c6390f8a4ca2f2706fcbc66c2, type: 2}
@@ -9126,7 +9196,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46999404
+  _savedGUID: 52308859
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: ce8993a993de44d8fb1658171433fec7, type: 2}
@@ -9395,7 +9465,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: -2116172038
+    lastHash: 191477341
 --- !u!114 &2073266802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9462,7 +9532,7 @@ MonoBehaviour:
   m_Script: {fileID: -910582366, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46999431
+  _savedGUID: 52308865
   subtractMode: 0
   shape:
     snippet: {fileID: 11400000, guid: b845704d1b0ab5843ab37d5d2cffda82, type: 2}
@@ -9666,7 +9736,7 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
   hash:
-    lastHash: 1904325921
+    lastHash: -82996515
 --- !u!4 &2097326686
 Transform:
   m_ObjectHideFlags: 0
@@ -9780,7 +9850,7 @@ MonoBehaviour:
   - {fileID: 1980336974}
   - {fileID: 1322591564}
   - {fileID: 358883103}
-  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated\_Labyrinth_REDUX_4229261318.generated.shader
+  _lastShaderPath: Assets/LeftOut/Scenes/Shaders/Generated/_Labyrinth_REDUX_4229261318.generated.shader
   _lastShader: {fileID: 4800000, guid: 0cef69e1f3c184a4d85c5fe8bd3fc189, type: 3}
   Steps: 160
   AmbientColor: {r: 1, g: 1, b: 1, a: 1}
@@ -9870,11 +9940,11 @@ MonoBehaviour:
   m_Script: {fileID: -895327080, guid: 1741f56c22154746ae9dc695200288e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _savedGUID: 46999493
+  _savedGUID: 52308927
   ShadowSharpness: 30
   ShadowSteps: 2
   hash:
-    lastHash: -1685257113
+    lastHash: 622394000
 --- !u!108 &2118071918
 Light:
   m_ObjectHideFlags: 0
