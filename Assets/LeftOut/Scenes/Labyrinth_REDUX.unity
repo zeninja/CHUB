@@ -5011,6 +5011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f801c3b3029bdcd42890be2f718944d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 1
 --- !u!95 &1176357650
 Animator:
   serializedVersion: 3
@@ -5113,7 +5114,16 @@ MonoBehaviour:
       tangentMode: 0
       weightedMode: 3
       inWeight: 0
-      outWeight: 1
+      outWeight: 0.45673537
+    - serializedVersion: 3
+      time: 0.24998611
+      value: 0.01
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.225873
+      outWeight: 0.7642604
     - serializedVersion: 3
       time: 0.4989954
       value: 0.3015611
@@ -5121,7 +5131,7 @@ MonoBehaviour:
       outSlope: 0
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.33333334
+      inWeight: 0.51513195
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.7458254
@@ -7347,7 +7357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1671695058
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8978,7 +8988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4554ecd1793c43a38e8435886faa21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  world: 1
+  world: 5
   curve:
     serializedVersion: 2
     m_Curve:

@@ -27,12 +27,12 @@ public class AudioFader : MonoBehaviour
 
     IEnumerator FadeLastSource(AudioSource sourceToFade)
     {
-        Debug.Log("FADING PREVIOUS SOURCE");
+        // Debug.Log("FADING PREVIOUS SOURCE");
 
         float t = 0;
         float d = 1;
 
-        Debug.Log(sourceToFade.clip);
+        // Debug.Log(sourceToFade.clip);
 
         if (sourceToFade != null)
         {
@@ -42,7 +42,7 @@ public class AudioFader : MonoBehaviour
                 float p = t / d;
                 sourceToFade.volume = 1 - EZEasings.SmoothStop3(p);
 
-                Debug.Log("ADJUSTING " + sourceToFade.volume);
+                // Debug.Log("ADJUSTING " + sourceToFade.volume);
 
                 yield return new WaitForFixedUpdate();
             }
