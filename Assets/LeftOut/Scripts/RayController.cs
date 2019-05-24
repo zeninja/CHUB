@@ -13,9 +13,14 @@ public class RayController : MonoBehaviour
     public Extensions.Property range;
     public AnimationCurve curve;
 
-    void Start()
+    void OnEnable()
     {
         GiantSlider.OnValueChanged += ProcessRayObject;
+    }
+
+    void OnDisable()
+    {
+        GiantSlider.OnValueChanged -= ProcessRayObject;
     }
 
     void ProcessRayObject()

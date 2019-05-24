@@ -24,10 +24,17 @@ public class AudioMod : MonoBehaviour {
     void Start () {
         mixer = AudioManager.GetInstance ().mixer;
 
+        SetTargetValue (0); // init values
+    }
+
+    void OnEnable () {
         GiantSlider.OnValueChanged += CheckValueChanged;
         GiantSlider.OnSliderStarted += StartSliderAudio;
+    }
 
-        SetTargetValue (0); // init values
+    void OnDisable () {
+        GiantSlider.OnValueChanged -= CheckValueChanged;
+        GiantSlider.OnSliderStarted -= StartSliderAudio;
     }
 
     void CheckValueChanged () {

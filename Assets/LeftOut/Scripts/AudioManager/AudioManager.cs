@@ -30,11 +30,14 @@ public class AudioManager : MonoBehaviour {
             Destroy (gameObject);
         } else {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad (gameObject);
         }
 
-        InitSounds ();
     }
+
+    // void OnLevelWasLoaded () {
+
+    // }
 
     void InitSounds () {
         List<Sound> fullSoundList = new List<Sound> ();
@@ -59,9 +62,13 @@ public class AudioManager : MonoBehaviour {
     }
 
     void Start () {
+
+        InitSounds ();
+
         // PlayNextHall();  // FIRST hall
         // MetaSlider.OnActiveSliderChanged += FadeOutAudio;
         MetaSlider.OnActiveSliderChanged += PlayNextHall;
+
     }
 
     Sound[] allSounds;
@@ -74,18 +81,23 @@ public class AudioManager : MonoBehaviour {
             return;
         }
 
+        if (s.source == null) {
+            // Debug.LogError("NO AUDIOSOURCE FOUND");
+            return;
+        }
+
         // s.source.volume = s.volume * (1f + UnityEngine.Random.Range (-s.volumeVariance / 2f, s.volumeVariance / 2f));
         // s.source.pitch  = s.pitch  * (1f + UnityEngine.Random.Range (-s.pitchVariance / 2f, s.pitchVariance / 2f));
         // s.source.playOnAwake = false;
+
+        // Debug.Log ("attemted " + sound);
 
         s.source.Play ();
         // Debug.Log("PLAAAYYYYY AUDIO " + s.source.clip);
 
         // lastSource = s.source;
 
-
-        audioFader.SetLastSource(s.source);
-
+        audioFader.SetLastSource (s.source);
 
         // Debug.Log("Playing " + s.name);
     }
@@ -108,11 +120,11 @@ public class AudioManager : MonoBehaviour {
     //     }
     // }
 
-    public void FadeAllAudio() {
-        StartCoroutine(FadeMaster());
+    public void FadeAllAudio () {
+        StartCoroutine (FadeMaster ());
     }
 
-    IEnumerator<WaitForFixedUpdate> FadeMaster() {
+    IEnumerator<WaitForFixedUpdate> FadeMaster () {
         float t = 0;
         float d = 1;
 

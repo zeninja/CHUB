@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using RaymarchingToolkit;
 using UnityEngine;
 
-public class LabyrinthController : MonoBehaviour
-{
+public class LabyrinthController : MonoBehaviour {
 
     public RaymarchObject voidBox;
     public RaymarchObject innrBox;
@@ -13,8 +12,7 @@ public class LabyrinthController : MonoBehaviour
     public enum DilationType { none, length, height }
 
     [System.Serializable]
-    public class DilationInfo
-    {
+    public class DilationInfo {
         public string name;
         public MetaSlider.StageInfo stageInfo;
         public DilationType dilationType;
@@ -28,49 +26,52 @@ public class LabyrinthController : MonoBehaviour
 
     // DilationInfo currentInfo;
 
-    void Start()
-    {
-        GiantSlider.OnValueChanged += ProcessDilation;
+    void Start () {
         // GiantSlider.OnBackslide += CheckBackslide;
         MetaSlider.OnActiveSliderChanged += SetCurrentSlider;
 
-        foreach(DilationInfo d in dilationSettings) {
+        foreach (DilationInfo d in dilationSettings) {
             if (d.stageInfo.world == 3 && d.stageInfo.level == 1) {
-                d.range.start = InfoManager.GetInstance().wallHeight;
+                d.range.start = InfoManager.GetInstance ().wallHeight;
             }
         }
 
-        startBox = voidBox.GetObjectInput("x").floatValue;
-        innerSize = innrBox.GetObjectInput("x").floatValue;
+        startBox = voidBox.GetObjectInput ("x").floatValue;
+        innerSize = innrBox.GetObjectInput ("x").floatValue;
     }
 
-    public void ProcessDilation()
-    {
-        foreach (DilationInfo d in activeInfo)
-        {
-            DilationType dilationType = d.dilationType;
-            float p = MetaSlider.GetInstance().GetCurrentSliderValue();
+    void OnEnable () {
+        GiantSlider.OnValueChanged += ProcessDilation;
+    }
 
-            switch (dilationType)
-            {
+    void OnDisable () {
+        GiantSlider.OnValueChanged -= ProcessDilation;
+    }
+
+    public void ProcessDilation () {
+        foreach (DilationInfo d in activeInfo) {
+            DilationType dilationType = d.dilationType;
+            float p = MetaSlider.GetInstance ().GetCurrentSliderValue ();
+
+            switch (dilationType) {
                 case DilationType.length:
 
                     bool levelIsEven = d.stageInfo.level % 2 == 0;
                     string dilationDir = levelIsEven ? "x" : "z";
 
-                    float finalLength = GetCurvedValue(d, p);
+                    float finalLength = GetCurvedValue (d, p);
 
-                    voidBox.GetObjectInput(dilationDir).SetFloat(finalLength);
-                    innrBox.GetObjectInput(dilationDir).SetFloat(finalLength - 0.52085f);
+                    voidBox.GetObjectInput (dilationDir).SetFloat (finalLength);
+                    innrBox.GetObjectInput (dilationDir).SetFloat (finalLength - 0.52085f);
 
                     break;
 
                 case DilationType.height:
 
-                    float finalHeight = GetCurvedValue(d, p);
-                    marble.GetObjectInput("y").SetFloat(finalHeight);
-                    voidBox.GetObjectInput("y").SetFloat(finalHeight + 1);
-                    innrBox.GetObjectInput("y").SetFloat(finalHeight);
+                    float finalHeight = GetCurvedValue (d, p);
+                    marble.GetObjectInput ("y").SetFloat (finalHeight);
+                    voidBox.GetObjectInput ("y").SetFloat (finalHeight + 1);
+                    innrBox.GetObjectInput ("y").SetFloat (finalHeight);
 
                     break;
 
@@ -90,25 +91,21 @@ public class LabyrinthController : MonoBehaviour
     //     }
     // }
 
-    public float GetCurvedValue(DilationInfo info, float t)
-    {
+    public float GetCurvedValue (DilationInfo info, float t) {
         float diff = info.range.end - info.range.start;
-        float final = info.range.start + info.curve.Evaluate(Mathf.Clamp01(t)) * diff;
+        float final = info.range.start + info.curve.Evaluate (Mathf.Clamp01 (t)) * diff;
 
         return final;
     }
 
-    List<DilationInfo> activeInfo = new List<DilationInfo>();
+    List<DilationInfo> activeInfo = new List<DilationInfo> ();
 
-    void SetCurrentSlider()
-    {
-        activeInfo.Clear();
+    void SetCurrentSlider () {
+        activeInfo.Clear ();
 
-        foreach (DilationInfo d in dilationSettings)
-        {
-            if (MetaSlider.GetInstance().StageInfoMatches(d.stageInfo))
-            {
-                activeInfo.Add(d);
+        foreach (DilationInfo d in dilationSettings) {
+            if (MetaSlider.GetInstance ().StageInfoMatches (d.stageInfo)) {
+                activeInfo.Add (d);
                 // Debug.Log("Added info " + d.stageInfo.world + "-" + d.stageInfo.level);
             }
         }
@@ -121,16 +118,13 @@ public class LabyrinthController : MonoBehaviour
 
     float innerSize = 0.66665f;
 
-    public void ResetBox()
-    {
-        voidBox.GetObjectInput("x").SetFloat(startBox);
-        voidBox.GetObjectInput("z").SetFloat(startBox);
+    public void ResetBox () {
+        voidBox.GetObjectInput ("x").SetFloat (startBox);
+        voidBox.GetObjectInput ("z").SetFloat (startBox);
 
-        innrBox.GetObjectInput("x").SetFloat(innerSize);
-        innrBox.GetObjectInput("z").SetFloat(innerSize);
+        innrBox.GetObjectInput ("x").SetFloat (innerSize);
+        innrBox.GetObjectInput ("z").SetFloat (innerSize);
     }
-
-
 
     // GiantSlider prevSlider;
 
@@ -139,7 +133,6 @@ public class LabyrinthController : MonoBehaviour
     //     while (p < 1)
     //     {
     //         p += Time.deltaTime;
-
 
     //         yield return new WaitForFixedUpdate();
     //     }

@@ -10,9 +10,9 @@ public class PositionResetter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            Debug.Log("Resetting player posiiton");
-            player.position = transform.position;
-        }
+        // if (Input.GetKeyDown(KeyCode.R)) {
+        //     Debug.Log("Resetting player posiiton");
+        //     player.position = transform.position;
+        // }
     }
 }
