@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour {
     public AudioFader audioFader;
 
     public SoundSet[] hallSounds;
-    public Sound[] otherSounds;
+    public Sound[] cornerSounds;
 
     [System.Serializable]
     public class SoundSet {
@@ -86,33 +86,19 @@ public class AudioManager : MonoBehaviour {
         Sound s = Array.Find (allSounds, item => item.name == sound);
         if (s == null) {
             Debug.LogWarning ("Sound: " + sound + " not found!");
-
             return;
         }
 
         if (s.source == null) {
-            // Debug.LogError("NO AUDIOSOURCE FOUND");
             return;
         }
 
-        // s.source.volume = s.volume * (1f + UnityEngine.Random.Range (-s.volumeVariance / 2f, s.volumeVariance / 2f));
-        // s.source.pitch  = s.pitch  * (1f + UnityEngine.Random.Range (-s.pitchVariance / 2f, s.pitchVariance / 2f));
-        // s.source.playOnAwake = false;
-
-        // Debug.Log ("attemted " + sound);
-
         s.source.Play ();
-        // Debug.Log("PLAAAYYYYY AUDIO " + s.source.clip);
-
-        // lastSource = s.source;
 
         audioFader.SetLastSource (s.source);
-
-        // Debug.Log("Playing " + s.name);
     }
 
     public void PlayNextHall () {
-        // Debug.Log("Playing hall");
 
         int world = MetaSlider.GetInstance ().stageInfo.world;
         int level = MetaSlider.GetInstance ().stageInfo.level;
@@ -121,17 +107,35 @@ public class AudioManager : MonoBehaviour {
     }
 
     public void PlayNextCorner() {
-        
+        if(MetaSlider.GetInstance().stageInfo.world == 1 && MetaSlider.GetInstance().stageInfo.level == 1) { return; }
+
+        PlayAudioAtPoint(MetaSlider.GetInstance().GetCornerPos() + Vector3.up * 2);
     }
 
-    // public AudioSource lastSource;
+    public AudioSource cornerAudioSource;
 
-    // void FadeOutAudio() {
-    //     Debug.Log("FadeOutAudio ");
-    //     if (lastSource != null) {
-    //         StartCoroutine (FadeLastSource ());
-    //     }
-    // }
+    void PlayAudioAtPoint(Vector3 pt) {
+
+        cornerAudioSource.Stop();
+        cornerAudioSource.transform.position = pt;
+        cornerAudioSource.clip = cornerSounds[UnityEngine.Random.Range(0, cornerSounds.Length)].clip;
+        cornerAudioSource.Play();
+        StartCoroutine(FadeCornerAudio());
+
+        // AudioSource.PlayClipAtPoint(cornerSounds[UnityEngine.Random.Range(0, cornerSounds.Length)].clip, pt);
+    }
+
+    IEnumerator<WaitForFixedUpdate> FadeCornerAudio() {
+        float t = 0;
+        float d = 3;
+
+        while (t < d) {
+            t += Time.fixedDeltaTime;
+            float p = t / d;
+            cornerAudioSource.volume = 1 - EZEasings.SmoothStart3 (p);
+            yield return new WaitForFixedUpdate ();
+        }
+    }
 
     public void FadeAllAudio () {
         StartCoroutine (FadeMaster ());
@@ -149,68 +153,4 @@ public class AudioManager : MonoBehaviour {
             yield return new WaitForFixedUpdate ();
         }
     }
-
-    // void GetSounds()
-    // {
-
-    //     AudioClip[] hallSounds = (AudioClip[])Resources.LoadAll("HallwayAudio", typeof(AudioClip));
-    //     AudioClip[] crnrSounds = (AudioClip[])Resources.LoadAll("CornerAudio", typeof(AudioClip));
-    //     AudioClip[] miscSounds = (AudioClip[])Resources.LoadAll("OtherAudio", typeof(AudioClip));
-
-    //     List<Sound> soundList = new List<Sound>();
-
-    //     foreach (AudioClip c in hallSounds)
-    //     {
-    //         Sound newSound = new Sound();
-    //         newSound.clip = c;
-
-    //         soundList.Add(newSound);
-    //     }
-
-    //     foreach (AudioClip c in crnrSounds)
-    //     {
-    //         Sound newSound = new Sound();
-    //         newSound.clip = c;
-
-    //         soundList.Add(newSound);
-    //     }
-
-    //     foreach (AudioClip c in miscSounds)
-    //     {
-    //         Sound newSound = new Sound();
-    //         newSound.clip = c;
-
-    //         soundList.Add(newSound);
-    //     }
-
-    //     sounds = soundList.ToArray();
-    // }
-
-    // public void PlayCurrentHall() {
-
-    // 	int world = MetaSlider.GetInstance().stageInfo.world;
-    // 	int level = MetaSlider.GetInstance().stageInfo.level;
-
-    // 	Play("Hallway " + world + "-" + level);
-    // }
-
-    // bool hasStarted;
-
-    // public void HandleSliderEntered () {
-    // 	if (!hasStarted) {
-    // 		AudioManager.instance.Play ("LabyrinthStart");
-    // 		hasStarted = true;
-
-    // 		Invoke ("SwitchToDrone", 15);
-    // 	}
-    // }
-
-    // void SwitchToDrone() {
-    // 	Play("Drone");
-    // }
-
-    // public void PlayAtNextCorner() {
-    // 	// audioSource
-    // }
-
 }

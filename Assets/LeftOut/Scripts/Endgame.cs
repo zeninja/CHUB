@@ -37,6 +37,9 @@ public class Endgame : MonoBehaviour
     public AudioSource manAudio;
     public AudioSource womanAudio;
 
+    public AudioSource bgAudio1;
+    public AudioSource bgAudio2;
+
     void StartVideo()
     {
         AudioManager.GetInstance().FadeAllAudio();
@@ -49,6 +52,9 @@ public class Endgame : MonoBehaviour
         // Play audio
         manAudio.Play();
         womanAudio.Play();
+
+        bgAudio1.Play();
+        bgAudio2.Play();
 
         isPlaying = true;
     }

@@ -7,9 +7,14 @@ public class AudioFader : MonoBehaviour
 
     public AudioSource lastSource;
 
-    void Start()
+    void OnEnable()
     {
         MetaSlider.OnActiveSliderChanged += FadeOutAudio;
+    }
+
+    void OnDisable()
+    {
+        MetaSlider.OnActiveSliderChanged -= FadeOutAudio;
     }
 
     public void SetLastSource(AudioSource l)
@@ -19,6 +24,8 @@ public class AudioFader : MonoBehaviour
 
     void FadeOutAudio()
     {
+        if(MetaSlider.GetInstance().stageInfo.world == 1 && MetaSlider.GetInstance().stageInfo.level == 1) { return; }
+
         if (lastSource != null)
         {
             StartCoroutine(FadeLastSource(lastSource));

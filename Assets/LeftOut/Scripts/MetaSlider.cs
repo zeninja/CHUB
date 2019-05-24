@@ -39,9 +39,7 @@ public class MetaSlider : MonoBehaviour {
     }
 
     void Start () {
-
         SetSliderActive (activeSliderIndex);
-
     }
 
     void OnEnable () {
@@ -170,6 +168,11 @@ void OnDisable()
 
     public bool InSameWorld (int world) {
         return world == stageInfo.world;
+    }
+
+
+    public Vector3 GetCornerPos() {
+        return transform.GetChild(activeSliderIndex).Find("EndCorner").position;
     }
 
     void OnGUI () {
