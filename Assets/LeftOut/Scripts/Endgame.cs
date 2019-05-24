@@ -12,6 +12,8 @@ public class Endgame : MonoBehaviour
 
     public VideoPlayer vp;
 
+    public GameObject background;
+
     void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -49,6 +51,7 @@ public class Endgame : MonoBehaviour
         vp.enabled = true;
         // Play video
         vp.Play();
+        background.SetActive(true);
 
         // Play audio
         manAudio.Play();
